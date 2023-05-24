@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ========BASE ============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  margin: 0 auto;
+}
+
+.nav {
+  padding: 0px 15%;
+}
+
+/* .button-contactme {
+    background-color: #F59E0B;
+    color: #fff;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #FBBF24;
+    }
+} */
+.links {
+  background-color: #ffffff;
+  color: #64748b;
+  display: flex;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.35px;
+  line-height: 20px;
+  padding: 6px 16px;
+}
+.links:hover {
+  border-radius: 6px;
+  outline: 1px solid #64748b;
+  color: #2f3742;
+}
+
+.button-contactme {
+  background-color: #ffffff;
+  border-color: #94a3b8;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 2px;
+  color: #0f172a;
+  display: flex;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.35px;
+  line-height: 20px;
+  margin: 0px 0px 0px 10px;
+  padding: 6px 16px;
+  transition: box-shadow 0.2s;
+}
+.button-contactme:hover {
+  color: #2f3742;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.red {
+  color: #f92672;
+}
+
+.orange {
+  color: #fb923c;
+}
+
+.green {
+  color: #4ade80;
+}
+
+.blue {
+  color: #b7e2f8;
+}
+
+.white {
+  color: #e2e8f0;
+}/*# sourceMappingURL=App.css.map */
