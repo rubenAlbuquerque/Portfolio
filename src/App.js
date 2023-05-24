@@ -1,9 +1,12 @@
+import { useState } from "react";
 import logo from "./logoBG.png";
 import image from "./imagens/myPhoto.png";
+import codephoto from "./imagens/index_code.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     // faMoon,
     faSun,
+    faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -60,32 +63,32 @@ function Navbar() {
 }
 
 function Intro() {
-    const code = `import { FC } from "react";
+    //     const [code, setCode] = useState(`import { FC } from "react";
 
-type WelcomeProps = {
-  uses:
-    | "explore new tech"
-    | "display my skills"
-    | "find freelancing opportunities"
-    | "find a fulltime job";
-};
+    // type WelcomeProps = {
+    //   uses:
+    //     | "explore new tech"
+    //     | "display my skills"
+    //     | "find freelancing opportunities"
+    //     | "find a fulltime job";
+    // };
 
-export const Welcome: FC<WelcomeProps> = ({ uses }) => {
-  return (
-    <>
-      <h1>This is my little slice of the internet.</h1>
-      <p>
-        I use this site to <em className= "highlight">{uses}</em>.
-      </p>
-    </>
-  );
-};
-`;
+    // export const Welcome: FC<WelcomeProps> = ({ uses }) => {
+    //   return (
+    //     <>
+    //       <h1>This is my little slice of the internet.</h1>
+    //       <p>
+    //         I use this site to <em className= "highlight">{uses}</em>.
+    //       </p>
+    //     </>
+    //   );
+    // };
+    // `);
 
     // container with image and info
     return (
         <section className="Intro text-black py-12 flex items-center relative">
-            <div className="flex items-center mx-auto ml-[15%]">
+            <div className="flex items-center mx-auto ml-[15%] ">
                 <div className="Intro-Info max-w-2xl p-6">
                     <p className="text-lg font-bold">Welcome to my site.</p>
                     <h1 className="title text-5xl py-7">
@@ -115,24 +118,41 @@ export const Welcome: FC<WelcomeProps> = ({ uses }) => {
                     </a>
                 </div>
             </div>
-
             <div
-                //     className="relative w-full flex-col overflow-hidden rounded-md border-2
-                //     border-gray-200/40 bg-gray-900 p-2.5 shadow-2xl drop-shadow-lg d:border-gray-600/40
-                // ">
-                className="Intro-Code bg-gray-900 text-white text-sm absolute right-10 
-                top-40 max-w-lg px-4 py-0 rounded-md ">
-                <h2 className="text-center text-md py-2 border-b-2 border-gray-800 text-gray-500 ">
-                    ./index.js
-                </h2>
-                <pre className="py-3">
+                className="Intro-Code  absolute right-28 
+                top-40 max-w-lg  rounded-lg">
+                <div className="bg-header bg-gray-800 flex items-center border-b-0 border-gray-800 px-4 rounded-t-lg ">
+                    <button className=" flex gap-2 pr-4 py-3">
+                        <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </button>
+
+                    <h2 className="text-sm text-gray-500 px-5 py-3 bg-gray-900 rounded-t-xl mr-0 ">
+                        ./index.tsx
+                    </h2>
+
+                    {/* add a button PLUS */}
+                    <div className="flex items-center justify-center">
+                        <button className=" rounded-full w-8 h-8 hover:bg-slate-900 transition-colors">
+                            <span className="text-white text-base text-justify ">
+                                <FontAwesomeIcon
+                                    icon={faPlus}
+                                    className=" text-xs"
+                                />
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <pre className="py-3 px-4 bg-gray-900 rounded-b-lg">
                     <code className="whitespace-pre-wrap">
                         <label className="red">import</label>
                         <label className="white">{" {"}</label>
                         <label className="orange"> FC </label>
                         <label className="white">{"}"}</label>
                         <label className="red"> from </label>
-                        <label className="yellow">"react"</label>
+                        <label className="green">"react"</label>
                         <label className="white">;</label>
                         <br />
                         <br />
@@ -141,7 +161,6 @@ export const Welcome: FC<WelcomeProps> = ({ uses }) => {
                         <label className="red"> = </label>
                         <label className="white">{" {"}</label>
                         <br />
-                        {/* <label className="white">{"  "}</label> */}
                         <label className="white">&nbsp; uses</label>
                         <label className="blue">:</label>
                         <br />
@@ -169,7 +188,8 @@ export const Welcome: FC<WelcomeProps> = ({ uses }) => {
                         <label className="blue">
                             &nbsp;&nbsp;&nbsp;&nbsp;|
                         </label>
-                        <label className="green">&nbsp; "find a fulltime job"
+                        <label className="green">
+                            &nbsp; "find a fulltime job"
                         </label>
                         <label className="white">;</label>
                         <br />
@@ -247,210 +267,11 @@ export const Welcome: FC<WelcomeProps> = ({ uses }) => {
                         <br />
                     </code>
                 </pre>
+                {/* <div className="Intro-Image absolute right-10 top-40  ">
+                    <img src={codephoto} alt="Logoo" className="w-full" />
+                </div> */}
             </div>
         </section>
-        // <section className="Intro text-black py-12 flex items-center">
-        //     <div className=" flex items-center mx-auto ml-[15%]">
-        //         <div className="Intro-Info max-w-2xl p-6">
-        //             <p className="text-lg font-bold">Welcome to my site.</p>
-        //             <h1 className="title text-5xl py-7">
-        //                 I'm Rúben Albuquerque, a Data Scientist and Web
-        //                 developer enthusiast.
-        //             </h1>
-        //             <p className="text-lg mb-8">
-        //                 I love writing code that takes things to the next level,
-        //                 creating highly performant websites, automated API
-        //                 integrations, building my own dev-tools, and creating
-        //                 stunning user experiences that make you feel WOW!
-        //             </p>
-        //             <p className="text-lg mb-8">
-        //                 I am always keen to learn and explore new technologies,
-        //                 frameworks, and programming languages. Currently, I'm
-        //                 learning about Astro and Replicache.
-        //             </p>
-        //             <a
-        //                 href="/resume"
-        //                 className="text-blue-500 font-semibold px-4 py-2 rounded hover:bg-blue-100 transition-colors">
-        //                 Let's Work
-        //             </a>
-        //             <a
-        //                 href="/resume"
-        //                 className="bg-transparent border border-white text-black font-semibold ml-4 px-4 py-2 rounded hover:bg-white hover:text-blue-500 transition-colors">
-        //                 Resume
-        //             </a>
-        //         </div>
-        //     </div>
-        //     <div className="Intro-Code absolute top-0 left-0 w-full h-full flex items-center justify-center">
-        //         <h2 className="text-center text-md ">./index.js</h2>
-        //         <pre>
-        //             <code className="whitespace-pre-wrap">{code}</code>
-        //         </pre>
-        //     </div>
-        // </section>
-
-        // <section className="Intro text-black py-12 flex items-center">
-        //     <div className="flex items-center  ">
-        //         <div className="Intro-Info max-w-2xl p-6 ">
-        //             <p className="text-lg font-bold">Welcome to my site.</p>
-        //             {/* <p className="text-lg mb-6">
-        //                 I'm Felix Tellmann, a Fullstack developer.
-        //             </p> */}
-        //             <h1 className="title text-5xl py-7">
-        //                 I'm Rúben Albuquerque, a Data Scientist and Web
-        //                 developer entusiast.
-        //             </h1>
-
-        //             {/* <div className="flex flex-wrap mb-8">
-        //                 <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                     Next.js
-        //                 </span>
-        //                 <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                     Node.js
-        //                 </span>
-        //                 <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                     Tailwind
-        //                 </span>
-        //                 <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                     Shopify
-        //                 </span>
-        //             </div> */}
-        //             <p className="text-lg mb-8">
-        //                 I love writing code that takes things to the next level,
-        //                 creating highly performant websites, automated API
-        //                 integrations, building my own dev-tools, and creating
-        //                 stunning user experiences that make you feel WOW!
-        //             </p>
-        //             <p className="text-lg mb-8">
-        //                 I am always keen to learn and explore new technologies,
-        //                 frameworks, and programming languages. Currently, I'm
-        //                 learning about Astro and Replicache.
-        //             </p>
-        //             <a
-        //                 href="/resume"
-        //                 className=" text-blue-500 font-semibold px-4 py-2 rounded hover:bg-blue-100 transition-colors">
-        //                 Let's Work
-        //             </a>
-        //             <a
-        //                 href="/resume"
-        //                 className="bg-transparent border border-white text-black font-semibold ml-4 px-4 py-2 rounded hover:bg-white hover:text-blue-500 transition-colors">
-        //                 Resume
-        //             </a>
-        //         </div>
-
-        // <div className="Intro-code bg-gray-900 max-w-sm text-gray-300 px-6 py-2 rounded-lg shadow-lg relative">
-        //     <h2 className="text-center text-lg font-semibold">
-        //         ./index.js
-        //     </h2>
-        //     <pre>
-        //         <code className="whitespace-pre-wrap">{code}</code>
-        //     </pre>
-        // </div>
-
-        // <div className="bg-gray-900 text-gray-300 px-6 py-2 rounded-lg shadow-lg relative">
-        //     <h2 className="text-center text-lg font-semibold">
-        //         filename.js
-        //     </h2>
-        //     <pre>
-        //         <code className="whitespace-pre-wrap">{code}</code>
-        //     </pre>
-        // </div>
-        //     </div>
-        // </section>
-
-        // <div className="">
-        //     <div className="flex flex-row justify-center items-center bg-red-300 p-10 mx-20 my-10">
-        //         <div className="basis-1/2 ">
-        //             <div className="flex flex-col justify-center items-center">
-        //                 <h1 className="text-4xl font-bold text-gray-800">
-        //                     I'm{" "}
-        //                     <span className="text-blue-500">Ruben Santos</span>
-        //                 </h1>
-        //                 <p className="text-gray-800 font-size bg-gray-200 mx-10 p-5">
-        //                     I'm a Front-End Stack Developer, I love to create
-        //                     new web apps and learn new technologies. Also I'm a
-        //                     student of Computer Science at the University of
-        //                     Lisbon. Also I'm passionate about data science and
-        //                     machine learning.
-        //                 </p>
-        //                 <div className="flex flex-row justify-center items-center">
-        //                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        //                         Contact Me
-        //                     </button>
-        //                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        //                         My Resume
-        //                     </button>
-        //                 </div>
-        //                 <div className="flex flex-row justify-center items-center">
-        //                     <a
-        //                         href="https://www.linkedin.com/in/ruben-santos-1b1b1b1b1/"
-        //                         className="text-blue-500 hover:text-blue-800">
-        //                         {/* <i className="fab fa-linkedin fa-2x"></i> */}
-        //                         <h1>Linkedin</h1>
-        //                     </a>
-        //                     <a
-        //                         href="#home"
-        //                         className="text-blue-500 hover:text-blue-800">
-        //                         {/* <i className="fab fa-github fa-2x"></i> */}
-        //                         <h1>Github</h1>
-        //                     </a>
-        //                     <a
-        //                         href="#home"
-        //                         className="text-blue-500 hover:text-blue-800">
-        //                         {/* <i className="fab fa-twitter fa-2x"></i> */}
-        //                         <h1>Twitter</h1>
-        //                     </a>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <div className="basis-1/2 flex justify-center items-center bg-red-900">
-        //             <img src={logo} alt="Logoo" className="w-80 h-100" />
-        //         </div>
-        //     </div>
-        // </div>
-
-        // <section className="bg-blue-500 text-white py-12">
-        //     <div className="container mx-auto">
-        //         <h1 className="text-4xl font-bold mb-4">Welcome to my site.</h1>
-        //         <p className="text-lg mb-6">
-        //             I'm Felix Tellmann, a Fullstack developer.
-        //         </p>
-        //         <div className="flex flex-wrap mb-8">
-        //             <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                 Next.js
-        //             </span>
-        //             <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                 Node.js
-        //             </span>
-        //             <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                 Tailwind
-        //             </span>
-        //             <span className="bg-gray-700 text-white px-2 py-1 rounded mr-2 mb-2">
-        //                 Shopify
-        //             </span>
-        //         </div>
-        //         <p className="text-lg mb-8">
-        //             I love writing code that takes things to the next level,
-        //             creating highly performant websites, automated API
-        //             integrations, building my own dev-tools, and creating
-        //             stunning user experiences that make you feel WOW!
-        //         </p>
-        //         <p className="text-lg mb-8">
-        //             I am always keen to learn and explore new technologies,
-        //             frameworks, and programming languages. Currently, I'm
-        //             learning about Astro and Replicache.
-        //         </p>
-        //         <a
-        //             href="/resume"
-        //             className="bg-white text-blue-500 font-semibold px-4 py-2 rounded hover:bg-blue-100 transition-colors">
-        //             Let's Work
-        //         </a>
-        //         <a
-        //             href="/resume"
-        //             className="bg-transparent border border-white text-white font-semibold ml-4 px-4 py-2 rounded hover:bg-white hover:text-blue-500 transition-colors">
-        //             Resume
-        //         </a>
-        //     </div>
-        // </section>
     );
 }
 
@@ -476,7 +297,7 @@ function About() {
                         </p>
                     </div>
                     <div className="basis-1/2 ">
-                        <img src={logo} alt="Logoo" className="w-80 h-100" />
+                        <img src={image} alt="Logoo" className="w-80 h-100" />
                     </div>
                 </div>
             </div>

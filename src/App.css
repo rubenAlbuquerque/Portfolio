@@ -16,22 +16,6 @@ header {
   padding: 0px 15%;
 }
 
-/* .button-contactme {
-    background-color: #F59E0B;
-    color: #fff;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-        background-color: #FBBF24;
-    }
-} */
 .links {
   background-color: #ffffff;
   color: #64748b;
@@ -71,22 +55,29 @@ header {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
-.red {
+.Intro-Code {
+  border-width: 2px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #94a3b8;
+  font-size: 13px;
+  letter-spacing: 0.35px;
+}
+.Intro-Code .defaultButton {
+  color: #334155;
+}
+.Intro-Code .red {
   color: #f92672;
 }
-
-.orange {
+.Intro-Code .orange {
   color: #fb923c;
 }
-
-.green {
+.Intro-Code .green {
   color: #4ade80;
 }
-
-.blue {
+.Intro-Code .blue {
   color: #b7e2f8;
 }
-
-.white {
+.Intro-Code .white {
   color: #e2e8f0;
 }/*# sourceMappingURL=App.css.map */

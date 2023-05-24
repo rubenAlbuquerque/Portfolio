@@ -28,23 +28,6 @@ header {
     // margin: 0 auto;
 }
 
-/* .button-contactme {
-    background-color: #F59E0B;
-    color: #fff;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-        background-color: #FBBF24;
-    }
-} */
-
 // .list-lisks {
 // background-color: #55647a;
 // padding: 10px;
@@ -108,26 +91,45 @@ header {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     }
 }
+// .Intro {
 
-// 191d24
-// b7e2f8
+// }
 
-.red {
-    color: #f92672;
-}
+.Intro-Code {
+    // background-color: #ffffff;
+    border-width: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #94a3b8;
 
-.orange {
-    color: #fb923c;
-}
+    font-size: 13px;
+    // font-weight: 500;
+    letter-spacing: 0.35px;
 
-.green {
-    color: #4ade80;
-}
+    .defaultButton {
+        color: #334155;
+    }
+    .bg-header {
+        // background-color: #c9d1d9;
+    }
 
-.blue {
-    color: #b7e2f8;
-}
+    .red {
+        color: #f92672;
+    }
 
-.white {
-    color: #e2e8f0;
+    .orange {
+        color: #fb923c;
+    }
+
+    .green {
+        color: #4ade80;
+    }
+
+    .blue {
+        color: #b7e2f8;
+    }
+
+    .white {
+        color: #e2e8f0;
+    }
 }
