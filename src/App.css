@@ -55,6 +55,66 @@ header {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
+/* ======== INTRO ============== */
+.Intro-Info .intro-welcome {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: Inter;
+}
+.Intro-Info .title {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: 70px;
+  font-family: Inter;
+}
+.Intro-Info .title .title-name {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+.Intro-Info .title .title-body {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 48px;
+  font-family: Inter;
+}
+.Intro-Info .intro-description {
+  color: #64748b;
+  font-family: Inter;
+  font-size: 18px;
+  line-height: 28px;
+}
+.Intro-Info .intro-letswork {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 48px;
+}
+.Intro-Info .intro-resume {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 48px;
+}
+.Intro-Info .red {
+  color: #f92672;
+}
+.Intro-Info .orange {
+  color: #fb923c;
+}
+.Intro-Info .green {
+  color: #4ade80;
+}
+.Intro-Info .blue {
+  color: #b7e2f8;
+}
+.Intro-Info .blueStrong {
+  color: #0478b3;
+}
+.Intro-Info .white {
+  color: #e2e8f0;
+}
+
 .Intro-Code {
   border-width: 2px;
   border-radius: 10px;
@@ -77,6 +137,9 @@ header {
 }
 .Intro-Code .blue {
   color: #b7e2f8;
+}
+.Intro-Code .blueStrong {
+  color: #0478b3;
 }
 .Intro-Code .white {
   color: #e2e8f0;
@@ -101,9 +164,9 @@ header {
   border-radius: 10px;
   border-style: solid;
   border-color: #94a3b8;
+  font-size: 14px;
 }
 .terminal .terminal-body {
-  font-size: 14px;
   font-family: Consolas, "Courier New", monospace;
   line-height: 25px;
   color: #ffffff;
@@ -125,4 +188,17 @@ header {
 }
 .terminal .terminal-body .white {
   color: #e2e8f0;
+}
+
+/* ======== ABOUT ============== */
+.about .about-title {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Inter;
+}
+.about .about-body {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Inter;
+  color: #64748b;
 }/*# sourceMappingURL=App.css.map */

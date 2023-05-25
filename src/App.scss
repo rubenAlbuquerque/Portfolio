@@ -28,13 +28,6 @@ header {
     // margin: 0 auto;
 }
 
-// .list-lisks {
-// background-color: #55647a;
-// padding: 10px;
-// justify-content: space-between;
-// width: 400px;
-// }
-
 .links {
     background-color: #ffffff;
     // border-color: #94a3b8;
@@ -91,28 +84,78 @@ header {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     }
 }
-// .Intro {
 
-// }
+/* ======== INTRO ============== */
 
-.Intro-Code {
-    // background-color: #ffffff;
-    border-width: 2px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #94a3b8;
-
-    font-size: 13px;
-    // font-weight: 500;
-    letter-spacing: 0.35px;
-
-    .defaultButton {
-        color: #006aff;
-        // 64748b 334155
+.Intro-Info {
+    .intro-welcome {
+        // color: #b7e2f8;
+        // color: #006aff;
+        font-size: 20px;
+        font-weight: 700;
+        // letter-spacing: -0.6px;
+        // line-height: 32px;
+        // margin-bottom: 16px;
+        font-family: Inter;
     }
-    // .bg-header {
-    //  background-color: #c9d1d9;
-    // }
+
+    .title {
+        // color: #b7e2f8;
+        // color: #006aff;
+        font-size: 60px;
+        font-weight: 700;
+        letter-spacing: -0.6px;
+        line-height: 70px;
+        // margin-bottom: 16px;
+        font-family: Inter;
+
+        .title-name {
+            // color: #006aff;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            // line-height: 32px;
+            // margin-bottom: 16px;
+        }
+
+        .title-body {
+            // color: #b7e2f8;
+            // color: #006aff;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 48px;
+            font-family: Inter;
+        }
+    }
+
+    .intro-description {
+        color: #64748b;
+        font-family: Inter;
+        // color: #006aff;
+        font-size: 18px;
+        // font-weight: 00;
+        // letter-spacing: -0.6px;
+        line-height: 28px;
+        // margin-bottom: 16px;
+    }
+
+    .intro-letswork {
+        // color: #b7e2f8;
+        // color: #006aff;
+        font-size: 14px;
+        font-weight: 500;
+        // letter-spacing: -0.6px;
+        // line-height: 32px;
+        // margin-bottom: 16px;
+        padding: 12px 48px;
+    }
+
+    .intro-resume {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px 48px;
+    }
 
     .red {
         color: #f92672;
@@ -128,6 +171,54 @@ header {
 
     .blue {
         color: #b7e2f8;
+    }
+
+    .blueStrong {
+        color: #0478b3;
+    }
+
+    .white {
+        color: #e2e8f0;
+    }
+}
+
+.Intro-Code {
+    // background-color: #ffffff;
+    border-width: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #94a3b8;
+
+    font-size: 13px;
+    // absolute right-24 top-48
+    // position: absolute;
+    // right: -10px;
+    // top: 0px;
+    letter-spacing: 0.35px;
+
+    .defaultButton {
+        color: #006aff;
+        // 64748b 334155
+    }
+
+    .red {
+        color: #f92672;
+    }
+
+    .orange {
+        color: #fb923c;
+    }
+
+    .green {
+        color: #4ade80;
+    }
+
+    .blue {
+        color: #b7e2f8;
+    }
+
+    .blueStrong {
+        color: #0478b3;
     }
 
     .white {
@@ -154,11 +245,12 @@ header {
     //     padding: 0px;
     //     margin: 0px;
 
-    //     // white-space: pre-line;
-    //     // word-break: break-all;
-    //     // word-wrap: break-word;
+    // white-space: pre-line;
+    // word-break: break-all;
+    // word-wrap: break-word;
     // }
 }
+
 .terminal {
     // background-color: #ffffff;
     // .input-terminal-results {
@@ -176,9 +268,15 @@ header {
     border-radius: 10px;
     border-style: solid;
     border-color: #94a3b8;
+    // absolute rigth 24px, top 48
+    // position: absolute;
+    // right: 24px;
+    // top: 48px;
+    // font-family: ui-monospace;
+    font-size: 14px;
 
     .terminal-body {
-        font-size: 14px;
+        // font-size: 4px;
         font-family: Consolas, "Courier New", monospace;
         // Consolas, 'Courier New', monospace //ui-monospace;
         // font-weight: 500;
@@ -201,7 +299,7 @@ header {
         .blue {
             color: #b7e2f8;
         }
-        
+
         .blueStrong {
             color: #0478b3;
         }
@@ -210,4 +308,28 @@ header {
             color: #e2e8f0;
         }
     }
+}
+
+/* ======== ABOUT ============== */
+
+.about {
+    .about-title {
+        font-size: 40px;
+        font-weight: 700;
+        // letter-spacing: -0.6px;
+        // line-height: 48px;
+        // margin-bottom: 16px;
+        font-family: Inter;
+    }
+
+    .about-body {
+        font-size: 16px;
+        font-weight: 500;
+        // letter-spacing: -0.6px;
+        // line-height: 32px;
+        // margin-bottom: 16px;
+        font-family: Inter;
+        color: #64748b;
+    }
+
 }
