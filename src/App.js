@@ -374,7 +374,7 @@ function App() {
         <div className="App">
             <Navbar />
             <Intro />
-            <About />
+            {/* <About /> */}
         </div>
     );
 }
