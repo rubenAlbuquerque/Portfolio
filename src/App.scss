@@ -182,6 +182,29 @@ header {
     }
 }
 
+.myblur {
+    // w-96 h-96 absolute right-[-45%] top-[40%] bg-gray-900 filter blur-3xl
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: -45%;
+    top: 40%;
+    background-color: #2f3742;
+    filter: blur(130px);
+    z-index: -1;
+}
+.myblur-terminal {
+    // w-96 h-96 absolute right-[-45%] top-[40%] bg-gray-900 filter blur-3xl
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    right: -55%;
+    top: 20%;
+    background-color: #2f3742;
+    filter: blur(100px);
+    z-index: -1;
+}
+
 .Intro-Code {
     // background-color: #ffffff;
     border-width: 2px;
@@ -195,6 +218,8 @@ header {
     // right: -10px;
     // top: 0px;
     letter-spacing: 0.35px;
+    // opcaity here
+    // opacity: 0.5;
 
     .defaultButton {
         color: #006aff;
@@ -273,7 +298,11 @@ header {
     // right: 24px;
     // top: 48px;
     // font-family: ui-monospace;
-    font-size: 14px;
+    font-size: 12px;
+    width: 300px;
+    height: 190px;
+    // letter-spacing: 0.05px;
+    line-height: 3px;
 
     .terminal-body {
         // font-size: 4px;
@@ -281,8 +310,12 @@ header {
         // Consolas, 'Courier New', monospace //ui-monospace;
         // font-weight: 500;
         // letter-spacing: 0.35px;
-        line-height: 25px;
+        // line-height: 25px;
         color: #ffffff;
+
+        .terminal-text {
+            line-height: 0.8;
+        }
 
         .red {
             color: #f92672;
@@ -331,5 +364,4 @@ header {
         font-family: Inter;
         color: #64748b;
     }
-
 }

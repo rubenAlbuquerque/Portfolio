@@ -115,6 +115,28 @@ header {
   color: #e2e8f0;
 }
 
+.myblur {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  right: -45%;
+  top: 40%;
+  background-color: #2f3742;
+  filter: blur(130px);
+  z-index: -1;
+}
+
+.myblur-terminal {
+  width: 250px;
+  height: 150px;
+  position: absolute;
+  right: -55%;
+  top: 20%;
+  background-color: #2f3742;
+  filter: blur(100px);
+  z-index: -1;
+}
+
 .Intro-Code {
   border-width: 2px;
   border-radius: 10px;
@@ -164,12 +186,17 @@ header {
   border-radius: 10px;
   border-style: solid;
   border-color: #94a3b8;
-  font-size: 14px;
+  font-size: 12px;
+  width: 300px;
+  height: 190px;
+  line-height: 3px;
 }
 .terminal .terminal-body {
   font-family: Consolas, "Courier New", monospace;
-  line-height: 25px;
   color: #ffffff;
+}
+.terminal .terminal-body .terminal-text {
+  line-height: 0.8;
 }
 .terminal .terminal-body .red {
   color: #f92672;

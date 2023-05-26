@@ -24,10 +24,19 @@ function Navbar() {
     // data
     const links = [
         { name: "Home", href: "#home" },
-        { name: "Portfolio", href: "#Portfolio" },
         { name: "About", href: "#About" },
+        { name: "Portfolio", href: "#Portfolio" },
         { name: "Contact", href: "#Contact" },
     ];
+
+    // const homeRef = useRef(null);
+    // const aboutRef = useRef(null);
+    // const projectsRef = useRef(null);
+    // const contactRef = useRef(null);
+
+    // const scroolToSection = (ref) => {
+    //     ref.current.scrollIntoView({ behavior: "smooth" });
+    // };
     return (
         <header className=" h-20 background-red">
             <nav className="nav flex justify-between items-center border-b border-gray-800/10">
@@ -44,7 +53,11 @@ function Navbar() {
                 <ul className="list-lisks flex list-none space-x-5 ">
                     {/* map in links */}
                     {links.map((link, index) => (
-                        <li className="links" key={index}>
+                        <li
+                            className="links"
+                            key={index}
+                            // onClick={() => scroolToSection(aboutRef)}
+                        >
                             <a href="#home" className="">
                                 {link.name}
                             </a>
@@ -175,6 +188,7 @@ function Intro() {
                         Resume
                     </a>
                 </div>
+                <div className="myblur "></div>
                 <div className="Intro-Code max-w-lg rounded-lg absolute right-[-50%] top-[30%]  ">
                     <div className="bg-header bg-gray-800 flex items-center border-b-0 border-gray-800 px-4 rounded-t-lg ">
                         <button className=" flex gap-2 pr-4 py-3 defaultButton">
@@ -323,9 +337,10 @@ function Intro() {
                     </pre>
                 </div>
 
+                <div className="myblur-terminal "></div>
                 <div
-                    className="terminal max-w-lg rounded-lg absolute right-[-65%] top-[10%]
-                    bg-gray-900 bg-opacity-90 w-96 h-60 overflow-hidden">
+                    className="terminal max-w-lg rounded-lg absolute right-[-60%] top-[15%]
+                    bg-gray-900 bg-opacity-80 w-80 h-60 overflow-hidden">
                     <div
                         className=" terminal-header flex flex-row items-center bg-gray-800 p-2 
                     rounded-t-lg">
@@ -335,73 +350,88 @@ function Intro() {
                             <div className="bg-green-500 hover:bg-green-600 w-3 h-3 rounded-full mr-2"></div>
                         </div>
                         <div className="flex items-center justify-center flex-grow pr-16">
-                            <h1 className="text-base text-center text-gray-500">
+                            <h1 className="text-sm text-center text-gray-500">
                                 Terminal
                             </h1>
                         </div>
                     </div>
                     <div className="terminal-body px-2 py-1">
-                        <div className="">
-                            <label className="blueStrong ">
-                                <FontAwesomeIcon
-                                    icon={faArrowRight}
-                                    className="w-4 green"
-                                />{" "}
-                                Welcome@Portfolio:$&nbsp;
-                            </label>
-                            <label className="white">More informations</label>
-                            <br />
-                            <label className="red">
-                                bash: More: command not found &nbsp;
-                            </label>
-                            <br />
-                            <label className="blueStrong ">
-                                <FontAwesomeIcon
-                                    icon={faArrowRight}
-                                    className="w-4 green"
-                                />{" "}
-                                Welcome@Portfolio:$&nbsp;
-                            </label>
-                            <label className="white">python more_info.py</label>
-                            <br />
-                            <label className="white ">
-                                Contacts found - Connections:
-                            </label>
-                            <br />
-                            <label className="text-blue-200 flex items-center">
-                                &nbsp;&nbsp;
-                                <button className="flex items-center w-full hover:bg-blue-700 text-white font-bold rounded">
-                                    <img
-                                        src={linkedin}
-                                        alt="Logoo"
-                                        className="w-10 h-10 mr-3 "
-                                        href="#home"
+                        <div className="terminal-text text">
+                            <div className="line">
+                                <label className="blueStrong">
+                                    <FontAwesomeIcon
+                                        icon={faArrowRight}
+                                        className="w-4 green"
                                     />{" "}
-                                    <a
-                                        href="https://www.linkedin.com/in/rubenalbuquerque/"
-                                        target="_blank"
-                                        rel="noreferrer">
-                                        Linkedin
-                                    </a>
-                                </button>
-                            </label>
-                            <label className="text-blue-200 flex items-center">
-                                &nbsp;&nbsp;
-                                <button className="flex items-center w-full text-white hover:bg-slate-100 hover:text-black font-bold  rounded p-1">
-                                    <img
-                                        src={github}
-                                        alt="Logoo"
-                                        className="w-8 h-8 bg-white rounded-lg mr-5"
-                                        href="#home"
+                                    Welcome@Portfolio:$&nbsp;
+                                </label>
+                                <label className="white">
+                                    More informations
+                                </label>
+                            </div>
+                            <br />
+                            <div className="line">
+                                <label className="red">
+                                    bash: More: command not found &nbsp;
+                                </label>
+                            </div>
+                            <br />
+                            <div className="line">
+                                <label className="blueStrong ">
+                                    <FontAwesomeIcon
+                                        icon={faArrowRight}
+                                        className="w-4 green"
                                     />{" "}
-                                    <a
-                                        href="https://github.com/rubenAlbuquerque"
-                                        target="_blank"
-                                        rel="noreferrer">
-                                        Github
-                                    </a>
-                                </button>
-                            </label>
+                                    Welcome@Portfolio:$&nbsp;
+                                </label>
+                                <label className="white">
+                                    python more_info.py
+                                </label>
+                            </div>
+                            <br />
+                            <div className="line mb-1">
+                                <label className="white ">
+                                    Contacts found - Connections:
+                                </label>
+                            </div>
+                            <div className="line">
+                                <label className="text-blue-200 flex items-center">
+                                    &nbsp;&nbsp;
+                                    <button className="flex items-center w-full hover:bg-blue-700 text-white font-bold rounded">
+                                        <img
+                                            src={linkedin}
+                                            alt="Logoo"
+                                            className="w-8 h-8 mr-3 "
+                                            href="#home"
+                                        />{" "}
+                                        <a
+                                            href="https://www.linkedin.com/in/rubenalbuquerque/"
+                                            target="_blank"
+                                            rel="noreferrer">
+                                            Linkedin
+                                        </a>
+                                    </button>
+                                </label>
+                            </div>
+                            <div className="line">
+                                <label className="text-blue-200 flex items-center">
+                                    &nbsp;&nbsp;
+                                    <button className="flex items-center w-full text-white hover:bg-slate-100 hover:text-black font-bold  rounded p-1">
+                                        <img
+                                            src={github}
+                                            alt="Logoo"
+                                            className="w-6 h-6 bg-white rounded-lg mr-5"
+                                            href="#home"
+                                        />{" "}
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            rel="noreferrer">
+                                            Github
+                                        </a>
+                                    </button>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -412,7 +442,7 @@ function Intro() {
 
 function About() {
     return (
-        <div className="about h-screen mt-20">
+        <div className="#About h-screen mt-20">
             <div className="flex flex-col justify-center items-center p-10">
                 <h1 className="about-title text-4xl font-bold text-gray-800">
                     About me
@@ -486,6 +516,7 @@ function App() {
         <div className="App">
             <Navbar />
             <Intro />
+            {/* <About ref={aboutRef} /> */}
             <About />
             <Projects />
         </div>
