@@ -232,7 +232,7 @@ header {
 }
 
 .swiper {
-  height: 50vh;
+  height: 40vh;
   aspect-ratio: 3/3;
   perspective: 1000px;
   perspective-origin: center 50%;

@@ -775,7 +775,7 @@ function About() {
                                 Resume
                             </a> */}
                         {/* </div> */}
-                        <div className="flex items-center mt-3 space-x-6">
+                        <div className="flex items-center mt-6 space-x-6">
                             <button
                                 className="flex items-center justify-center py-2 px-4 text-[16px]
                             rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300 
