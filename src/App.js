@@ -519,7 +519,7 @@ function About() {
                     About me
                 </h1>
             </div>
-            <div className="flex flex-row justify-center p-5 bmb-10">
+            <div className="flex flex-row justify-center p-5">
                 {/* images */}
                 <div className="w-6/12 flex items-center justify-center">
                     <div className="swiper">
@@ -617,96 +617,7 @@ function About() {
                         </div>
                         {/* Número de países visitados, Número de projetos concluídos */}
                     </div>
-                    {/* <header
-                        className="grid max-w-xl grid-cols-2 gap-0 text-center 
-                    sm:grid-cols-4 sm:text-left">
-                        <figure
-                            data-tip="1180649576 seconds"
-                            className="cursor-help select-none spacing-1"
-                            currentitem="false">
-                            <span
-                                className="bg-gradient-to-r text-blue-500 bg-clip-text 
-                            text-4xl font-extrabold tracking-tighter text-transparent">
-                                24
-                            </span>
-                            <figcaption
-                                className="text-[15px] font-semibold tracking-tight 
-                            text-gray-400 d:text-gray-300/80">
-                                Years Old
-                            </figcaption>
-                        </figure>
-                        <figure
-                            data-tip="First line of code written in 1997"
-                            className="cursor-help select-none spacing-1"
-                            currentitem="false">
-                            <span className="bg-gradient-to-r text-blue-500 bg-clip-text text-4xl font-extrabold tracking-tighter text-transparent">
-                                1+
-                            </span>
-                            <figcaption
-                                className="text-[15px] font-semibold tracking-tight 
-                            text-gray-400 d:text-gray-300/80">
-                               1+ Years Web Dev
-                            </figcaption>
-                        </figure>
-                        <figure
-                            data-tip="Who also loves running."
-                            className="cursor-help select-none spacing-1"
-                            currentitem="false">
-                            <span
-                                className="bg-gradient-to-r text-blue-500 
-                            bg-clip-text text-4xl font-extrabold tracking-tighter 
-                            text-transparent">
-                             1+ Years Web Dev
-                                1Amazing dog
-                            </span>
-                            <figcaption
-                                className="text-[15px] font-semibold tracking-tight 
-                            text-gray-400 d:text-gray-300/80">
-                                Amazing dog
-                            </figcaption>
-                        </figure>
-                        <figure
-                            data-tip="111 GitHub Stars"
-                            className="cursor-help select-none spacing-1"
-                            currentitem="false">
-                            <span
-                                className="bg-gradient-to-r text-blue-500 
-                            bg-clip-text text-4xl font-extrabold tracking-tighter 
-                            text-transparent">
-                             1+ Years Web Dev
-                                1 Amazing dog
-                                4 510 Commits
-                            </span>
-                            <figcaption
-                                className="text-[15px] font-semibold tracking-tight 
-                            text-gray-400 d:text-gray-300/80">
-                                Commits
-                            </figcaption>
-                        </figure>
-                    </header> */}
-                    {/* <main class="tracking tight max-w-3xl leading-relaxed text-gray-500 d:text-gray-100/70 [&amp;>p+p]:mt-4">
-                        <p>
-                            I'm a Cape Town based Web Developer and
-                            Entrepreneur. My focus area for the past few years
-                            has been front-end development with{" "}
-                            <strong>Next.js</strong>,{" "}
-                            <strong>Typescript</strong> and{" "}
-                            <strong>TailwindCSS</strong> to create beautiful
-                            user- and developer experiences that bring delight.
-                        </p>
-                        <p>
-                            I’ve spent most of my life deeply interested in
-                            technology and food, continuously building things
-                            with both. As a teenager, I was a classic computer
-                            nerd, spending most of my times messing with the
-                            computer, doing 1 of 4 things: Modding games and
-                            figuring things out. Tinkering with hardware,
-                            building computers. Developing websites with
-                            FrontPage 98 and Flash. And of course, playing
-                            games.
-                        </p>
-                        <p>Most of that is still true today.</p>
-                    </main> */}
+
                     <main
                         // className="about-text px-5 text-[18px] font-medium text-justify pt-5
                         // tracking-tight max-w-3xl leading-relaxed text-gray-500 d:text-gray-100/70 ">
@@ -732,49 +643,7 @@ function About() {
                             new challenges and opportunities to learn and
                             improve my skills. <br />
                         </p>
-                        {/* <div className="flex  items-center p-4 space-x-7"> */}
-                        {/* <button
-                                className="flex items-center py-1 px-2
-                            bg-transparent text-gray-500 border-2 
-                        border-gray-500 font-medium rounded">
-                                <img
-                                    src={linkedin}
-                                    alt="Logoo"
-                                    className="w-8 h-8 mr-1 "
-                                    href="#home"
-                                />{" "}
-                                <a
-                                    href="https://www.linkedin.com/in/rubenalbuquerque/"
-                                    target="_blank"
-                                    rel="noreferrer">
-                                    Linkedin
-                                </a>
-                            </button>
-                            <button
-                                className="flex items-center py-1 px-2
-                            bg-slate-300 bg-transparent text-gray-500 border-2 
-                        border-gray-500font-medium rounded">
-                                <img
-                                    src={github}
-                                    alt="Logoo"
-                                    className="w-8 h-8 mr-1"
-                                    href="#home"
-                                />{" "}
-                                <a
-                                    href="https://github.com/rubenAlbuquerque"
-                                    target="_blank"
-                                    rel="noreferrer">
-                                    Github
-                                </a>
-                            </button> */}
-                        {/* <a
-                                href="/resume"
-                                className="intro-resume bg-transparent text-gray-500 border-2 
-                        border-gray-500 ml-6 rounded-lg
-                         hover:text-gray-900 transition-colors">
-                                Resume
-                            </a> */}
-                        {/* </div> */}
+
                         <div className="flex items-center mt-6 space-x-6">
                             <button
                                 className="flex items-center justify-center py-2 px-4 text-[16px]
@@ -818,7 +687,9 @@ function About() {
             <section className="max-w-full px-4 pb-16 md:px-8 bg-red-500">
                 <div className="-mx-4 flex h-96 py-4 px-0 xl:mx-0">
                     <div className="relative">
-                        <header className="absolute left-0 -translate-x-1/2 select-none text-xs font-semibold text-gray-400">
+                        <header
+                            className="absolute left-0 -translate-x-1/2 
+                        select-none text-xs font-semibold text-gray-400">
                             2015
                         </header>
                         <div
@@ -826,7 +697,7 @@ function About() {
                             style={{
                                 gridTemplateColumns: "repeat(10, 120px)",
                             }}>
-                            <section className="relative">
+                            <section className="relative bg-blue-200">
                                 <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
                                     <span className="sr-only">
                                         2015 - Restaurant Consultant
@@ -844,7 +715,10 @@ function About() {
                                             clip-rule="evenodd"></path>
                                     </svg>
                                 </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
+                                <div
+                                    className="absolute top-0 left-px h-2.5 w-[119px] 
+                                bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] 
+                                bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
                                 <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
                                     <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
                                         Restaurant Consultant
@@ -920,563 +794,16 @@ function About() {
                                         out for a super romantic dinner and
                                         popped the question in a full
                                         restaurant.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Graduated Postgraduate at UCT
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 640 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Graduated Postgraduate at UCT
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I went back to University in 2015 to
-                                        advance with a Postgraduate Diploma in
-                                        Business Management &amp;
-                                        Entrepreneurship. 📚 👓
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Got Married
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 512 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M201.837 53.087L177.547 21h55.676zM278.766 21l30.82 31.465L333.065 21h-54.298zm12.428 38.12L256 23.18l-35.25 35.985h70.5zm82.091 0l-23.511-30.855-23.003 30.9h46.57zM161.096 28.683L138.5 59.188h45.746zm51.248 48.242L256 196.821l43.69-119.896h-87.38zm-73.166 0l90.384 99.017-36.153-99.017h-54.231zm233.712 0h-54.23l-36.076 99.017zm-19.455 48.142l-29.059 31.838a154.298 154.298 0 0 1 85.786 138.119C410.14 380.008 340.995 449.197 256 449.197s-154.14-69.144-154.14-154.14a154.298 154.298 0 0 1 85.787-138.119L158.588 125.1a196.044 196.044 0 0 0-98.53 169.924C60.057 403.056 147.955 491 256 491c108.044 0 195.943-87.899 195.943-195.943a196.044 196.044 0 0 0-98.542-169.99z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Got Married
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        If this Year wasn't enough. Liz and I
-                                        decided to have a small ceremony with
-                                        the closes friends &amp; family at a
-                                        beautiful wine farm in Cape Town.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Restaurant Consultant
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Restaurant Consultant
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I left my full-time position early in
-                                        2015 to focus on a Postgraduate diploma
-                                        at UCT. I continued my work in a
-                                        Consulting Role.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Co-founded SimplyStuck
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 24 24"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21.796,9.982C20.849,5.357,16.729,2,12,2C6.486,2,2,6.486,2,12c0,4.729,3.357,8.849,7.982,9.796	c0.067,0.014,0.135,0.021,0.201,0.021c0.263,0,0.518-0.104,0.707-0.293l10.633-10.633C21.761,10.653,21.863,10.313,21.796,9.982z M11,18c0-0.545,0.055-1.088,0.162-1.612c0.105-0.515,0.263-1.02,0.466-1.5c0.201-0.476,0.45-0.934,0.737-1.359	c0.29-0.428,0.619-0.826,0.978-1.186c0.359-0.358,0.758-0.688,1.184-0.977c0.428-0.288,0.886-0.537,1.36-0.738	c0.481-0.203,0.986-0.36,1.501-0.466c0.704-0.145,1.442-0.183,2.17-0.134l-8.529,8.529C11.016,18.372,11,18.187,11,18z M4,12	c0-4.411,3.589-8,8-8c2.909,0,5.528,1.589,6.929,4.005c-0.655,0.004-1.31,0.068-1.943,0.198c-0.643,0.132-1.274,0.328-1.879,0.583	c-0.594,0.252-1.164,0.563-1.699,0.923c-0.533,0.361-1.03,0.771-1.479,1.22s-0.858,0.945-1.221,1.48	c-0.359,0.533-0.67,1.104-0.922,1.698c-0.255,0.604-0.451,1.235-0.583,1.878C9.068,16.643,9,17.32,9,18	c0,0.491,0.048,0.979,0.119,1.461C6.089,18.288,4,15.336,4,12z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Co-founded SimplyStuck
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        Started a Vinyl sticker business, while
-                                        exploring the very interesting customer
-                                        segment of students 👨‍ 🎓 It was part
-                                        study, part real business, but somehow
-                                        eventually faded &amp; failed as we had
-                                        a team of 6 co-founders. Stick to 1 or 2
-                                        if you can. 😉
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Got Engaged
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 512 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M201.837 53.087L177.547 21h55.676zM278.766 21l30.82 31.465L333.065 21h-54.298zm12.428 38.12L256 23.18l-35.25 35.985h70.5zm82.091 0l-23.511-30.855-23.003 30.9h46.57zM161.096 28.683L138.5 59.188h45.746zm51.248 48.242L256 196.821l43.69-119.896h-87.38zm-73.166 0l90.384 99.017-36.153-99.017h-54.231zm233.712 0h-54.23l-36.076 99.017zm-19.455 48.142l-29.059 31.838a154.298 154.298 0 0 1 85.786 138.119C410.14 380.008 340.995 449.197 256 449.197s-154.14-69.144-154.14-154.14a154.298 154.298 0 0 1 85.787-138.119L158.588 125.1a196.044 196.044 0 0 0-98.53 169.924C60.057 403.056 147.955 491 256 491c108.044 0 195.943-87.899 195.943-195.943a196.044 196.044 0 0 0-98.542-169.99z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Got Engaged
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I asked my then girlfriend, Elizabeth,
-                                        to marry me. She said yes! I took her
-                                        out for a super romantic dinner and
-                                        popped the question in a full
-                                        restaurant.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Graduated Postgraduate at UCT
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 640 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Graduated Postgraduate at UCT
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I went back to University in 2015 to
-                                        advance with a Postgraduate Diploma in
-                                        Business Management &amp;
-                                        Entrepreneurship. 📚 👓
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Restaurant Consultant
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                                {/* <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div> */}
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Restaurant Consultant
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I left my full-time position early in
-                                        2015 to focus on a Postgraduate diploma
-                                        at UCT. I continued my work in a
-                                        Consulting Role.
                                     </p>
                                 </main>
                             </section>
                         </div>
                     </div>
-                    {/* <div className="relative">
-                        <header className="absolute left-0 -translate-x-1/2 select-none text-xs font-semibold text-gray-400">
-                            2016
-                        </header>
-                        <div
-                            className="mt-6 grid"
-                            style={{
-                                gridTemplateColumns: "repeat(10, 120px)",
-                            }}>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Restaurant Consultant
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Restaurant Consultant
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I left my full-time position early in
-                                        2015 to focus on a Postgraduate diploma
-                                        at UCT. I continued my work in a
-                                        Consulting Role.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Co-founded SimplyStuck
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 24 24"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21.796,9.982C20.849,5.357,16.729,2,12,2C6.486,2,2,6.486,2,12c0,4.729,3.357,8.849,7.982,9.796	c0.067,0.014,0.135,0.021,0.201,0.021c0.263,0,0.518-0.104,0.707-0.293l10.633-10.633C21.761,10.653,21.863,10.313,21.796,9.982z M11,18c0-0.545,0.055-1.088,0.162-1.612c0.105-0.515,0.263-1.02,0.466-1.5c0.201-0.476,0.45-0.934,0.737-1.359	c0.29-0.428,0.619-0.826,0.978-1.186c0.359-0.358,0.758-0.688,1.184-0.977c0.428-0.288,0.886-0.537,1.36-0.738	c0.481-0.203,0.986-0.36,1.501-0.466c0.704-0.145,1.442-0.183,2.17-0.134l-8.529,8.529C11.016,18.372,11,18.187,11,18z M4,12	c0-4.411,3.589-8,8-8c2.909,0,5.528,1.589,6.929,4.005c-0.655,0.004-1.31,0.068-1.943,0.198c-0.643,0.132-1.274,0.328-1.879,0.583	c-0.594,0.252-1.164,0.563-1.699,0.923c-0.533,0.361-1.03,0.771-1.479,1.22s-0.858,0.945-1.221,1.48	c-0.359,0.533-0.67,1.104-0.922,1.698c-0.255,0.604-0.451,1.235-0.583,1.878C9.068,16.643,9,17.32,9,18	c0,0.491,0.048,0.979,0.119,1.461C6.089,18.288,4,15.336,4,12z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Co-founded SimplyStuck
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        Started a Vinyl sticker business, while
-                                        exploring the very interesting customer
-                                        segment of students 👨‍ 🎓 It was part
-                                        study, part real business, but somehow
-                                        eventually faded &amp; failed as we had
-                                        a team of 6 co-founders. Stick to 1 or 2
-                                        if you can. 😉
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Got Engaged
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 512 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M201.837 53.087L177.547 21h55.676zM278.766 21l30.82 31.465L333.065 21h-54.298zm12.428 38.12L256 23.18l-35.25 35.985h70.5zm82.091 0l-23.511-30.855-23.003 30.9h46.57zM161.096 28.683L138.5 59.188h45.746zm51.248 48.242L256 196.821l43.69-119.896h-87.38zm-73.166 0l90.384 99.017-36.153-99.017h-54.231zm233.712 0h-54.23l-36.076 99.017zm-19.455 48.142l-29.059 31.838a154.298 154.298 0 0 1 85.786 138.119C410.14 380.008 340.995 449.197 256 449.197s-154.14-69.144-154.14-154.14a154.298 154.298 0 0 1 85.787-138.119L158.588 125.1a196.044 196.044 0 0 0-98.53 169.924C60.057 403.056 147.955 491 256 491c108.044 0 195.943-87.899 195.943-195.943a196.044 196.044 0 0 0-98.542-169.99z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Got Engaged
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I asked my then girlfriend, Elizabeth,
-                                        to marry me. She said yes! I took her
-                                        out for a super romantic dinner and
-                                        popped the question in a full
-                                        restaurant.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Graduated Postgraduate at UCT
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 640 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Graduated Postgraduate at UCT
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I went back to University in 2015 to
-                                        advance with a Postgraduate Diploma in
-                                        Business Management &amp;
-                                        Entrepreneurship. 📚 👓
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Got Married
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 512 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M201.837 53.087L177.547 21h55.676zM278.766 21l30.82 31.465L333.065 21h-54.298zm12.428 38.12L256 23.18l-35.25 35.985h70.5zm82.091 0l-23.511-30.855-23.003 30.9h46.57zM161.096 28.683L138.5 59.188h45.746zm51.248 48.242L256 196.821l43.69-119.896h-87.38zm-73.166 0l90.384 99.017-36.153-99.017h-54.231zm233.712 0h-54.23l-36.076 99.017zm-19.455 48.142l-29.059 31.838a154.298 154.298 0 0 1 85.786 138.119C410.14 380.008 340.995 449.197 256 449.197s-154.14-69.144-154.14-154.14a154.298 154.298 0 0 1 85.787-138.119L158.588 125.1a196.044 196.044 0 0 0-98.53 169.924C60.057 403.056 147.955 491 256 491c108.044 0 195.943-87.899 195.943-195.943a196.044 196.044 0 0 0-98.542-169.99z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Got Married
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        If this Year wasn't enough. Liz and I
-                                        decided to have a small ceremony with
-                                        the closes friends &amp; family at a
-                                        beautiful wine farm in Cape Town.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Restaurant Consultant
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Restaurant Consultant
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I left my full-time position early in
-                                        2015 to focus on a Postgraduate diploma
-                                        at UCT. I continued my work in a
-                                        Consulting Role.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Co-founded SimplyStuck
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 24 24"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21.796,9.982C20.849,5.357,16.729,2,12,2C6.486,2,2,6.486,2,12c0,4.729,3.357,8.849,7.982,9.796	c0.067,0.014,0.135,0.021,0.201,0.021c0.263,0,0.518-0.104,0.707-0.293l10.633-10.633C21.761,10.653,21.863,10.313,21.796,9.982z M11,18c0-0.545,0.055-1.088,0.162-1.612c0.105-0.515,0.263-1.02,0.466-1.5c0.201-0.476,0.45-0.934,0.737-1.359	c0.29-0.428,0.619-0.826,0.978-1.186c0.359-0.358,0.758-0.688,1.184-0.977c0.428-0.288,0.886-0.537,1.36-0.738	c0.481-0.203,0.986-0.36,1.501-0.466c0.704-0.145,1.442-0.183,2.17-0.134l-8.529,8.529C11.016,18.372,11,18.187,11,18z M4,12	c0-4.411,3.589-8,8-8c2.909,0,5.528,1.589,6.929,4.005c-0.655,0.004-1.31,0.068-1.943,0.198c-0.643,0.132-1.274,0.328-1.879,0.583	c-0.594,0.252-1.164,0.563-1.699,0.923c-0.533,0.361-1.03,0.771-1.479,1.22s-0.858,0.945-1.221,1.48	c-0.359,0.533-0.67,1.104-0.922,1.698c-0.255,0.604-0.451,1.235-0.583,1.878C9.068,16.643,9,17.32,9,18	c0,0.491,0.048,0.979,0.119,1.461C6.089,18.288,4,15.336,4,12z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Co-founded SimplyStuck
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        Started a Vinyl sticker business, while
-                                        exploring the very interesting customer
-                                        segment of students 👨‍ 🎓 It was part
-                                        study, part real business, but somehow
-                                        eventually faded &amp; failed as we had
-                                        a team of 6 co-founders. Stick to 1 or 2
-                                        if you can. 😉
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Got Engaged
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 512 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M201.837 53.087L177.547 21h55.676zM278.766 21l30.82 31.465L333.065 21h-54.298zm12.428 38.12L256 23.18l-35.25 35.985h70.5zm82.091 0l-23.511-30.855-23.003 30.9h46.57zM161.096 28.683L138.5 59.188h45.746zm51.248 48.242L256 196.821l43.69-119.896h-87.38zm-73.166 0l90.384 99.017-36.153-99.017h-54.231zm233.712 0h-54.23l-36.076 99.017zm-19.455 48.142l-29.059 31.838a154.298 154.298 0 0 1 85.786 138.119C410.14 380.008 340.995 449.197 256 449.197s-154.14-69.144-154.14-154.14a154.298 154.298 0 0 1 85.787-138.119L158.588 125.1a196.044 196.044 0 0 0-98.53 169.924C60.057 403.056 147.955 491 256 491c108.044 0 195.943-87.899 195.943-195.943a196.044 196.044 0 0 0-98.542-169.99z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Got Engaged
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I asked my then girlfriend, Elizabeth,
-                                        to marry me. She said yes! I took her
-                                        out for a super romantic dinner and
-                                        popped the question in a full
-                                        restaurant.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Graduated Postgraduate at UCT
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 640 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Graduated Postgraduate at UCT
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I went back to University in 2015 to
-                                        advance with a Postgraduate Diploma in
-                                        Business Management &amp;
-                                        Entrepreneurship. 📚 👓
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Restaurant Consultant
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                                // <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Restaurant Consultant
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I left my full-time position early in
-                                        2015 to focus on a Postgraduate diploma
-                                        at UCT. I continued my work in a
-                                        Consulting Role.
-                                    </p>
-                                </main>
-                            </section>
-                        </div>
-                    </div> */}
                 </div>
             </section>
+            {/* pontos da cronologia
+            <div className="absolute top-0 left-0 h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]">
+            </div> */}
         </section>
     );
 }
@@ -1484,10 +811,104 @@ function About() {
 function Projects({ reff }) {
     console.log(reff);
     return (
-        <section ref={reff} className="#bout h-screen mt-20">
+        <section ref={reff} className="#projects h-screen mt-40 bg-lime-300">
             <div className="flex flex-col justify-center items-center p-10">
                 <h1 className="about-title text-4xl font-bold text-gray-800">
                     Projects
+                    {/* "<projects>" */}
+                </h1>
+            </div>
+            <div className="flex flex-row justify-center p-5">
+                <div className="w-6/12 bg-slate-200">
+                    <h1 className="text-3xl font-bold text-gray-800 bg-red-200 text-center">
+                        Web developer Projects
+                    </h1>
+                    {/* <section className="relative h-[380px] w-[340px] min-w-[340px] snap-start rounded-xl 
+                    border-2 border-gray-700/30 bg-clip-padding p-4 shadow-xl 
+                    transition-[min-width,width,margin-left,opacity] duration-300 spacing-0 
+                    d:border-white/20 flex sm:rotate-[1.5deg] shadow-[currentBg] 
+                    bg-[linear-gradient(40deg,var(--tw-gradient-stops))] from-pink-300/80 to-violet-500/40 
+                    shadow-violet-500/20"> */}
+                    <main className="flex items-center justify-center ">
+                        <section
+                            className="relative border-2 border-gray-600/30 
+                        rounded-xl w-96 bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
+                        from-sky-500/60 to-sky-800/60 shadow-indigo-800/20">
+                            {/* //bg-gray-300 bg-opacity-80 */}
+                            <img
+                                src={image}
+                                alt=""
+                                className=" h-[250px] w-[450px] rounded-xl p-1" // h-[250px] w-[450px] min-w-[340px]
+                            />
+                            <div className="relative px-2 ">
+                                <h1 className="text-2xl font-bold text-slate-50 p-1 ">
+                                    Project 1
+                                </h1>
+                                <p className="line-clamp-5">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                </p>
+
+                                <div className="flex flex-row justify-end p-1">
+                                    <button
+                                        className="bg-gray-400 hover:bg-slate-500
+                                     text-white font-bold py-0 px-2 rounded mr-3">
+                                        Live Demo{" "}
+                                        {/* <icon className="fas fa-arrow-right"></icon> */}
+                                    </button>
+                                    <button className="bg-gray-400 py-2 px-4 rounded">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            rel="noreferrer">
+                                            <img
+                                                src={github}
+                                                alt="Logoo"
+                                                className="w-6 h-6 bg-transparent rounded-lg mr-1"
+                                                href="#home"
+                                            />
+                                            View Source
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+                <div className="w-6/12 flex items-center justify-center bg-slate-300">
+                    <h1 className="text-3xl font-bold text-gray-800">
+                        Data Scientist Projects
+                    </h1>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function Contact({ reff }) {
+    return (
+        <section ref={reff} className="#contact h-screen bg-red-200">
+            <div className="flex flex-col justify-center items-center p-10">
+                <h1 className="text-4xl font-bold text-gray-800">Contact</h1>
+            </div>
+        </section>
+    );
+}
+
+function Footer() {
+    return (
+        <section className="footer h-screen bg-blue-200 ">
+            <div className="flex flex-col justify-center items-center p-10">
+                <h1 className="about-title text-4xl font-bold text-gray-800">
+                    Footer
                 </h1>
             </div>
         </section>
@@ -1534,6 +955,8 @@ function App() {
             {/* Smal viedo (trailer) on the projects image (demo and source) */}
             <Projects ref={projectsRef} />
             {/* Projects alternatives/small  - Fun projects*/}
+            <Contact />
+            <Footer />
         </div>
     );
 }
