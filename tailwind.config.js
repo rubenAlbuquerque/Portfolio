@@ -7,10 +7,15 @@ module.exports = {
     //     license: "free",
     // },
     theme: {
-        extend: {},
+        extend: {
+            // scrollbar: ["dark"],
+        },
     },
     variants: {
         extend: {},
     },
-    // plugins: [require("daisyui")],
+    plugins: [
+        // require("daisyui")
+        // require("tailwind-scrollbar"),
+    ],
 };

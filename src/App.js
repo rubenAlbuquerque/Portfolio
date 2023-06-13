@@ -13,6 +13,9 @@ import {
     // faMoon,
     faSun,
     faPlus,
+    faComputer,
+    faWindow,
+    faDesktop,
     // faGreaterThan,
     // faTerminal,
     faArrowRight,
@@ -24,6 +27,14 @@ import {
 
 import "./App.css";
 import React from "react";
+
+// reposive metrics:
+// sm: 640
+// md: 768
+// lg: 1024
+// xl: 1280
+// 2xl: 1536
+// 3xl: 1920-----------
 
 function Navbar({ scroll, introrefs, aboutrefs, projectsrefs }) {
     // data
@@ -44,7 +55,7 @@ function Navbar({ scroll, introrefs, aboutrefs, projectsrefs }) {
     // };
 
     return (
-        <header className=" h-20 mx-auto">
+        <header className="h-20 mx-auto">
             <nav className="nav flex justify-between items-center border-b border-gray-800/10">
                 <div className="flex nav-logo justify-between items-center py-5 cursor-pointer">
                     <img
@@ -56,7 +67,21 @@ function Navbar({ scroll, introrefs, aboutrefs, projectsrefs }) {
                     <h1 className="text-3xl font-sans text-gray-800">úben</h1>
                 </div>
 
-                <ul className="list-lisks flex list-none space-x-5 ">
+                {/* Menu responsivo */}
+                <ul className="list-lisks flex list-none space-x-5 md:hidden">
+                    {/* map in links */}
+                    {links.map((link, index) => (
+                        <li
+                            className="links"
+                            key={index}
+                            onClick={() => scroll(link.ref)}>
+                            {link.name}
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Links da navbar */}
+                <ul className="list-lisks flex list-none space-x-5 hidden md:flex">
                     {/* map in links */}
                     {links.map((link, index) => (
                         <li
@@ -499,8 +524,82 @@ function About() {
         },
         // Add more experiences...
     ];
+    const events = [
+        {
+            // date: "Janeiro 2018 - Dezembro 2019",
+            year: "2018",
+            mount: "Janeiro",
+
+            title: "Experiência 1",
+            description:
+                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+        },
+        {
+            // date: "Fevereiro 2020 - Presente",
+            year: "2020",
+            mount: "Fevereiro",
+
+            title: "Experiência 2",
+            description:
+                "Started a Vinyl sticker business, while exploring the very interesting customer segment of students 👨‍ 🎓",
+        },
+        {
+            // date: "Fevereiro 2020 - Presente",
+            year: "2020",
+            mount: "Fevereiro",
+            title: "Experiência 2",
+            description:
+                "I left my full-time position early in 2015 to focus on a Postgraduate diploma at UCT. I continued my work in a Consulting Role.",
+        },
+        {
+            // date: "Fevereiro 2020 - Presente",
+            year: "2020",
+            mount: "Fevereiro",
+            title: "Experiência 2",
+            description: "Descrição da Experiência 5",
+        },
+        {
+            // date: "Janeiro 2018 - Dezembro 2019",
+            year: "2018",
+            mount: "Janeiro",
+
+            title: "Experiência 1",
+            description:
+                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+        },
+        {
+            // date: "Janeiro 2018 - Dezembro 2019",
+            year: "2018",
+            mount: "Janeiro",
+
+            title: "Experiência 1",
+            description:
+                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+        },
+        {
+            // date: "Janeiro 2018 - Dezembro 2019",
+            year: "2018",
+            mount: "Janeiro",
+
+            title: "Experiência 1",
+            description:
+                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+        },
+        {
+            // date: "Janeiro 2018 - Dezembro 2019",
+            year: "2018",
+            mount: "Janeiro",
+
+            title: "Experiência 1",
+            description:
+                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+        },
+    ];
 
     const [images, setImages] = useState(Object.values(imagesInfo));
+    // const isLastElement = (index) => index === images.length - 1;
+    const [showDescription, setShowDescription] = useState(false);
+    const [hoveredIndex, setHoveredIndex] = useState(null);
 
     const handleCardClick = (selectedImage) => {
         setImages((prevImages) => {
@@ -513,7 +612,7 @@ function About() {
         });
     };
     return (
-        <section className="about h-screen container mx-auto px-20" id="about">
+        <section className="about container mx-auto px-20" id="about">
             {/* about */}
             <div className="flex flex-col justify-center items-center p-5 ">
                 <h1 className="about-title text-4xl font-bold font-inter text-gray-800">
@@ -526,9 +625,6 @@ function About() {
                     <div className="swiper">
                         {Object.keys(images).map((key, index) => {
                             const image = images[key];
-                            // const i = index % 2 === 0 ? -1 : 1;
-                            // const i = index;
-                            // console.log(image.degres);
 
                             return (
                                 <div
@@ -553,6 +649,7 @@ function About() {
                     </div>
                 </div>
 
+                {/* info - texto */}
                 <div className="w-6/12 py-5 pr-20 pl-5">
                     <div className="flex flex-row items-center">
                         <div className="col m-auto">
@@ -685,126 +782,95 @@ function About() {
                 </div>
             </div>
             {/* statistics and text */}
-            <section className="max-w-full px-4 pb-16 md:px-8 bg-red-500">
-                <div className="-mx-4 flex h-96 py-4 px-0 xl:mx-0">
-                    <div className="relative">
-                        <header
-                            className="absolute left-0 -translate-x-1/2 
-                        select-none text-xs font-semibold text-gray-400">
-                            2015
-                        </header>
-                        <div
-                            className="mt-6 grid"
-                            style={{
-                                gridTemplateColumns: "repeat(10, 120px)",
-                            }}>
-                            <section className="relative bg-blue-200">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Restaurant Consultant
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                                <div
-                                    className="absolute top-0 left-px h-2.5 w-[119px] 
-                                bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] 
-                                bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Restaurant Consultant
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I left my full-time position early in
-                                        2015 to focus on a Postgraduate diploma
-                                        at UCT. I continued my work in a
-                                        Consulting Role.
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Co-founded SimplyStuck
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 24 24"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21.796,9.982C20.849,5.357,16.729,2,12,2C6.486,2,2,6.486,2,12c0,4.729,3.357,8.849,7.982,9.796	c0.067,0.014,0.135,0.021,0.201,0.021c0.263,0,0.518-0.104,0.707-0.293l10.633-10.633C21.761,10.653,21.863,10.313,21.796,9.982z M11,18c0-0.545,0.055-1.088,0.162-1.612c0.105-0.515,0.263-1.02,0.466-1.5c0.201-0.476,0.45-0.934,0.737-1.359	c0.29-0.428,0.619-0.826,0.978-1.186c0.359-0.358,0.758-0.688,1.184-0.977c0.428-0.288,0.886-0.537,1.36-0.738	c0.481-0.203,0.986-0.36,1.501-0.466c0.704-0.145,1.442-0.183,2.17-0.134l-8.529,8.529C11.016,18.372,11,18.187,11,18z M4,12	c0-4.411,3.589-8,8-8c2.909,0,5.528,1.589,6.929,4.005c-0.655,0.004-1.31,0.068-1.943,0.198c-0.643,0.132-1.274,0.328-1.879,0.583	c-0.594,0.252-1.164,0.563-1.699,0.923c-0.533,0.361-1.03,0.771-1.479,1.22s-0.858,0.945-1.221,1.48	c-0.359,0.533-0.67,1.104-0.922,1.698c-0.255,0.604-0.451,1.235-0.583,1.878C9.068,16.643,9,17.32,9,18	c0,0.491,0.048,0.979,0.119,1.461C6.089,18.288,4,15.336,4,12z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Co-founded SimplyStuck
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        Started a Vinyl sticker business, while
-                                        exploring the very interesting customer
-                                        segment of students 👨‍ 🎓 It was part
-                                        study, part real business, but somehow
-                                        eventually faded &amp; failed as we had
-                                        a team of 6 co-founders. Stick to 1 or 2
-                                        if you can. 😉
-                                    </p>
-                                </main>
-                            </section>
-                            <section className="relative">
-                                <button className=" absolute flex -translate-x-1/2 flex-col items-center px-3 hfa:outline-none">
-                                    <span className="sr-only">
-                                        2015 - Got Engaged
-                                    </span>
-                                    <div className="h-8 w-0.5 bg-gray-500 transition-all selected:h-[80px] selected:bg-sky-500"></div>
-                                    <svg
-                                        stroke="currentColor"
-                                        fill="currentColor"
-                                        stroke-width="0"
-                                        viewBox="0 0 512 512"
-                                        className="mt-2 h-5 w-5 text-gray-500 transition-all d:text-gray-400 selected:text-gray-900 d:selected:text-white"
-                                        height="1em"
-                                        width="1em"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M201.837 53.087L177.547 21h55.676zM278.766 21l30.82 31.465L333.065 21h-54.298zm12.428 38.12L256 23.18l-35.25 35.985h70.5zm82.091 0l-23.511-30.855-23.003 30.9h46.57zM161.096 28.683L138.5 59.188h45.746zm51.248 48.242L256 196.821l43.69-119.896h-87.38zm-73.166 0l90.384 99.017-36.153-99.017h-54.231zm233.712 0h-54.23l-36.076 99.017zm-19.455 48.142l-29.059 31.838a154.298 154.298 0 0 1 85.786 138.119C410.14 380.008 340.995 449.197 256 449.197s-154.14-69.144-154.14-154.14a154.298 154.298 0 0 1 85.787-138.119L158.588 125.1a196.044 196.044 0 0 0-98.53 169.924C60.057 403.056 147.955 491 256 491c108.044 0 195.943-87.899 195.943-195.943a196.044 196.044 0 0 0-98.542-169.99z"></path>
-                                    </svg>
-                                </button>
-                                <div className="absolute top-0 left-px h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                <main className="pointer-events-none relative mt-32 w-[17rem] opacity-0 transition-opacity  selected:pointer-events-auto selected:opacity-100 -translate-x-1/2 text-center">
-                                    <h3 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
-                                        Got Engaged
-                                    </h3>
-                                    <p className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                        I asked my then girlfriend, Elizabeth,
-                                        to marry me. She said yes! I took her
-                                        out for a super romantic dinner and
-                                        popped the question in a full
-                                        restaurant.
-                                    </p>
-                                </main>
-                            </section>
+
+            {/* pontos da cronologia
+            <div className="absolute top-0 left-0 h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]">
+            </div> */}
+            <section className="bg-gray-200 py-6 rounded-lg">
+                <div className="max-w-full mx-auto px-1 sm:px-6 lg:px-3 ">
+                    <h2 className="text-3xl font-bold text-gray-800 text-center mb-4">
+                        My Timeline
+                    </h2>
+                    <div
+                        className="flex justify-center overflow-x-auto bg-gray-100 rounded-lg py-5 px-2
+                    first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
+                        <div className="relative inline-flex w-full">
+                            <ul className="flex ">
+                                {events.map((event, index) => (
+                                    <li
+                                        className="relative"
+                                        key={index}
+                                        onMouseEnter={() =>
+                                            setHoveredIndex(index)
+                                        }
+                                        onMouseLeave={() =>
+                                            setHoveredIndex(null)
+                                        }>
+                                        {/* {index !== events.length - 1 && ( */}
+                                        <div
+                                            className="absolute top-6 left-24 h-2.5 w-[210px] 
+        bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] 
+        bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
+                                        {/* )} */}
+                                        <div className="w-52 h-72 ">
+                                            <header className="flex justify-center ">
+                                                <div>
+                                                    <div className="w-10 flex items-center justify-center">
+                                                        <span className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
+                                                            {event.year}
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="w-10 flex items-center justify-center">
+                                                        <div className="h-[30px] w-[2px] rounded-lg bg-gray-500 selected:bg-sky-500"></div>
+                                                    </div>
+
+                                                    <div className="w-10 flex items-center justify-center">
+                                                        <div className=" rounded-lg">
+                                                            <FontAwesomeIcon
+                                                                icon={faDesktop}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <main className="w-52 flex flex-col items-center justify-center py-3">
+                                                <div className="bg-transparent text-center">
+                                                    <h1 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
+                                                        {event.title}
+                                                    </h1>
+
+                                                    {hoveredIndex === index && (
+                                                        <p
+                                                            className=" 
+                                                        text-[15px] leading-relaxed tracking-tight text-gray-500">
+                                                            {/* // opacity-0 group-hover:opacity-100"> */}
+                                                            {event.description}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            </main>
+                                        </div>
+                                    </li>
+                                ))}
+                                <header className="flex justify-center w-52">
+                                    <div>
+                                        <div className=" flex items-center justify-center">
+                                            <span className="text-sm text-center font-semibold text-gray-500 ">
+                                                Today
+                                            </span>
+                                        </div>
+
+                                        <div className=" flex items-center justify-center">
+                                            <div className="h-[30px] w-[2px]  rounded-lg bg-gray-500  selected:bg-sky-500"></div>
+                                        </div>
+                                    </div>
+                                </header>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            {/* pontos da cronologia
-            <div className="absolute top-0 left-0 h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]">
-            </div> */}
         </section>
     );
 }
@@ -812,7 +878,7 @@ function About() {
 function Projects({ reff }) {
     console.log(reff);
     return (
-        <section ref={reff} className="#projects h-screen mt-40">
+        <section ref={reff} className="#projects  mt-40">
             <div className="flex flex-col justify-center items-center p-10">
                 <h1 className="about-title text-4xl font-bold text-gray-800">
                     Projects
@@ -829,7 +895,89 @@ function Projects({ reff }) {
                         Projects<span className="text-red-700"> /&gt;</span>
                     </h1>
 
-                    <main className=" flex flex-row items-center  justify-evenly  mt-10">
+                    <main className=" flex flex-col md:flex-row items-center justify-evenly mt-5">
+                        <section
+                            className="relative border-2 border-black/80
+                        rounded-lg w-full md:w-96 mb-10 md:mb-0">
+                            {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
+                        from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
+                            {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
+                            [linear-gradient(140deg,var(--tw-gradient-stops))] from-sky-500/60 to-sky-800/60 shadow-indigo-800/20*/}
+                            <img
+                                src={image}
+                                alt=""
+                                className="w-full h-[250px] rounded-t-lg object-cover p-0" // h-[250px] w-[450px] min-w-[340px]
+                            />
+
+                            <div className="relative px-4 ">
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
+                                    Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
+                                </h1>
+                                <div className="relative py-1">
+                                    {/* add tecnologies */}
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            React
+                                        </a>
+                                    </button>
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            Tailwind
+                                        </a>
+                                    </button>
+                                </div>
+                                <p className="line-clamp-5">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                </p>
+
+                                <div className="flex flex-row justify-end py-3">
+                                    <button
+                                        className="rounded border-0 
+                                    border-blue-950 hover:shadow-sm hover:bg-sky-600/80 bg-blue-500/80
+                                     text-black py-0 px-3 mr-3 text-sm font-semibold">
+                                        <FontAwesomeIcon
+                                            className="mr-2"
+                                            icon={faArrowUpRightFromSquare}
+                                        />
+                                        Live Demo
+                                        {/* <icon className="fas fa-arrow-right"></icon> */}
+                                    </button>
+                                    <button
+                                        className="py-1 px-2 rounded border-2 
+                                    border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-900/60 ">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            <img
+                                                src={github}
+                                                alt="Logoo"
+                                                className="w-6 h-6 bg-transparent rounded-lg mr-1"
+                                                href="#home"
+                                            />
+                                            View Source
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
                         <section
                             className="relative border-2 border-black/80
                         rounded-lg w-96">
@@ -844,8 +992,9 @@ function Projects({ reff }) {
                             />
 
                             <div className="relative px-4 ">
-                                <h1 className="text-2xl font-bold text-gray-800 py-2">
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
                                     Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
                                 </h1>
                                 <div className="relative py-1">
                                     {/* add tecnologies */}
@@ -913,7 +1062,7 @@ function Projects({ reff }) {
                         </section>
                         <section
                             className="relative border-2 border-black/80
-                        rounded-lg w-96 ">
+                        rounded-lg w-96">
                             {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
                         from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
                             {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
@@ -925,89 +1074,9 @@ function Projects({ reff }) {
                             />
 
                             <div className="relative px-4 ">
-                                <h1 className="text-2xl font-bold text-gray-800 py-2">
-                                    Project 1
-                                </h1>
-                                <div className="relative py-1">
-                                    {/* add tecnologies */}
-                                    <button
-                                        className="py-1 px-3 rounded border-2 
-                                    border-blue-950 mr-1 font-semibold">
-                                        <a
-                                            href="https://github.com/rubenAlbuquerque"
-                                            target="_blank"
-                                            className="flex flex-row justify-center items-center text-sm"
-                                            rel="noreferrer">
-                                            React
-                                        </a>
-                                    </button>
-                                    <button
-                                        className="py-1 px-3 rounded border-2 
-                                    border-blue-950 mr-1 font-semibold">
-                                        <a
-                                            href="https://github.com/rubenAlbuquerque"
-                                            target="_blank"
-                                            className="flex flex-row justify-center items-center text-sm"
-                                            rel="noreferrer">
-                                            Tailwind
-                                        </a>
-                                    </button>
-                                </div>
-                                <p className="line-clamp-5">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Quisquam, voluptatum.
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Quisquam, voluptatum.
-                                </p>
-
-                                <div className="flex flex-row justify-end py-3">
-                                    <button
-                                        className="rounded border-0 
-                                    border-blue-950 hover:shadow-sm hover:bg-sky-600/80 bg-blue-500/80
-                                     text-black py-0 px-3 mr-3 text-sm font-semibold">
-                                        <FontAwesomeIcon
-                                            className="mr-2"
-                                            icon={faArrowUpRightFromSquare}
-                                        />
-                                        Live Demo
-                                        {/* <icon className="fas fa-arrow-right"></icon> */}
-                                    </button>
-                                    <button
-                                        className="py-1 px-2 rounded border-2 
-                                    border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-900/60 ">
-                                        <a
-                                            href="https://github.com/rubenAlbuquerque"
-                                            target="_blank"
-                                            className="flex flex-row justify-center items-center text-sm"
-                                            rel="noreferrer">
-                                            <img
-                                                src={github}
-                                                alt="Logoo"
-                                                className="w-6 h-6 bg-transparent rounded-lg mr-1"
-                                                href="#home"
-                                            />
-                                            View Source
-                                        </a>
-                                    </button>
-                                </div>
-                            </div>
-                        </section>
-                        <section
-                            className="relative border-2 border-black/80
-                        rounded-lg w-96 ">
-                            {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
-                        from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
-                            {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
-                            [linear-gradient(140deg,var(--tw-gradient-stops))] from-sky-500/60 to-sky-800/60 shadow-indigo-800/20*/}
-                            <img
-                                src={image}
-                                alt=""
-                                className="w-full h-[250px] rounded-t-lg object-cover p-0" // h-[250px] w-[450px] min-w-[340px]
-                            />
-
-                            <div className="relative px-4 ">
-                                <h1 className="text-2xl font-bold text-gray-800 py-2">
-                                    Project 1
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
+                                    Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
                                 </h1>
                                 <div className="relative py-1">
                                     {/* add tecnologies */}
@@ -1099,8 +1168,9 @@ function Projects({ reff }) {
                             />
 
                             <div className="relative px-4 ">
-                                <h1 className="text-2xl font-bold text-gray-800 py-2">
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
                                     Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
                                 </h1>
                                 <div className="relative py-1">
                                     {/* add tecnologies */}
@@ -1168,7 +1238,7 @@ function Projects({ reff }) {
                         </section>
                         <section
                             className="relative border-2 border-black/80
-                        rounded-lg w-96 ">
+                        rounded-lg w-96">
                             {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
                         from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
                             {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
@@ -1180,8 +1250,9 @@ function Projects({ reff }) {
                             />
 
                             <div className="relative px-4 ">
-                                <h1 className="text-2xl font-bold text-gray-800 py-2">
-                                    Project 1
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
+                                    Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
                                 </h1>
                                 <div className="relative py-1">
                                     {/* add tecnologies */}
@@ -1249,7 +1320,7 @@ function Projects({ reff }) {
                         </section>
                         <section
                             className="relative border-2 border-black/80
-                        rounded-lg w-96 ">
+                        rounded-lg w-96">
                             {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
                         from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
                             {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
@@ -1261,8 +1332,266 @@ function Projects({ reff }) {
                             />
 
                             <div className="relative px-4 ">
-                                <h1 className="text-2xl font-bold text-gray-800 py-2">
-                                    Project 1
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
+                                    Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
+                                </h1>
+                                <div className="relative py-1">
+                                    {/* add tecnologies */}
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            React
+                                        </a>
+                                    </button>
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            Tailwind
+                                        </a>
+                                    </button>
+                                </div>
+                                <p className="line-clamp-5">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                </p>
+
+                                <div className="flex flex-row justify-end py-3">
+                                    <button
+                                        className="rounded border-0 
+                                    border-blue-950 hover:shadow-sm hover:bg-sky-600/80 bg-blue-500/80
+                                     text-black py-0 px-3 mr-3 text-sm font-semibold">
+                                        <FontAwesomeIcon
+                                            className="mr-2"
+                                            icon={faArrowUpRightFromSquare}
+                                        />
+                                        Live Demo
+                                        {/* <icon className="fas fa-arrow-right"></icon> */}
+                                    </button>
+                                    <button
+                                        className="py-1 px-2 rounded border-2 
+                                    border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-900/60 ">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            <img
+                                                src={github}
+                                                alt="Logoo"
+                                                className="w-6 h-6 bg-transparent rounded-lg mr-1"
+                                                href="#home"
+                                            />
+                                            View Source
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+                <div className="w-9/12 mx-auto  mt-16">
+                    <h1
+                        className="text-3xl font-bold text-gray-800 tracking-tight
+                    border-b border-gray-600">
+                        <span className="text-red-700">&lt;</span>Fun Projects
+                        <span className="text-red-700"> /&gt;</span>
+                    </h1>
+
+                    <main className=" flex flex-row items-center  justify-evenly  mt-10">
+                        <section
+                            className="relative border-2 border-black/80
+                        rounded-lg w-96">
+                            {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
+                        from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
+                            {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
+                            [linear-gradient(140deg,var(--tw-gradient-stops))] from-sky-500/60 to-sky-800/60 shadow-indigo-800/20*/}
+                            <img
+                                src={image}
+                                alt=""
+                                className="w-full h-[250px] rounded-t-lg object-cover p-0" // h-[250px] w-[450px] min-w-[340px]
+                            />
+
+                            <div className="relative px-4 ">
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
+                                    Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
+                                </h1>
+                                <div className="relative py-1">
+                                    {/* add tecnologies */}
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            React
+                                        </a>
+                                    </button>
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            Tailwind
+                                        </a>
+                                    </button>
+                                </div>
+                                <p className="line-clamp-5">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                </p>
+
+                                <div className="flex flex-row justify-end py-3">
+                                    <button
+                                        className="rounded border-0 
+                                    border-blue-950 hover:shadow-sm hover:bg-sky-600/80 bg-blue-500/80
+                                     text-black py-0 px-3 mr-3 text-sm font-semibold">
+                                        <FontAwesomeIcon
+                                            className="mr-2"
+                                            icon={faArrowUpRightFromSquare}
+                                        />
+                                        Live Demo
+                                        {/* <icon className="fas fa-arrow-right"></icon> */}
+                                    </button>
+                                    <button
+                                        className="py-1 px-2 rounded border-2 
+                                    border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-900/60 ">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            <img
+                                                src={github}
+                                                alt="Logoo"
+                                                className="w-6 h-6 bg-transparent rounded-lg mr-1"
+                                                href="#home"
+                                            />
+                                            View Source
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            className="relative border-2 border-black/80
+                        rounded-lg w-96">
+                            {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
+                        from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
+                            {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
+                            [linear-gradient(140deg,var(--tw-gradient-stops))] from-sky-500/60 to-sky-800/60 shadow-indigo-800/20*/}
+                            <img
+                                src={image}
+                                alt=""
+                                className="w-full h-[250px] rounded-t-lg object-cover p-0" // h-[250px] w-[450px] min-w-[340px]
+                            />
+
+                            <div className="relative px-4 ">
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
+                                    Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
+                                </h1>
+                                <div className="relative py-1">
+                                    {/* add tecnologies */}
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            React
+                                        </a>
+                                    </button>
+                                    <button
+                                        className="py-1 px-3 rounded border-2 
+                                    border-blue-950 mr-1 font-semibold">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            Tailwind
+                                        </a>
+                                    </button>
+                                </div>
+                                <p className="line-clamp-5">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Quisquam, voluptatum.
+                                </p>
+
+                                <div className="flex flex-row justify-end py-3">
+                                    <button
+                                        className="rounded border-0 
+                                    border-blue-950 hover:shadow-sm hover:bg-sky-600/80 bg-blue-500/80
+                                     text-black py-0 px-3 mr-3 text-sm font-semibold">
+                                        <FontAwesomeIcon
+                                            className="mr-2"
+                                            icon={faArrowUpRightFromSquare}
+                                        />
+                                        Live Demo
+                                        {/* <icon className="fas fa-arrow-right"></icon> */}
+                                    </button>
+                                    <button
+                                        className="py-1 px-2 rounded border-2 
+                                    border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-900/60 ">
+                                        <a
+                                            href="https://github.com/rubenAlbuquerque"
+                                            target="_blank"
+                                            className="flex flex-row justify-center items-center text-sm"
+                                            rel="noreferrer">
+                                            <img
+                                                src={github}
+                                                alt="Logoo"
+                                                className="w-6 h-6 bg-transparent rounded-lg mr-1"
+                                                href="#home"
+                                            />
+                                            View Source
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            className="relative border-2 border-black/80
+                        rounded-lg w-96">
+                            {/* bg-[linear-gradient(140deg,var(--tw-gradient-stops))] 
+                        from-sky-700/80 to-black/20 shadow-indigo-800/20 */}
+                            {/* //bg-gray-300 bg-opacity-80 border-gray-600/30OUborder-white/40 
+                            [linear-gradient(140deg,var(--tw-gradient-stops))] from-sky-500/60 to-sky-800/60 shadow-indigo-800/20*/}
+                            <img
+                                src={image}
+                                alt=""
+                                className="w-full h-[250px] rounded-t-lg object-cover p-0" // h-[250px] w-[450px] min-w-[340px]
+                            />
+
+                            <div className="relative px-4 ">
+                                <h1 className="text-2xl font-bold text-gray-800 tracking-tight py-2">
+                                    Nome do projeto
+                                    {/* text-2xl font-boldtracking-tighter text-gray-800 d:text-white */}
                                 </h1>
                                 <div className="relative py-1">
                                     {/* add tecnologies */}
@@ -1347,13 +1676,92 @@ function Contact({ reff }) {
 
 function Footer() {
     return (
-        <section className="footer h-screen bg-blue-200 ">
-            <div className="flex flex-col justify-center items-center p-10">
-                <h1 className="about-title text-4xl font-bold text-gray-800">
-                    Footer
-                </h1>
+        <footer>
+            <div className="">
+                <div
+                    class="container mx-auto my-10 py-10
+                text-gray-600 text-[15px] font-semibold tracking-tight text-center
+                d:text-gray-300/80 truncate overflow-ellipsis">
+                    <h3 class="text-blue-500 font-bold mb-2 text-[18px] tracking-wide">
+                        What's Next?
+                    </h3>
+                    <h1 className="text-5xl font-bold mb-2">Get In Touch</h1>
+                    <p className="">I'm available for freelance projects.</p>
+                    <p className=" mb-4">
+                        Contact me to discuss your project needs.
+                    </p>
+                    {/*                     
+                    <div className="flex items-center justify-center mb-10">
+                        <button
+                            className="bg-transparent  text-gray-700 py-2 px-6  border-2
+                    border-gray-700 rounded-lg font-semibold
+                    hover:text-gray-900 transition-colors flex items-center justify-center">
+                            
+                            <img
+                                src={linkedin}
+                                alt="Logoo"
+                                className="w-6 h-6 bg-transparent mr-1"
+                                href="#home"
+                            />
+                            Linkedin
+                        </button>
+                        <button
+                            className="bg-transparent  text-gray-700 py-2 px-6 border-2
+                    border-gray-700 rounded-lg font-semibold
+                    hover:text-gray-900 transition-colors flex items-center justify-center">
+                            
+                            <img
+                                src={github}
+                                alt="Logoo"
+                                className="w-6 h-6 bg-transparent mr-1"
+                                href="#home"
+                            />
+                            Github
+                        </button>
+                    </div> */}
+
+                    <button
+                        className="font-medium text-white
+                                bg-gray-800 rounded-lg  py-3 px-12
+                            hover:bg-gray-900 border-2 border-gray-500">
+                        <a href="/">Let's Work</a>
+                    </button>
+                </div>
             </div>
-        </section>
+            <div className="bg-gray-800 text-white py-6">
+                <div
+                    class="container mx-auto flex flex-col 
+                lg:flex-row justify-between items-center px-32">
+                    <div class="mb-4 lg:mb-0">
+                        <p class="text-gray-400">
+                            &copy; 2023 Rúben Albuquerque. All rights reserved.
+                        </p>
+                    </div>
+                    <ul class="flex space-x-4">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     );
 }
 
@@ -1397,7 +1805,7 @@ function App() {
             {/* Smal viedo (trailer) on the projects image (demo and source) */}
             <Projects ref={projectsRef} />
             {/* Projects alternatives/small  - Fun projects*/}
-            <Contact />
+            {/* <Contact /> */}
             <Footer />
         </div>
     );

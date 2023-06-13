@@ -263,4 +263,8 @@ header {
      object-fit: cover;
   -o-object-position: 50% 50%;
      object-position: 50% 50%;
+}
+
+.footer-resume:hover {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }/*# sourceMappingURL=App.css.map */
