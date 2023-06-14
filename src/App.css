@@ -57,6 +57,10 @@ header {
 }
 
 /* ======== INTRO ============== */
+.inter {
+  font-family: Inter;
+}
+
 .Intro-Info .intro-welcome {
   font-size: 20px;
   font-weight: 700;

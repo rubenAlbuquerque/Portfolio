@@ -536,7 +536,7 @@ function About() {
         },
         {
             // date: "Fevereiro 2020 - Presente",
-            year: "2020",
+            year: "",
             mount: "Fevereiro",
 
             title: "Experiência 2",
@@ -786,13 +786,13 @@ function About() {
             {/* pontos da cronologia
             <div className="absolute top-0 left-0 h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]">
             </div> */}
-            <section className="bg-gray-200 py-6 rounded-lg">
+            <section className="bg-gray-100/40 py-6 rounded-lg">
                 <div className="max-w-full mx-auto px-1 sm:px-6 lg:px-3 ">
-                    <h2 className="text-3xl font-bold text-gray-800 text-center mb-4">
+                    <h2 className="inter text-3xl font-bold text-gray-800 text-center mb-4">
                         My Timeline
                     </h2>
                     <div
-                        className="flex justify-center overflow-x-auto bg-gray-100 rounded-lg py-5 px-2
+                        className="flex justify-center overflow-x-auto bg-gray-0 rounded-lg py-5 px-2
                     first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
                         <div className="relative inline-flex w-full">
                             <ul className="flex ">
@@ -806,24 +806,35 @@ function About() {
                                         onMouseLeave={() =>
                                             setHoveredIndex(null)
                                         }>
-                                        {/* {index !== events.length - 1 && ( */}
                                         <div
                                             className="absolute top-6 left-24 h-2.5 w-[210px] 
-        bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] 
-        bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
-                                        {/* )} */}
+                                            bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] 
+                                            bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
+
                                         <div className="w-52 h-72 ">
                                             <header className="flex justify-center ">
                                                 <div>
-                                                    <div className="w-10 flex items-center justify-center">
-                                                        <span className="text-[15px] font-medium leading-relaxed tracking-tight text-gray-500">
+                                                    <div
+                                                        className={`inter w-10 h-6 flex items-center justify-center ${
+                                                            event.year === ""
+                                                                ? "bg-transparent "
+                                                                : "bg-transparent"
+                                                        }`}>
+                                                        <span className="text-[13px] font-medium leading-relaxed tracking-tight text-gray-500">
                                                             {event.year}
                                                         </span>
                                                     </div>
 
-                                                    <div className="w-10 flex items-center justify-center">
-                                                        <div className="h-[30px] w-[2px] rounded-lg bg-gray-500 selected:bg-sky-500"></div>
-                                                    </div>
+                                                    {hoveredIndex === index && (
+                                                        <div className="w-10 flex items-center justify-center">
+                                                            <div className="h-[60px] w-[3px] rounded-lg bg-sky-500"></div>
+                                                        </div>
+                                                    )}
+                                                    {hoveredIndex !== index && (
+                                                        <div className="w-10 flex items-center justify-center">
+                                                            <div className="h-[30px] w-[2px] rounded-lg bg-gray-500 selected:bg-sky-500"></div>
+                                                        </div>
+                                                    )}
 
                                                     <div className="w-10 flex items-center justify-center">
                                                         <div className=" rounded-lg">
@@ -836,14 +847,17 @@ function About() {
                                             </header>
                                             <main className="w-52 flex flex-col items-center justify-center py-3">
                                                 <div className="bg-transparent text-center">
-                                                    <h1 className="whitespace-nowrap font-semibold tracking-tight text-gray-800 d:text-gray-100">
+                                                    <h1
+                                                        className="inter text-[16px] whitespace-nowrap font-semibold 
+                                                        tracking-tight 
+                                                    text-gray-800 d:text-gray-100">
                                                         {event.title}
                                                     </h1>
 
                                                     {hoveredIndex === index && (
                                                         <p
-                                                            className=" 
-                                                        text-[15px] leading-relaxed tracking-tight text-gray-500">
+                                                            className=" inter
+                                                        text-[14px] font-medium leading-relaxed tracking-tight text-gray-500">
                                                             {/* // opacity-0 group-hover:opacity-100"> */}
                                                             {event.description}
                                                         </p>
