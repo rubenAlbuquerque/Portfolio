@@ -91,6 +91,55 @@ header {
 .inter {
     font-family: Inter;
 }
+.primary {
+    // color: #006aff;
+    color: rgb(4, 120, 179);
+}
+.bg-primary {
+    background-color: rgb(17, 124, 177);
+}
+.secondary {
+    color: rgb(100, 116, 139);
+}
+
+.three {
+    background-color: #0f172a;
+    // 334155
+}
+
+.primaryButtonh {
+    // font-size: 14px;
+    // font-weight: 500;
+    // padding: 12px 48px;
+
+    &:hover {
+        // background-color: #f7fafc;
+        // border-color: #94a3b8;
+        // border-radius: 6px;
+        // border-color: transparent;
+        // border-width: 1px;
+        // color: #0f172a;
+
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media (min-width: 640px) {
+    .widthDiv {
+        width: 48rem /* 384px */;
+        height: 24rem;
+        padding: 0px 15%;
+        // background-color: #f92672;
+    }
+}
+@media (min-width: 1280px) {
+    .widthDiv {
+        // width: 100%;
+        width: 32rem /* 384px */;
+        height: 24rem;
+        // background-color: #f3e302;
+    }
+}
 
 .Intro-Info {
     .intro-welcome {
@@ -385,7 +434,7 @@ header {
 
 // imagens
 .swiper {
-    height: 40vh;
+    height: 48vh;
     aspect-ratio: 3/3;
     perspective: 1000px;
     perspective-origin: center 50%;
@@ -425,7 +474,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 50%; // center
+    // object-position: 50% 50%; // center
     // position: absolute;
     // top: 0;
     // left: 0;
@@ -449,4 +498,18 @@ header {
 
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     }
+}
+
+//
+@keyframes slide-up {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slide-up 1s ease-out;
 }
