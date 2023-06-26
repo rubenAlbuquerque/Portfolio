@@ -4,7 +4,7 @@
 [DEMO]([URL](https://rubenalbuquerque.github.io/Portfolio/))
 
 
-![About](./imagens/About.PNG "About")
+![View](./View.PNG "View")
 
 
 
