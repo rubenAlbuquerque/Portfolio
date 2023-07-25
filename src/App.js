@@ -40,6 +40,7 @@ import React from "react";
 // lg: 1024
 // xl: 1280
 // 2xl: 1536
+
 // 3xl: 1920-----------
 
 function Navbar() {
