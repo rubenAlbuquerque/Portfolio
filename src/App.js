@@ -5,6 +5,8 @@ import image2 from "./imagens/myphoto2.jpg";
 import image3 from "./imagens/myphoto3.jpg";
 import image4 from "./imagens/myphoto4.jpg";
 
+import baby from "./imagens/Imgicons/baby-born.png";
+
 import codephoto from "./imagens/index_code.png";
 import github from "./imagens/icons/github.png";
 import linkedin from "./imagens/icons/linkedin.png";
@@ -77,9 +79,9 @@ function Navbar() {
                             className="links"
                             key={index}
                             // href={link.href}
-                            href="#about"
+
                             onClick={() => console.log(link.href)}>
-                            {link.name}
+                            <a href="#about">{link.name}</a>
                         </li>
                     ))}
                 </ul>
@@ -589,12 +591,13 @@ function About() {
     const events = [
         {
             // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
+            year: "1999",
+            mount: "Março",
+            // icon: "
 
-            title: "Experiência 1",
+            title: "Born",
             description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+                " in Lisbon, Portugal, a city full of history, culture, and scenic beauty! ",
         },
         {
             // date: "Fevereiro 2020 - Presente",
@@ -674,7 +677,10 @@ function About() {
         });
     };
     return (
-        <section className="about pt-10 container mx-auto px-20 " id="about">
+        <section
+            className="about pt-10 container mx-auto px-20 "
+            id="about"
+            key="about">
             {/* about */}
             <div className="flex flex-col justify-center items-center p-5 ">
                 <h1 className="about-title text-4xl font-bold font-inter text-gray-800">
@@ -883,6 +889,11 @@ function About() {
                                                         <span className="text-[13px] font-medium leading-relaxed tracking-tight text-gray-500">
                                                             {event.year}
                                                         </span>
+                                                        {/* espace */}
+                                                        <br />
+                                                        <span className="text-[13px] font-medium leading-relaxed tracking-tight text-gray-500">
+                                                            {event.mount}
+                                                        </span>
                                                     </div>
 
                                                     {hoveredIndex === index && (
@@ -898,8 +909,17 @@ function About() {
 
                                                     <div className="w-10 flex items-center justify-center">
                                                         <div className=" rounded-lg">
-                                                            <FontAwesomeIcon
+                                                            {/* <FontAwesomeIcon
                                                                 icon={faDesktop}
+                                                            /> */}
+                                                            <img
+                                                                //  src={github}
+                                                                src={baby}
+                                                                style={{
+                                                                    height: "20px",
+                                                                    width: "20px",
+                                                                }}
+                                                                alt="Baby Born"
                                                             />
                                                         </div>
                                                     </div>
