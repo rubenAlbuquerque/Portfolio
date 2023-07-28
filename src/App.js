@@ -33,6 +33,8 @@ import {
     // <FontAwesomeIcon icon="fa-solid fa-rectangle-terminal" />
 } from "@fortawesome/free-solid-svg-icons";
 
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Import arrow icons
+
 import "./App.css";
 import React from "react";
 
@@ -592,72 +594,89 @@ function About() {
         {
             // date: "Janeiro 2018 - Dezembro 2019",
             year: "1999",
-            mount: "Março",
-            // icon: "
+            // mount: "Março",
+            icon: baby,
 
             title: "Born",
             description:
                 " in Lisbon, Portugal, a city full of history, culture, and scenic beauty! ",
         },
         {
-            // date: "Fevereiro 2020 - Presente",
-            year: "",
-            mount: "Fevereiro",
-
-            title: "Experiência 2",
+            year: "2006",
+            icon: "online",
+            title: "Exploring the Internet",
             description:
-                "Started a Vinyl sticker business, while exploring the very interesting customer segment of students 👨‍ 🎓",
+                "I was fortunate to explore the internet at the age of 10 using a 28.9KBit modem. I was absolutely mind-blown 🤯",
         },
         {
-            // date: "Fevereiro 2020 - Presente",
+            year: "2012",
+            icon: "computer",
+            title: "First Computer",
+            description: "I got my first computer 😂",
+        },
+        {
+            year: "2016",
+            icon: "code",
+            title: "First Line of Code",
+            description: "Built my first code for a media player with C#",
+        },
+        {
+            year: "2017",
+            icon: "graduation-cap",
+            title: "Graduated High School",
+            description:
+                "Completed my last three years at a High-school for Technology and Media in Germany. Shortly after, I found myself working different jobs, trying to figure out what I wanted to do.",
+        },
+        {
+            year: "2017",
+            icon: "university",
+            title: "Started College in Bioinformatics",
+            description: "Enrolled in the Barreiro College for Bioinformatics.",
+        },
+        {
+            year: "2018",
+            icon: "code",
+            title: "Web Development",
+            description: "Built my first websites using HTML, CSS, and JS. 🙃",
+        },
+        {
+            year: "2018",
+            icon: "travel",
+            title: "Visit to Paris",
+            description: "Had a memorable trip to Paris.",
+        },
+        {
+            year: "2019",
+            icon: "code",
+            title: "Coding Skills",
+            description:
+                "Pursued my interests in web development & tech professionally. Completed the FreeCodeCamp Front-end certification.",
+        },
+        {
             year: "2020",
-            mount: "Fevereiro",
-            title: "Experiência 2",
-            description:
-                "I left my full-time position early in 2015 to focus on a Postgraduate diploma at UCT. I continued my work in a Consulting Role.",
+            icon: "work",
+            title: "Internship at Germano de Sousa",
+            description: "Worked as an IT intern at Germano de Sousa.",
         },
         {
-            // date: "Fevereiro 2020 - Presente",
             year: "2020",
-            mount: "Fevereiro",
-            title: "Experiência 2",
-            description: "Descrição da Experiência 5",
+            icon: "graduation-cap",
+            title: "Graduated in Bioinformatics",
+            description: "Completed my bachelor's degree in Bioinformatics.",
         },
         {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
+            year: "2021",
+            icon: "university",
+            title: "Started Master's in Computer Science and Multimedia",
             description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+                "Began my master's program in Computer Science and Multimedia.",
         },
         {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
+            year: "2023",
+            icon: "website",
+            title: "Personal Website",
             description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
-        },
-        {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
-            description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
-        },
-        {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
-            description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
+                "Decided to build my personal website with React and Tailwind CSS.",
         },
     ];
 
@@ -665,6 +684,18 @@ function About() {
     // const isLastElement = (index) => index === images.length - 1;
     // const [showDescription, setShowDescription] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    const [scrollX, setScrollX] = useState(0);
+
+    // Function to handle the scroll
+    const handleScroll = (scrollOffset) => {
+        const container = document.querySelector(".flex"); // Replace '.flex' with the appropriate class to target the scrolling container
+        if (container) {
+            const newScrollX = scrollX + scrollOffset;
+            setScrollX(newScrollX);
+            container.scroll({ left: newScrollX, behavior: "smooth" });
+        }
+    };
 
     const handleCardClick = (selectedImage) => {
         setImages((prevImages) => {
@@ -849,14 +880,29 @@ function About() {
             </div>
             {/* statistics and text */}
 
-            {/* pontos da cronologia
-            <div className="absolute top-0 left-0 h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]">
-            </div> */}
+            {/* pontos da cronologia */}
+            {/* <div className="absolute top-0 left-0 h-5 w-[20px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div> */}
             <section className="bg-gray-100/40 py-6 rounded-lg">
                 <div className="max-w-full mx-auto px-1 sm:px-6 lg:px-3 ">
-                    <h2 className="inter text-3xl font-bold text-gray-800 text-center mb-4">
-                        My Timeline
-                    </h2>
+                    <div
+                        className="flex justify-center overflow-x-auto bg-gray-0 rounded-lg py-5 px-5
+                    first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
+                        <button
+                            // className=""
+                            onClick={() => handleScroll(-150)} // Scroll left by 150 pixels (or adjust the value as needed)
+                            className=" flex items-center justify-center bg-white rounded-full w-10 h-10 shadow-md hover:shadow-lg focus:outline-none">
+                            <FaChevronLeft size={30} />
+                        </button>
+                        <h2 className="inter text-3xl font-bold text-gray-800 text-center mx-10">
+                            My Timeline
+                        </h2>
+                        <button
+                            onClick={() => handleScroll(150)} // Scroll right by 150 pixels (or adjust the value as needed)
+                            className="flex items-center justify-center bg-white rounded-full w-10 h-10 shadow-md hover:shadow-lg focus:outline-none">
+                            <FaChevronRight size={30} />
+                        </button>
+                    </div>
+
                     <div
                         className="flex justify-center overflow-x-auto bg-gray-0 rounded-lg py-5 px-2
                     first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
@@ -889,11 +935,6 @@ function About() {
                                                         <span className="text-[13px] font-medium leading-relaxed tracking-tight text-gray-500">
                                                             {event.year}
                                                         </span>
-                                                        {/* espace */}
-                                                        <br />
-                                                        <span className="text-[13px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                                            {event.mount}
-                                                        </span>
                                                     </div>
 
                                                     {hoveredIndex === index && (
@@ -909,12 +950,8 @@ function About() {
 
                                                     <div className="w-10 flex items-center justify-center">
                                                         <div className=" rounded-lg">
-                                                            {/* <FontAwesomeIcon
-                                                                icon={faDesktop}
-                                                            /> */}
                                                             <img
-                                                                //  src={github}
-                                                                src={baby}
+                                                                src={event.icon}
                                                                 style={{
                                                                     height: "20px",
                                                                     width: "20px",
