@@ -513,3 +513,22 @@ header {
 .animate-slide-up {
     animation: slide-up 1s ease-out;
 }
+
+/* Arquivo CSS personalizado */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hidden {
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer e Microsoft Edge */
+}
+
+/* Arquivo CSS personalizado */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* Número de linhas que deseja exibir */
+}

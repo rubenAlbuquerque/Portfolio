@@ -904,8 +904,9 @@ function About() {
                     </div>
 
                     <div
-                        className="flex justify-center overflow-x-auto bg-gray-0 rounded-lg py-5 px-2
-                    first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
+                        className="flex justify-center  rounded-lg py-5 px-2  overflow-x-auto first-letter:scrollbar-w-2 bg-gray-0 scrollbar-hidden"
+                        // first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500 overflow-x-auto bg-gray-0"
+                    >
                         <div className="relative inline-flex w-full">
                             <ul className="flex ">
                                 {events.map((event, index) => (
@@ -919,7 +920,7 @@ function About() {
                                             setHoveredIndex(null)
                                         }>
                                         <div
-                                            className="absolute top-6 left-24 h-2.5 w-[210px] 
+                                            className="absolute top-6 left-[24px] h-2.5 w-[210px] 
                                             bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] 
                                             bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
 
@@ -962,12 +963,12 @@ function About() {
                                                     </div>
                                                 </div>
                                             </header>
-                                            <main className="w-52 flex flex-col items-center justify-center py-3">
-                                                <div className="bg-transparent text-center">
+                                            <main className="w-50 flex flex-col items-center justify-center px-4 py-3 bg-red-400">
+                                                <div className="bg-transparent text-center  ">
                                                     {hoveredIndex !== index && (
                                                         <h1
                                                             className="inter text-[16px] whitespace-nowrap font-semibold 
-                                                        tracking-tight 
+                                                        tracking-tight line-clamp-2
                                                     text-gray-800 d:text-gray-100">
                                                             {event.title}
                                                         </h1>
@@ -997,7 +998,7 @@ function About() {
                                         </div>
                                     </li>
                                 ))}
-                                <header className="flex justify-center w-52">
+                                <header className="flex justify-center w-20">
                                     <div>
                                         <div className=" flex items-center justify-center">
                                             <span className="text-sm text-center font-semibold text-gray-500 ">
@@ -1006,7 +1007,7 @@ function About() {
                                         </div>
 
                                         <div className=" flex items-center justify-center">
-                                            <div className="h-[30px] w-[2px]  rounded-lg bg-gray-500  selected:bg-sky-500"></div>
+                                            <div className="h-[55px] w-[3px]  rounded-lg bg-gray-500  selected:bg-sky-500"></div>
                                         </div>
                                     </div>
                                 </header>
