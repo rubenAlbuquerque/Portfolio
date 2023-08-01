@@ -4,334 +4,334 @@
 @tailwind utilities;
 /* ========BASE ============== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 header {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 .nav {
-  padding: 0px 15%;
+    padding: 0px 15%;
 }
 
 .links {
-  background-color: transparent;
-  color: #64748b;
-  display: flex;
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.35px;
-  line-height: 20px;
-  padding: 6px 16px;
+    background-color: transparent;
+    color: #64748b;
+    display: flex;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.35px;
+    line-height: 20px;
+    padding: 6px 16px;
 }
 .links:hover {
-  border-radius: 6px;
-  outline: 1px solid #64748b;
-  color: #2f3742;
-  cursor: pointer;
+    border-radius: 6px;
+    outline: 1px solid #64748b;
+    color: #2f3742;
+    cursor: pointer;
 }
 
 .button-contactme {
-  background-color: #ffffff;
-  border-color: #94a3b8;
-  border-radius: 6px;
-  border-style: solid;
-  border-width: 2px;
-  color: #2f3742;
-  display: flex;
-  font-family: Inter;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: -0.35px;
-  line-height: 20px;
-  margin: 0px 0px 0px 10px;
-  padding: 6px 16px;
-  transition: box-shadow 0.2s;
+    background-color: #ffffff;
+    border-color: #94a3b8;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 2px;
+    color: #2f3742;
+    display: flex;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.35px;
+    line-height: 20px;
+    margin: 0px 0px 0px 10px;
+    padding: 6px 16px;
+    transition: box-shadow 0.2s;
 }
 .button-contactme:hover {
-  color: #0f172a;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    color: #0f172a;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 /* ======== INTRO ============== */
 .inter {
-  font-family: Inter;
+    font-family: Inter;
 }
 
 .primary {
-  color: rgb(4, 120, 179);
+    color: rgb(4, 120, 179);
 }
 
 .bg-primary {
-  background-color: rgb(17, 124, 177);
+    background-color: rgb(17, 124, 177);
 }
 
 .secondary {
-  color: rgb(100, 116, 139);
+    color: rgb(100, 116, 139);
 }
 
 .three {
-  background-color: #0f172a;
+    background-color: #0f172a;
 }
 
 .primaryButtonh:hover {
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 640px) {
-  .widthDiv {
-    width: 48rem;
-    height: 24rem;
-    padding: 0px 15%;
-  }
+    .widthDiv {
+        width: 48rem;
+        height: 24rem;
+        padding: 0px 15%;
+    }
 }
 @media (min-width: 1280px) {
-  .widthDiv {
-    width: 32rem;
-    height: 24rem;
-  }
+    .widthDiv {
+        width: 32rem;
+        height: 24rem;
+    }
 }
 .Intro-Info .intro-welcome {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Inter;
 }
 .Intro-Info .title {
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: -0.6px;
-  line-height: 70px;
-  font-family: Inter;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    line-height: 70px;
+    font-family: Inter;
 }
 .Intro-Info .title .title-name {
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: -0.6px;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
 }
 .Intro-Info .title .title-body {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  line-height: 48px;
-  font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 48px;
+    font-family: Inter;
 }
 .Intro-Info .intro-description {
-  color: #64748b;
-  font-family: Inter;
-  font-size: 18px;
-  line-height: 28px;
+    color: #64748b;
+    font-family: Inter;
+    font-size: 18px;
+    line-height: 28px;
 }
 .Intro-Info .intro-letswork {
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px 48px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 48px;
 }
 .Intro-Info .intro-resume {
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px 48px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 48px;
 }
 .Intro-Info .intro-resume:hover {
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 .Intro-Info .red {
-  color: #f92672;
+    color: #f92672;
 }
 .Intro-Info .orange {
-  color: #fb923c;
+    color: #fb923c;
 }
 .Intro-Info .green {
-  color: #4ade80;
+    color: #4ade80;
 }
 .Intro-Info .blue {
-  color: #b7e2f8;
+    color: #b7e2f8;
 }
 .Intro-Info .blueStrong {
-  color: #0478b3;
+    color: #0478b3;
 }
 .Intro-Info .white {
-  color: #e2e8f0;
+    color: #e2e8f0;
 }
 
 .myblur {
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  right: -45%;
-  top: 40%;
-  background-color: #2f3742;
-  filter: blur(30px);
-  z-index: -1;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: -45%;
+    top: 40%;
+    background-color: #2f3742;
+    filter: blur(30px);
+    z-index: -1;
 }
 
 .myblur-terminal {
-  width: 250px;
-  height: 150px;
-  position: absolute;
-  right: -55%;
-  top: 20%;
-  background-color: #2f3742;
-  filter: blur(20px);
-  z-index: -1;
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    right: -55%;
+    top: 20%;
+    background-color: #2f3742;
+    filter: blur(20px);
+    z-index: -1;
 }
 
 .Intro-Code {
-  border-width: 2px;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #94a3b8;
-  font-size: 13px;
-  letter-spacing: 0.35px;
+    border-width: 2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #94a3b8;
+    font-size: 13px;
+    letter-spacing: 0.35px;
 }
 .Intro-Code .defaultButton {
-  color: #006aff;
+    color: #006aff;
 }
 .Intro-Code .red {
-  color: #f92672;
+    color: #f92672;
 }
 .Intro-Code .orange {
-  color: #fb923c;
+    color: #fb923c;
 }
 .Intro-Code .green {
-  color: #4ade80;
+    color: #4ade80;
 }
 .Intro-Code .blue {
-  color: #b7e2f8;
+    color: #b7e2f8;
 }
 .Intro-Code .blueStrong {
-  color: #0478b3;
+    color: #0478b3;
 }
 .Intro-Code .white {
-  color: #e2e8f0;
+    color: #e2e8f0;
 }
 
 .input-terminal {
-  border: none;
-  background-color: transparent;
-  color: #c70000;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.35px;
-  line-height: 20px;
-  outline: none;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
+    border: none;
+    background-color: transparent;
+    color: #c70000;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.35px;
+    line-height: 20px;
+    outline: none;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
 }
 
 .terminal {
-  border-width: 1px;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #94a3b8;
-  font-size: 12px;
-  width: 300px;
-  height: 190px;
-  line-height: 3px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #94a3b8;
+    font-size: 12px;
+    width: 300px;
+    height: 190px;
+    line-height: 3px;
 }
 .terminal .terminal-body {
-  font-family: Consolas, "Courier New", monospace;
-  color: #ffffff;
+    font-family: Consolas, "Courier New", monospace;
+    color: #ffffff;
 }
 .terminal .terminal-body .terminal-text {
-  line-height: 0.8;
+    line-height: 0.8;
 }
 .terminal .terminal-body .red {
-  color: #f92672;
+    color: #f92672;
 }
 .terminal .terminal-body .orange {
-  color: #fb923c;
+    color: #fb923c;
 }
 .terminal .terminal-body .green {
-  color: #4ade80;
+    color: #4ade80;
 }
 .terminal .terminal-body .blue {
-  color: #b7e2f8;
+    color: #b7e2f8;
 }
 .terminal .terminal-body .blueStrong {
-  color: #0478b3;
+    color: #0478b3;
 }
 .terminal .terminal-body .white {
-  color: #e2e8f0;
+    color: #e2e8f0;
 }
 
 /* ======== ABOUT ============== */
 .about .about-title {
-  font-family: Inter;
+    font-family: Inter;
 }
 .about .about-text {
-  line-height: 28px;
-  font-family: Inter;
-  color: #64748b;
+    line-height: 28px;
+    font-family: Inter;
+    color: #64748b;
 }
 
 .swiper {
-  height: 48vh;
-  aspect-ratio: 3/3;
-  perspective: 1000px;
-  perspective-origin: center 50%;
-  transform-style: preserve-3d;
-  position: relative;
+    height: 48vh;
+    aspect-ratio: 3/3;
+    perspective: 1000px;
+    perspective-origin: center 50%;
+    transform-style: preserve-3d;
+    position: relative;
 }
 
-.card {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  overflow: hidden;
-  border-radius: 5px;
-  border: 1px solid #000000;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+.cardd {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
-.card img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.cardd img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 
 .footer-resume:hover {
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes slide-up {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 .animate-slide-up {
-  animation: slide-up 1s ease-out;
+    animation: slide-up 1s ease-out;
 }
 
 /* Arquivo CSS personalizado */
 .scrollbar-hidden::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .scrollbar-hidden {
-  scrollbar-width: none; /* Para Firefox */
-  -ms-overflow-style: none; /* Para Internet Explorer e Microsoft Edge */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer e Microsoft Edge */
 }
 
 /* Arquivo CSS personalizado */
 .line-clamp-2 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2; /* Número de linhas que deseja exibir */
-}/*# sourceMappingURL=App.css.map */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3; /* Número de linhas que deseja exibir */
+} /*# sourceMappingURL=App.css.map */

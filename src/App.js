@@ -45,15 +45,19 @@ import React from "react";
 // xl: 1280
 // 2xl: 1536
 
+// import Card from "./Card";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import Carousel from "./components/Carousel";
+
 // 3xl: 1920-----------
 
 function Navbar() {
     // data { scroll, introrefs, aboutrefs, projectsrefs }
     const links = [
-        { name: "Home", href: "#about", active: true, note: "Presentation " },
+        { name: "Home", href: "#home", active: true, note: "Presentation " },
         { name: "About", href: "#about", note: "More about me" },
-        { name: "Projects", href: "#about", note: "Work i've done" },
-        { name: "Contact", ref: "#Contact", note: "My contacts" },
+        { name: "Projects", href: "#projects", note: "Work i've done" },
+        { name: "Contact", ref: "#contact", note: "My contacts" },
     ];
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -81,9 +85,8 @@ function Navbar() {
                             className="links"
                             key={index}
                             // href={link.href}
-
                             onClick={() => console.log(link.href)}>
-                            <a href="#about">{link.name}</a>
+                            <a href={link.href}>{link.name}</a>
                         </li>
                     ))}
                 </ul>
@@ -225,7 +228,8 @@ function Intro() {
     return (
         <section
             // ref={ref}
-            className="container mx-auto  mt-36 mb-32">
+            className="container mx-auto  mt-36 mb-32"
+            id="home">
             {/* mx-0 px-32 pb-0 */}
             <div
                 className="Intro text-black container mx-auto 
@@ -630,7 +634,7 @@ function About() {
         {
             year: "2017",
             icon: "university",
-            title: "Started College in Bioinformatics",
+            title: "Started College \n in Bioinformatics",
             description: "Enrolled in the Barreiro College for Bioinformatics.",
         },
         {
@@ -661,7 +665,7 @@ function About() {
         {
             year: "2020",
             icon: "graduation-cap",
-            title: "Graduated in Bioinformatics",
+            title: "Graduated in \n Bioinformatics",
             description: "Completed my bachelor's degree in Bioinformatics.",
         },
         {
@@ -684,17 +688,53 @@ function About() {
     // const isLastElement = (index) => index === images.length - 1;
     // const [showDescription, setShowDescription] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    // const carouselRef = useRef(null);
+    // const [currentImage, setCurrentImage] = useState(0);
 
     const [scrollX, setScrollX] = useState(0);
 
     // Function to handle the scroll
     const handleScroll = (scrollOffset) => {
-        const container = document.querySelector(".flex"); // Replace '.flex' with the appropriate class to target the scrolling container
-        if (container) {
-            const newScrollX = scrollX + scrollOffset;
-            setScrollX(newScrollX);
-            container.scroll({ left: newScrollX, behavior: "smooth" });
-        }
+        console.log("scrollOffset", scrollOffset);
+        const doc = (document.getElementById("carousel").scrollLeft +=
+            scrollOffset);
+        console.log(document.getElementById("carousel"));
+        console.log(doc);
+        // const container = document.querySelector(".carousel-container"); // Replace '.flex' with the appropriate class to target the scrolling container
+        // console.log("scrollOffset", scrollOffset);
+        // console.log(container);
+        // if (container) {
+        //     const newScrollX = scrollX + scrollOffset;
+        //     setScrollX(newScrollX);
+        //     container.scroll({ left: newScrollX, behavior: "smooth" });
+        //     console.log("scrollX", scrollX);
+        // }
+
+        // const container = document.querySelector(".carousel-container");
+        // if (container) {
+        //     console.log(container);
+        //     const eventWidth = 210; // Width of each event card (adjust as needed)
+        //     const containerWidth = container.offsetWidth;
+        //     const visibleEvents = Math.floor(containerWidth / eventWidth);
+        //     const remainingEvents = events.length - visibleEvents;
+        //     const nextScrollOffset = Math.min(
+        //         (remainingEvents - 1) * eventWidth,
+        //         eventWidth + 20 // Add some margin or padding as needed for the smooth transition
+        // );
+
+        //     // container.style.transition = "transform 0.5s ease-out";
+        //     // container.style.transform = `translateX(-${nextScrollOffset}px)`;
+        //     const newScrollX = scrollX + scrollOffset;
+        //     container.scrollLeft += newScrollX;
+        //     console.log(container.scrollLeft);
+        //     console.log(newScrollX);
+
+        //     // const newScrollX = scrollX + scrollOffset;
+        //     setScrollX(newScrollX);
+        //     container.scroll({ left: newScrollX, behavior: "smooth" });
+        //     container.scrollLeft += newScrollX;
+        //     console.log("scrollX", scrollX);
+        // }
     };
 
     const handleCardClick = (selectedImage) => {
@@ -707,11 +747,30 @@ function About() {
             return [...filteredImages, selectedImage];
         });
     };
+
+    // useEffect(() => {
+    //     if (carouselRef.current) {
+    //         window.$(carouselRef.current).carousel({
+    //             interval: 2000,
+    //         });
+    //     }
+    // }, [carouselRef]);
+
+    const handlePrevClick = () => {
+        setHoveredIndex((prev) => (prev === 0 ? events.length - 1 : prev - 1));
+    };
+
+    const handleNextClick = () => {
+        setHoveredIndex((prev) => (prev === events.length - 1 ? 0 : prev + 1));
+        handleScroll(400);
+        console.log(hoveredIndex);
+    };
     return (
         <section
             className="about pt-10 container mx-auto px-20 "
             id="about"
-            key="about">
+            // key="about"
+        >
             {/* about */}
             <div className="flex flex-col justify-center items-center p-5 ">
                 <h1 className="about-title text-4xl font-bold font-inter text-gray-800">
@@ -727,7 +786,7 @@ function About() {
 
                             return (
                                 <div
-                                    className="card bg-gray-200 "
+                                    className="cardd bg-gray-200 "
                                     style={{
                                         "--i": index,
                                         "--deg": image.degres,
@@ -889,7 +948,7 @@ function About() {
                     first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
                         <button
                             // className=""
-                            onClick={() => handleScroll(-150)} // Scroll left by 150 pixels (or adjust the value as needed)
+                            onClick={handlePrevClick} //() => handleScroll(-150)} // Scroll left by 150 pixels (or adjust the value as needed)
                             className=" flex items-center justify-center bg-white rounded-full w-10 h-10 shadow-md hover:shadow-lg focus:outline-none">
                             <FaChevronLeft size={30} />
                         </button>
@@ -897,7 +956,7 @@ function About() {
                             My Timeline
                         </h2>
                         <button
-                            onClick={() => handleScroll(150)} // Scroll right by 150 pixels (or adjust the value as needed)
+                            onClick={handleNextClick} // () => handleScroll(150)} // Scroll right by 150 pixels (or adjust the value as needed)
                             className="flex items-center justify-center bg-white rounded-full w-10 h-10 shadow-md hover:shadow-lg focus:outline-none">
                             <FaChevronRight size={30} />
                         </button>
@@ -907,7 +966,9 @@ function About() {
                         className="flex justify-center  rounded-lg py-5 px-2  overflow-x-auto first-letter:scrollbar-w-2 bg-gray-0 scrollbar-hidden"
                         // first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500 overflow-x-auto bg-gray-0"
                     >
-                        <div className="relative inline-flex w-full">
+                        <div
+                            className="relative inline-flex w-full"
+                            id="carousel">
                             <ul className="flex ">
                                 {events.map((event, index) => (
                                     <li
@@ -963,11 +1024,11 @@ function About() {
                                                     </div>
                                                 </div>
                                             </header>
-                                            <main className="w-50 flex flex-col items-center justify-center px-4 py-3 bg-red-400">
+                                            <main className="w-50 flex flex-col items-center justify-center px-4 py-3">
                                                 <div className="bg-transparent text-center  ">
                                                     {hoveredIndex !== index && (
                                                         <h1
-                                                            className="inter text-[16px] whitespace-nowrap font-semibold 
+                                                            className="inter text-[16px] font-semibold 
                                                         tracking-tight line-clamp-2
                                                     text-gray-800 d:text-gray-100">
                                                             {event.title}
@@ -977,7 +1038,7 @@ function About() {
                                                     {hoveredIndex === index && (
                                                         <div>
                                                             <h1
-                                                                className="inter primary text-[18px] whitespace-nowrap font-semibold 
+                                                                className="inter primary text-[18px] font-semibold 
                                                         tracking-tight 
                                                     text-gray-800 d:text-gray-100">
                                                                 {event.title}
@@ -1020,8 +1081,8 @@ function About() {
     );
 }
 
-function Projects({ reff }) {
-    console.log(reff);
+function Projects() {
+    // console.log(reff);
     const image = "https://source.unsplash.com/random/800x1200";
 
     const projectsInfo = [
@@ -1077,8 +1138,114 @@ function Projects({ reff }) {
         },
     ];
 
+    const dataInfo = [
+        {
+            title: "Project 1",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 2",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 3",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github/3",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 3",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github/3",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 3",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github/3",
+            liveLink: "https://rubenmoya.com",
+        },
+    ];
+
+    const funInfo = [
+        {
+            title: "Project 1",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 2",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 3",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github/3",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 3",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github/3",
+            liveLink: "https://rubenmoya.com",
+        },
+        {
+            title: "Project 3",
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            image: "https://source.unsplash.com/random/800x1200",
+            link: "https://source.unsplash.com/random/800x1200",
+            tech: ["React", "Tailwind", "Firebase"],
+            githubLink: "https://github/3",
+            liveLink: "https://rubenmoya.com",
+        },
+    ];
+
     return (
-        <section ref={reff} className="#projects  mt-0">
+        <section className="#projects  mt-0" id="projects">
             <div className="flex flex-col justify-center items-center pt-10 pb-5">
                 <h1 className="about-title text-4xl font-bold text-gray-800">
                     Projects
@@ -1098,78 +1265,7 @@ function Projects({ reff }) {
 
                     <main className=" mt-0 ">
                         <div className="">
-                            <ul className="flex flex-row gap-4 overflow-x-auto p-5">
-                                {projectsInfo.map((project, index) => (
-                                    <li
-                                        key={index}
-                                        className="w-80 min-w-80 flex-shrink-0 
-                                        border border-gray-500/90 rounded-lg">
-                                        <div className="w-full">
-                                            <img
-                                                src={project.image}
-                                                alt=""
-                                                className="rounded-t-lg object-cover object-top"
-                                            />
-                                        </div>
-                                        <div className="px-2">
-                                            <h1 class="text-2xl font-bold inter primary tracking-tight pt-2">
-                                                {project.title}
-                                            </h1>
-                                            <div className="py-2">
-                                                {project.tech.map(
-                                                    (tech, index) => (
-                                                        <button
-                                                            class="py-1 px-3 rounded border text-xs border-blue-950 mr-1 font-medium"
-                                                            key={index}>
-                                                            <a
-                                                                href={
-                                                                    project.githubLink
-                                                                }
-                                                                target="_blank"
-                                                                class="flex flex-row justify-center items-center"
-                                                                rel="noreferrer">
-                                                                {tech}
-                                                            </a>
-                                                        </button>
-                                                    )
-                                                )}
-                                            </div>
-                                            <p class="inter secondary line-clamp-5 text-sm">
-                                                {project.description}
-                                                {project.description}
-                                            </p>
-                                            <div class="flex flex-row justify-end py-3">
-                                                <button class="rounded border-0 border-blue-950 hover:shadow-sm hover:bg-sky-600 bg-blue-400 text-black py-0 px-3 mr-3 text-sm font-semibold flex items-center justify-center">
-                                                    <FontAwesomeIcon
-                                                        class="w-4 h-4 mr-2"
-                                                        icon={
-                                                            faArrowUpRightFromSquare
-                                                        }
-                                                    />
-                                                    Live Demo
-                                                </button>
-                                                <button class="py-1 px-2 rounded border border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-600/30">
-                                                    <a
-                                                        href={
-                                                            project.githubLink
-                                                        }
-                                                        target="_blank"
-                                                        class="flex flex-row justify-center items-center text-sm"
-                                                        rel="noreferrer">
-                                                        <img
-                                                            src={github}
-                                                            alt="Logo"
-                                                            class="w-6 h-6 bg-transparent rounded-lg mr-1"
-                                                            href="#home"
-                                                        />
-                                                        View Source
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                            <Carousel k={"1"} data={projectsInfo} />
                         </div>
                     </main>
                 </div>
@@ -1185,81 +1281,11 @@ function Projects({ reff }) {
 
                     <main className=" mt-0 ">
                         <div className="">
-                            <ul className="flex flex-row gap-4 overflow-x-auto p-5">
-                                {projectsInfo.map((project, index) => (
-                                    <li
-                                        key={index}
-                                        className="w-80 min-w-80 flex-shrink-0 
-                                        border border-gray-500/90 rounded-lg">
-                                        <div className="w-full">
-                                            <img
-                                                src={project.image}
-                                                alt=""
-                                                className="rounded-t-lg object-cover object-top"
-                                            />
-                                        </div>
-                                        <div className="px-2">
-                                            <h1 class="text-2xl font-bold inter primary tracking-tight pt-2">
-                                                {project.title}
-                                            </h1>
-                                            <div className="py-2">
-                                                {project.tech.map(
-                                                    (tech, index) => (
-                                                        <button
-                                                            class="py-1 px-3 rounded border text-xs border-blue-950 mr-1 font-medium"
-                                                            key={index}>
-                                                            <a
-                                                                href={
-                                                                    project.githubLink
-                                                                }
-                                                                target="_blank"
-                                                                class="flex flex-row justify-center items-center"
-                                                                rel="noreferrer">
-                                                                {tech}
-                                                            </a>
-                                                        </button>
-                                                    )
-                                                )}
-                                            </div>
-                                            <p class="inter secondary line-clamp-5 text-sm">
-                                                {project.description}
-                                                {project.description}
-                                            </p>
-                                            <div class="flex flex-row justify-end py-3">
-                                                <button class="rounded border-0 border-blue-950 hover:shadow-sm hover:bg-sky-600 bg-blue-400 text-black py-0 px-3 mr-3 text-sm font-semibold flex items-center justify-center">
-                                                    <FontAwesomeIcon
-                                                        class="w-4 h-4 mr-2"
-                                                        icon={
-                                                            faArrowUpRightFromSquare
-                                                        }
-                                                    />
-                                                    Live Demo
-                                                </button>
-                                                <button class="py-1 px-2 rounded border border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-600/30">
-                                                    <a
-                                                        href={
-                                                            project.githubLink
-                                                        }
-                                                        target="_blank"
-                                                        class="flex flex-row justify-center items-center text-sm"
-                                                        rel="noreferrer">
-                                                        <img
-                                                            src={github}
-                                                            alt="Logo"
-                                                            class="w-6 h-6 bg-transparent rounded-lg mr-1"
-                                                            href="#home"
-                                                        />
-                                                        View Source
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                            <Carousel k={"2"} data={dataInfo} />
                         </div>
                     </main>
                 </div>
+
                 <div className="w-9/12 mx-auto my-5">
                     <h1
                         className="text-2xl font-bold text-gray-800 tracking-tighter pb-1
@@ -1271,78 +1297,7 @@ function Projects({ reff }) {
 
                     <main className=" mt-0 ">
                         <div className="">
-                            <ul className="flex flex-row gap-4 overflow-x-auto p-5">
-                                {projectsInfo.map((project, index) => (
-                                    <li
-                                        key={index}
-                                        className="w-80 min-w-80 flex-shrink-0 
-                                        border border-gray-500/90 rounded-lg">
-                                        <div className="w-full">
-                                            <img
-                                                src={project.image}
-                                                alt=""
-                                                className="rounded-t-lg object-cover object-top"
-                                            />
-                                        </div>
-                                        <div className="px-2">
-                                            <h1 class="text-2xl font-bold inter primary tracking-tight pt-2">
-                                                {project.title}
-                                            </h1>
-                                            <div className="py-2">
-                                                {project.tech.map(
-                                                    (tech, index) => (
-                                                        <button
-                                                            class="py-1 px-3 rounded border text-xs border-blue-950 mr-1 font-medium"
-                                                            key={index}>
-                                                            <a
-                                                                href={
-                                                                    project.githubLink
-                                                                }
-                                                                target="_blank"
-                                                                class="flex flex-row justify-center items-center"
-                                                                rel="noreferrer">
-                                                                {tech}
-                                                            </a>
-                                                        </button>
-                                                    )
-                                                )}
-                                            </div>
-                                            <p class="inter secondary line-clamp-5 text-sm">
-                                                {project.description}
-                                                {project.description}
-                                            </p>
-                                            <div class="flex flex-row justify-end py-3">
-                                                <button class="rounded border-0 border-blue-950 hover:shadow-sm hover:bg-sky-600 bg-blue-400 text-black py-0 px-3 mr-3 text-sm font-semibold flex items-center justify-center">
-                                                    <FontAwesomeIcon
-                                                        class="w-4 h-4 mr-2"
-                                                        icon={
-                                                            faArrowUpRightFromSquare
-                                                        }
-                                                    />
-                                                    Live Demo
-                                                </button>
-                                                <button class="py-1 px-2 rounded border border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-600/30">
-                                                    <a
-                                                        href={
-                                                            project.githubLink
-                                                        }
-                                                        target="_blank"
-                                                        class="flex flex-row justify-center items-center text-sm"
-                                                        rel="noreferrer">
-                                                        <img
-                                                            src={github}
-                                                            alt="Logo"
-                                                            class="w-6 h-6 bg-transparent rounded-lg mr-1"
-                                                            href="#home"
-                                                        />
-                                                        View Source
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                            <Carousel k={"3"} data={funInfo} />
                         </div>
                     </main>
                 </div>
@@ -1351,9 +1306,9 @@ function Projects({ reff }) {
     );
 }
 
-function Contact({ reff }) {
+function Contact() {
     return (
-        <section ref={reff} className="#contact h-screen bg-red-200">
+        <section className="#contact h-screen bg-red-200" id="contact">
             <div className="flex flex-col justify-center items-center p-10">
                 <h1 className="text-4xl font-bold text-gray-800">Contact</h1>
             </div>
@@ -1363,7 +1318,7 @@ function Contact({ reff }) {
 
 function Footer() {
     return (
-        <footer>
+        <footer id="contact">
             <div className="">
                 <div
                     class="container mx-auto my-10 py-10
@@ -1377,6 +1332,7 @@ function Footer() {
                     <p className=" mb-4">
                         Contact me to discuss your project needs.
                     </p>
+
                     {/*                     
                     <div className="flex items-center justify-center mb-10">
                         <button
@@ -1433,7 +1389,9 @@ function Footer() {
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-gray-400 hover:text-white">
+                            <a
+                                href="#projects"
+                                class="text-gray-400 hover:text-white">
                                 Projects
                             </a>
                         </li>
@@ -1445,7 +1403,9 @@ function Footer() {
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="text-gray-400 hover:text-white">
+                            <a
+                                href="#contact"
+                                class="text-gray-400 hover:text-white">
                                 Contact
                             </a>
                         </li>
@@ -1457,31 +1417,6 @@ function Footer() {
 }
 
 function App() {
-    const introRef = useRef(null);
-    const aboutRef = useRef(null);
-    const projectsRef = useRef(null);
-
-    const scrollToSection = (section) => {
-        console.log(section);
-        section.current.scrollIntoView({ behavior: "smooth" });
-
-        let ref;
-
-        if (section === "Intro") {
-            ref = introRef.current;
-        } else if (section === "About") {
-            ref = aboutRef.current;
-        } else if (section === "Projects") {
-            ref = projectsRef.current;
-            console.log(ref);
-        }
-
-        console.log(ref);
-        if (ref) {
-            ref.current.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
     return (
         <div className="App">
             <Navbar
@@ -1490,16 +1425,24 @@ function App() {
             // aboutRef={aboutRef}
             // projref={projectsRef}
             />
-            <Intro ref={introRef} />
+            <Intro />
             {/* <About ref={aboutRef} /> */}
-            <About ref={aboutRef} />
+            <About />
             {/* Smal viedo (trailer) on the projects image (demo and source) */}
-            <Projects ref={projectsRef} />
+            <Projects />
             {/* Projects alternatives/small  - Fun projects*/}
             {/* <Contact /> */}
             <Footer />
         </div>
     );
 }
+
+// function App() {
+//     return (
+// <div className="App bg-gray-400 w-[50vw] h-[50vh] ">
+//     <Carousel />
+// </div>
+//     );
+// }
 
 export default App;
