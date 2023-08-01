@@ -6,6 +6,20 @@ import image3 from "./imagens/myphoto3.jpg";
 import image4 from "./imagens/myphoto4.jpg";
 
 import baby from "./imagens/Imgicons/baby-born.png";
+import wifi from "./imagens/Imgicons/icon-wifi.png";
+import pc from "./imagens/Imgicons/pc.png";
+import computer from "./imagens/Imgicons/computer.png";
+import code from "./imagens/Imgicons/code.png";
+import college from "./imagens/Imgicons/college.png";
+import web from "./imagens/Imgicons/web.png";
+import workk from "./imagens/Imgicons/workk.png";
+import travel from "./imagens/Imgicons/travel.png";
+import covid from "./imagens/Imgicons/covid.png";
+
+import Artify from "./imagens/ProjectsImg/Artify.PNG";
+// RestauranteWebsite.PNG;
+import RW from "./imagens/ProjectsImg/RestauranteWebsite.PNG";
+import movie from "./imagens/ProjectsImg/Angular-movie.PNG";
 
 import codephoto from "./imagens/index_code.png";
 import github from "./imagens/icons/github.png";
@@ -33,10 +47,13 @@ import {
     // <FontAwesomeIcon icon="fa-solid fa-rectangle-terminal" />
 } from "@fortawesome/free-solid-svg-icons";
 
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Import arrow icons
+import { FaChevronLeft, FaChevronRight, FaLaptopCode } from "react-icons/fa"; // Import arrow icons
 
 import "./App.css";
 import React from "react";
+
+import ResumePage from "../src/components/resumePage";
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
 // reposive metrics:
 // sm: 640
@@ -54,10 +71,19 @@ import Carousel from "./components/Carousel";
 function Navbar() {
     // data { scroll, introrefs, aboutrefs, projectsrefs }
     const links = [
-        { name: "Home", href: "#home", active: true, note: "Presentation " },
-        { name: "About", href: "#about", note: "More about me" },
-        { name: "Projects", href: "#projects", note: "Work i've done" },
-        { name: "Contact", ref: "#contact", note: "My contacts" },
+        {
+            name: "Home",
+            href: "/Portfolio#home",
+            active: true,
+            note: "Presentation ",
+        },
+        { name: "About", href: "/Portfolio#about", note: "More about me" },
+        {
+            name: "Projects",
+            href: "/Portfolio#projects",
+            note: "Work i've done",
+        },
+        { name: "Resume", href: "/Portfolio/resume", note: "My contacts" },
     ];
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -73,7 +99,7 @@ function Navbar() {
                         src={logo}
                         alt="Logo"
                         className="w-10 h-10"
-                        href="#home"
+                        href="/Portfolio"
                     />
                 </div>
 
@@ -100,7 +126,18 @@ function Navbar() {
                         />
                     </button>
                     <div className="hidden md:flex">
-                        <button className="button-contactme">Contact Me</button>
+                        <button
+                            className="button-contactme"
+                            // to="mailto:rubenaalbuquerque@gmail.com"
+                            // href="mailto:rubenaalbuquerque@gmail.com"
+                            onClick={() =>
+                                window.open(
+                                    "mailto:rubenaalbuquerque@gmail.com",
+                                    "_blank"
+                                )
+                            }>
+                            Contact Me
+                        </button>
                     </div>
                     <div className="relative flex items-center px-1 md:hidden">
                         <button
@@ -162,7 +199,14 @@ function Navbar() {
                                 />
                             </button>
                             <div className="hidden lg:flex">
-                                <button className="button-contactme">
+                                <button
+                                    className="button-contactme"
+                                    onClick={() =>
+                                        window.open(
+                                            "mailto:rubenaalbuquerque@gmail.com",
+                                            "_blank"
+                                        )
+                                    }>
                                     Contact Me
                                 </button>
                             </div>
@@ -213,7 +257,13 @@ function Navbar() {
                             <button
                                 className="button-rainbow whitespace-nowrap 
                             border-2 bg-white border-opacity-40 px-10 py-3 shadow-2xl
-                            font-medium tracking-tight text-gray-900 rounded-lg shadow-red">
+                            font-medium tracking-tight text-gray-900 rounded-lg shadow-red"
+                                onClick={() =>
+                                    window.open(
+                                        "mailto:rubenaalbuquerque@gmail.com",
+                                        "_blank"
+                                    )
+                                }>
                                 Let's work
                             </button>
                         </div>
@@ -253,27 +303,52 @@ function Intro() {
                         </h1>
                         <div className="intro-description max-w-xl">
                             <p className="mb-6 ">
-                                I love writing code that takes things to the
+                                {/* I love writing code that takes things to the
                                 next level, creating highly performant websites,
                                 automated API integrations, building my own
                                 dev-tools, and creating stunning user
-                                experiences that make you feel WOW!
+                                experiences that make you feel WOW! */}
+                                Front-End Development is my passion for coding,
+                                crafting, and innovation. I create websites that
+                                surpass expectations, blending functionality and
+                                aesthetics for remarkable experiences.
                             </p>
                             <p className="text-lg mb-8">
-                                I am always keen to learn and explore new
+                                {/* I am always keen to learn and explore new
                                 technologies, frameworks, and programming
                                 languages. Currently, I'm learning about Astro
-                                and Replicache.
+                                and Replicache.  */}
+                                {/* In Data Science, I unveil magic within data,
+                                exploring patterns and extracting valuable
+                                insights. Armed with Python, PySpark,
+                                Scikit-learn, TensorFlow, Pandas, NumPy,
+                                Matplotlib, and Seaborn, I delve into data
+                                analysis and predictive modeling. */}
+                                In the world of Data Science, I unveil the
+                                hidden magic within vast troves of data. My
+                                fascination lies in exploring intricate patterns
+                                and extracting valuable insights that fuel
+                                informed decision-making. Using a diverse
+                                toolkit, I delve into data analysis and
+                                predictive modeling, unlocking the potential of
+                                data to drive innovation and drive impactful
+                                solutions.
                             </p>
                         </div>
                         <a
-                            href="/resume"
+                            href="/Portfolio"
                             className="intro-letswork text-white bg-gray-800 rounded-lg 
-                        hover:bg-gray-900 border-2 border-gray-500">
+                        hover:bg-gray-900 border-2 border-gray-500"
+                            onClick={() =>
+                                window.open(
+                                    "mailto:rubenaalbuquerque@gmail.com",
+                                    "_blank"
+                                )
+                            }>
                             Let's Work
                         </a>
                         <a
-                            href="/resume"
+                            href="/Portfolio/resume"
                             className="intro-resume bg-transparent text-gray-500 border-2 
                         border-gray-500 ml-6 rounded-lg
                          hover:text-gray-900 transition-colors">
@@ -506,39 +581,46 @@ function Intro() {
                                     <div className="line">
                                         <label className="text-blue-200 flex items-center">
                                             &nbsp;&nbsp;
-                                            <button className="flex items-center w-full hover:bg-blue-700 text-white font-bold rounded">
+                                            <a
+                                                className="flex items-center w-full hover:bg-blue-700 text-white font-bold rounded"
+                                                href="https://www.linkedin.com/in/rubenalbuquerque/"
+                                                target="_blank"
+                                                rel="noreferrer">
                                                 <img
                                                     src={linkedin}
                                                     alt="Logoo"
                                                     className="w-8 h-8 mr-3 "
                                                     href="#home"
-                                                />{" "}
-                                                <a
+                                                />
+                                                Linkedin
+                                                {/* <a
                                                     href="https://www.linkedin.com/in/rubenalbuquerque/"
                                                     target="_blank"
-                                                    rel="noreferrer">
-                                                    Linkedin
-                                                </a>
-                                            </button>
+                                                    rel="noreferrer"></a> */}
+                                            </a>
                                         </label>
                                     </div>
                                     <div className="line">
                                         <label className="text-blue-200 flex items-center">
                                             &nbsp;&nbsp;
-                                            <button className="flex items-center w-full text-white hover:bg-slate-100 hover:text-black font-bold  rounded p-1">
+                                            <a
+                                                className="flex items-center w-full text-white hover:bg-slate-100 hover:text-black font-bold  rounded p-1"
+                                                href="https://github.com/rubenAlbuquerque"
+                                                target="_blank"
+                                                rel="noreferrer">
                                                 <img
                                                     src={github}
                                                     alt="Logoo"
                                                     className="w-6 h-6 bg-white rounded-lg mr-5"
                                                     href="#home"
                                                 />{" "}
-                                                <a
+                                                Github
+                                                {/* <a
                                                     href="https://github.com/rubenAlbuquerque"
                                                     target="_blank"
                                                     rel="noreferrer">
-                                                    Github
-                                                </a>
-                                            </button>
+                                                </a> */}
+                                            </a>
                                         </label>
                                     </div>
                                 </div>
@@ -607,77 +689,84 @@ function About() {
         },
         {
             year: "2006",
-            icon: "online",
+            icon: wifi,
             title: "Exploring the Internet",
             description:
                 "I was fortunate to explore the internet at the age of 10 using a 28.9KBit modem. I was absolutely mind-blown 🤯",
         },
         {
             year: "2012",
-            icon: "computer",
+            icon: computer,
             title: "First Computer",
             description: "I got my first computer 😂",
         },
         {
             year: "2016",
-            icon: "code",
+            icon: code,
             title: "First Line of Code",
             description: "Built my first code for a media player with C#",
         },
         {
             year: "2017",
-            icon: "graduation-cap",
+            icon: college,
             title: "Graduated High School",
             description:
                 "Completed my last three years at a High-school for Technology and Media in Germany. Shortly after, I found myself working different jobs, trying to figure out what I wanted to do.",
         },
         {
             year: "2017",
-            icon: "university",
+            icon: college,
             title: "Started College \n in Bioinformatics",
             description: "Enrolled in the Barreiro College for Bioinformatics.",
         },
         {
             year: "2018",
-            icon: "code",
+            icon: code,
             title: "Web Development",
             description: "Built my first websites using HTML, CSS, and JS. 🙃",
         },
         {
             year: "2018",
-            icon: "travel",
+            icon: travel,
             title: "Visit to Paris",
             description: "Had a memorable trip to Paris.",
         },
         {
             year: "2019",
-            icon: "code",
+            icon: code,
             title: "Coding Skills",
             description:
                 "Pursued my interests in web development & tech professionally. Completed the FreeCodeCamp Front-end certification.",
         },
         {
             year: "2020",
-            icon: "work",
+            icon: covid,
+            title: "Covid 19",
+            description:
+                "It was declared a pandemic by the World Health Organization (WHO) in March 2020.",
+        },
+        {
+            year: "",
+            icon: workk,
             title: "Internship at Germano de Sousa",
             description: "Worked as an IT intern at Germano de Sousa.",
         },
         {
-            year: "2020",
-            icon: "graduation-cap",
+            year: "",
+            icon: college,
             title: "Graduated in \n Bioinformatics",
             description: "Completed my bachelor's degree in Bioinformatics.",
         },
         {
             year: "2021",
-            icon: "university",
+            icon: college,
             title: "Started Master's in Computer Science and Multimedia",
             description:
                 "Began my master's program in Computer Science and Multimedia.",
         },
         {
             year: "2023",
-            icon: "website",
+            icon: code,
             title: "Personal Website",
             description:
                 "Decided to build my personal website with React and Tailwind CSS.",
@@ -687,54 +776,14 @@ function About() {
     const [images, setImages] = useState(Object.values(imagesInfo));
     // const isLastElement = (index) => index === images.length - 1;
     // const [showDescription, setShowDescription] = useState(false);
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    // const carouselRef = useRef(null);
-    // const [currentImage, setCurrentImage] = useState(0);
+    const [hoveredIndex, setHoveredIndex] = useState(0);
 
-    const [scrollX, setScrollX] = useState(0);
-
-    // Function to handle the scroll
     const handleScroll = (scrollOffset) => {
+        const carousel = document.getElementById("carousel");
+        carousel.scrollLeft += scrollOffset;
+
         console.log("scrollOffset", scrollOffset);
-        const doc = (document.getElementById("carousel").scrollLeft +=
-            scrollOffset);
         console.log(document.getElementById("carousel"));
-        console.log(doc);
-        // const container = document.querySelector(".carousel-container"); // Replace '.flex' with the appropriate class to target the scrolling container
-        // console.log("scrollOffset", scrollOffset);
-        // console.log(container);
-        // if (container) {
-        //     const newScrollX = scrollX + scrollOffset;
-        //     setScrollX(newScrollX);
-        //     container.scroll({ left: newScrollX, behavior: "smooth" });
-        //     console.log("scrollX", scrollX);
-        // }
-
-        // const container = document.querySelector(".carousel-container");
-        // if (container) {
-        //     console.log(container);
-        //     const eventWidth = 210; // Width of each event card (adjust as needed)
-        //     const containerWidth = container.offsetWidth;
-        //     const visibleEvents = Math.floor(containerWidth / eventWidth);
-        //     const remainingEvents = events.length - visibleEvents;
-        //     const nextScrollOffset = Math.min(
-        //         (remainingEvents - 1) * eventWidth,
-        //         eventWidth + 20 // Add some margin or padding as needed for the smooth transition
-        // );
-
-        //     // container.style.transition = "transform 0.5s ease-out";
-        //     // container.style.transform = `translateX(-${nextScrollOffset}px)`;
-        //     const newScrollX = scrollX + scrollOffset;
-        //     container.scrollLeft += newScrollX;
-        //     console.log(container.scrollLeft);
-        //     console.log(newScrollX);
-
-        //     // const newScrollX = scrollX + scrollOffset;
-        //     setScrollX(newScrollX);
-        //     container.scroll({ left: newScrollX, behavior: "smooth" });
-        //     container.scrollLeft += newScrollX;
-        //     console.log("scrollX", scrollX);
-        // }
     };
 
     const handleCardClick = (selectedImage) => {
@@ -748,23 +797,27 @@ function About() {
         });
     };
 
-    // useEffect(() => {
-    //     if (carouselRef.current) {
-    //         window.$(carouselRef.current).carousel({
-    //             interval: 2000,
-    //         });
-    //     }
-    // }, [carouselRef]);
-
     const handlePrevClick = () => {
         setHoveredIndex((prev) => (prev === 0 ? events.length - 1 : prev - 1));
+        handleScroll(-500);
     };
 
     const handleNextClick = () => {
         setHoveredIndex((prev) => (prev === events.length - 1 ? 0 : prev + 1));
-        handleScroll(400);
+        handleScroll(500);
         console.log(hoveredIndex);
     };
+
+    useEffect(() => {
+        const changeIndexAfterDelay = () => {
+            setHoveredIndex((prevIndex) => prevIndex + 1);
+        };
+        const timeoutId = setTimeout(changeIndexAfterDelay, 3000);
+        handleScroll(500);
+
+        return () => clearTimeout(timeoutId);
+    }, [hoveredIndex]);
+
     return (
         <section
             className="about pt-10 container mx-auto px-20 "
@@ -880,7 +933,15 @@ function About() {
                         className="about-text px-5 text-justify pt-5 
                         secondary sm:text-[16px] 2xl:text-[18px]">
                         <p>
-                            I'm a 22 years old student from Portugal, currently
+                            I am a 24-year-old Computer Engineering student
+                            hailing from Portugal, currently pursuing my
+                            education at the esteemed University of Lisbon. My
+                            love for technology knows no bounds, and I am deeply
+                            passionate about exploring all aspects of this
+                            dynamic field. Curiosity fuels my journey, driving
+                            me to constantly seek new challenges and
+                            opportunities to learn and grow.
+                            {/* I'm a 22 years old student from Portugal, currently
                             studying Computer Engineering at the University of
                             Minho. I'm passionate about technology and
                             everything that surrounds it. I'm always looking for
@@ -889,50 +950,66 @@ function About() {
                             that's why I'm always looking for new things to
                             learn and new projects to work on. I'm a very
                             dedicated person and I always try to give my best in
-                            everything I do.
+                            everything I do. */}
                         </p>
                         <p>
-                            I'm a 22 years old student from Portugal, currently
+                            With an insatiable appetite for knowledge, I embark
+                            on diverse projects that pique my interest, always
+                            eager to expand my skill set. Dedication is the
+                            cornerstone of my work ethic, and I approach every
+                            task with a commitment to excellence. In everything
+                            I do, I strive to give my best, aiming to make a
+                            positive impact and create meaningful contributions
+                            to the world of technology.
+                            {/* I'm a 22 years old student from Portugal, currently
                             studying Computer Engineering at the University of
                             Minho. I'm passionate about technology and
                             everything that surrounds it. I'm always looking for
                             new challenges and opportunities to learn and
-                            improve my skills. <br />
+                            improve my skills. <br /> */}
+                        </p>
+                        <p>
+                            In essence, I am a curious, dedicated, and ambitious
+                            individual, continuously driven by my passion for
+                            technology and the unquenchable thirst for knowledge
+                            that propels me forward.
+                            <br />
                         </p>
 
                         <div className="flex items-center justify-end mt-6 space-x-6">
-                            <button
+                            <a
                                 className="flex items-center justify-center py-2 px-6 text-[16px]
                             rounded-md primaryButtonh bg-transparent text-gray-500 border-2 
-                        border-gray-500 ml-6 hover:text-gray-900 transition-colors">
+                        border-gray-500 ml-6 hover:text-gray-900 transition-colors"
+                                href="https://www.linkedin.com/in/rubenalbuquerque/"
+                                target="_blank"
+                                rel="noreferrer">
                                 <img
                                     src={linkedin}
                                     alt="Logo"
                                     className="w-8 h-8 mr-3"
                                 />
-                                <a
+                                Linkedin
+                                {/* <a
                                     href="https://www.linkedin.com/in/rubenalbuquerque/"
                                     target="_blank"
                                     rel="noreferrer">
-                                    Linkedin
-                                </a>
-                            </button>
-                            <button
+                                </a> */}
+                            </a>
+                            <a
                                 className="flex items-center justify-center py-2 px-7 text-[16px]
                             rounded-md primaryButtonh bg-transparent text-gray-500 border-2 
-                        border-gray-500 ml-6 hover:text-gray-900 transition-colors">
+                        border-gray-500 ml-6 hover:text-gray-900 transition-colors"
+                                href="https://github.com/rubenAlbuquerque"
+                                target="_blank"
+                                rel="noreferrer">
                                 <img
                                     src={github}
                                     alt="Logo"
                                     className="w-8 h-8 mr-3"
                                 />
-                                <a
-                                    href="https://github.com/rubenAlbuquerque"
-                                    target="_blank"
-                                    rel="noreferrer">
-                                    Github
-                                </a>
-                            </button>
+                                Github
+                            </a>
                         </div>
                     </main>
                 </div>
@@ -963,8 +1040,15 @@ function About() {
                     </div>
 
                     <div
-                        className="flex justify-center  rounded-lg py-5 px-2  overflow-x-auto first-letter:scrollbar-w-2 bg-gray-0 scrollbar-hidden"
-                        // first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500 overflow-x-auto bg-gray-0"
+                        className="flex justify-center rounded-lg py-5 px-2  overflow-x-auto first-letter:scrollbar-w-2 bg-gray-0 scrollbar-hidden"
+                        // first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500 overflow-x-auto bg-gray-0"~
+                        // onMouseDown={handleMouseDown}
+                        // onMouseMove={handleMouseMove}
+                        // onMouseUp={handleMouseUp}
+                        // style={{
+                        //     scrollBehavior: "smooth",
+                        //     scrollLeft: scrollX,
+                        // }}
                     >
                         <div
                             className="relative inline-flex w-full"
@@ -973,7 +1057,7 @@ function About() {
                                 {events.map((event, index) => (
                                     <li
                                         className="relative"
-                                        key={index}
+                                        key={event.id || index}
                                         onMouseEnter={() =>
                                             setHoveredIndex(index)
                                         }
@@ -1087,32 +1171,32 @@ function Projects() {
 
     const projectsInfo = [
         {
-            title: "Project 1",
+            title: "Restaurante Website",
             description:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
+            image: RW,
             link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
+            tech: ["Html", "Css", "Javascript"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/restaurante_Website_Shaifs_Cuisine",
+            liveLink:
+                "https://rubenalbuquerque.github.io/restaurante_Website_Shaifs_Cuisine",
         },
         {
-            title: "Project 2",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
+            title: "Artify",
+            description: "",
+            image: Artify,
+            link: "https://github.com/rubenAlbuquerque/Artify",
+            tech: ["Flutter", "Firebase"],
+            githubLink: "https://github.com/rubenAlbuquerque/Artify",
+            liveLink: "https://github.com/rubenAlbuquerque/Artify",
         },
         {
-            title: "Project 3",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
+            title: "Movie App",
+            description: "Lorem ipsum .",
+            image: movie,
             link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
+            tech: ["Angular", "Firebase"],
             githubLink: "https://github/3",
             liveLink: "https://rubenmoya.com",
         },
@@ -1321,10 +1405,10 @@ function Footer() {
         <footer id="contact">
             <div className="">
                 <div
-                    class="container mx-auto my-10 py-10
+                    className="container mx-auto my-10 py-10
                 text-gray-600 text-[15px] font-semibold tracking-tight text-center
                 d:text-gray-300/80 truncate overflow-ellipsis">
-                    <h3 class="text-blue-500 font-bold mb-2 text-[18px] tracking-wide">
+                    <h3 className="text-blue-500 font-bold mb-2 text-[18px] tracking-wide">
                         What's Next?
                     </h3>
                     <h1 className="text-5xl font-bold mb-2">Get In Touch</h1>
@@ -1333,79 +1417,59 @@ function Footer() {
                         Contact me to discuss your project needs.
                     </p>
 
-                    {/*                     
-                    <div className="flex items-center justify-center mb-10">
-                        <button
-                            className="bg-transparent  text-gray-700 py-2 px-6  border-2
-                    border-gray-700 rounded-lg font-semibold
-                    hover:text-gray-900 transition-colors flex items-center justify-center">
-                            
-                            <img
-                                src={linkedin}
-                                alt="Logoo"
-                                className="w-6 h-6 bg-transparent mr-1"
-                                href="#home"
-                            />
-                            Linkedin
-                        </button>
-                        <button
-                            className="bg-transparent  text-gray-700 py-2 px-6 border-2
-                    border-gray-700 rounded-lg font-semibold
-                    hover:text-gray-900 transition-colors flex items-center justify-center">
-                            
-                            <img
-                                src={github}
-                                alt="Logoo"
-                                className="w-6 h-6 bg-transparent mr-1"
-                                href="#home"
-                            />
-                            Github
-                        </button>
-                    </div> */}
-
                     <button
                         className="font-medium text-white
                                 bg-gray-800 rounded-lg  py-3 px-12
-                            hover:bg-gray-900 border-2 border-gray-500">
-                        <a href="/">Let's Work</a>
+                            hover:bg-gray-900 border-2 border-gray-500"
+                        onClick={() =>
+                            window.open(
+                                "mailto:rubenaalbuquerque@gmail.com",
+                                "_blank"
+                            )
+                        }>
+                        <a
+                            href="/Portfolio
+                         ">
+                            Let's Work
+                        </a>
                     </button>
                 </div>
             </div>
             <div className="bg-gray-800 text-white py-6">
                 <div
-                    class="container mx-auto flex flex-col 
+                    className="container mx-auto flex flex-col 
                 lg:flex-row justify-between items-center px-32">
-                    <div class="mb-4 lg:mb-0">
-                        <p class="text-gray-400">
+                    <div className="mb-4 lg:mb-0">
+                        <p className="text-gray-400">
                             &copy; 2023 Rúben Albuquerque. All rights reserved.
                         </p>
                     </div>
-                    <ul class="flex space-x-4">
+                    <ul className="flex space-x-4">
                         <li>
                             <a
                                 href="#home"
-                                class="text-gray-400 hover:text-white">
+                                className="text-gray-400 hover:text-white">
                                 Home
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#projects"
-                                class="text-gray-400 hover:text-white">
+                                className="text-gray-400 hover:text-white">
                                 Projects
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#about"
-                                class="text-gray-400 hover:text-white">
+                                className="text-gray-400 hover:text-white">
                                 About
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#contact"
-                                class="text-gray-400 hover:text-white">
+                                className="text-gray-400 hover:text-white">
                                 Contact
                             </a>
                         </li>
@@ -1437,12 +1501,5 @@ function App() {
     );
 }
 
-// function App() {
-//     return (
-// <div className="App bg-gray-400 w-[50vw] h-[50vh] ">
-//     <Carousel />
-// </div>
-//     );
-// }
-
 export default App;
+export { Navbar, Intro, About, Projects, Contact, Footer };
