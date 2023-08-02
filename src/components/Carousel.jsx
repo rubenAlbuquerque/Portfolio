@@ -14,18 +14,18 @@ function Carousel({ k, data }) {
             <div className="relative ">
                 <button
                     onClick={scrollLeft}
-                    className="absolute left-[-30px] top-[150px] p-2 m-2 rounded-full bg-gray-200/80">
+                    className="absolute left-[-50px] top-[200px] p-2 m-2 rounded-full bg-gray-200/80">
                     <FiChevronLeft size={40} color="bg-gray-800" />
                 </button>
                 <button
                     onClick={scrollRight}
-                    className="absolute right-[-30px] top-[150px] p-2 m-2 rounded-full bg-gray-200/80">
+                    className="absolute right-[-50px] top-[200px] p-2 m-2 rounded-full bg-gray-200/80">
                     <FiChevronRight size={40} />
                 </button>
             </div>
             <div
                 id={"content-" + k}
-                className="carousel p-4 flex items-center justify-start overflow-x-auto scrollbar-hidden scroll-smooth">
+                className="carousel p-4 flex items-center justify-start overflow-x-auto scrollbar-hidden scroll-smooth rounded-lg">
                 {data.map((project, index) => (
                     <div>
                         <Card
@@ -35,6 +35,7 @@ function Carousel({ k, data }) {
                             key={index}
                             git={project.githubLink}
                             live={project.liveLink}
+                            desc={project.description}
                         />
                     </div>
                 ))}

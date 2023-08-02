@@ -20,6 +20,24 @@ import Artify from "./imagens/ProjectsImg/Artify.PNG";
 // RestauranteWebsite.PNG;
 import RW from "./imagens/ProjectsImg/RestauranteWebsite.PNG";
 import movie from "./imagens/ProjectsImg/Angular-movie.PNG";
+import RW2 from "./imagens/ProjectsImg/restauranteW2.PNG";
+// BenficaApp.PNG
+import BA from "./imagens/ProjectsImg/BenficaApp.PNG";
+// Pets.png
+import Pets from "./imagens/ProjectsImg/Pets2.png";
+import cifar from "./imagens/ProjectsImg/cifar2.PNG";
+// RL_agent
+import RL_agent from "./imagens/ProjectsImg/RL_agent2.PNG";
+
+import RLP_A from "./imagens/ProjectsImg/RLP_A.PNG";
+import wine from "./imagens/ProjectsImg/wine.png";
+import med from "./imagens/ProjectsImg/med.PNG";
+
+import pass from "./imagens/ProjectsImg/pass2.png";
+import lab from "./imagens/ProjectsImg/lab.PNG";
+import lab3 from "./imagens/ProjectsImg/3dlab.PNG";
+import face from "./imagens/ProjectsImg/face.PNG";
+import cubes from "./imagens/ProjectsImg/cubes.PNG";
 
 import codephoto from "./imagens/index_code.png";
 import github from "./imagens/icons/github.png";
@@ -278,7 +296,7 @@ function Intro() {
     return (
         <section
             // ref={ref}
-            className="container mx-auto  mt-36 mb-32"
+            className="container mx-auto pt-36 pb-20 "
             id="home">
             {/* mx-0 px-32 pb-0 */}
             <div
@@ -820,7 +838,7 @@ function About() {
 
     return (
         <section
-            className="about pt-10 container mx-auto px-20 "
+            className="about pt-20 container mx-auto px-20"
             id="about"
             // key="about"
         >
@@ -1166,16 +1184,12 @@ function About() {
 }
 
 function Projects() {
-    // console.log(reff);
-    const image = "https://source.unsplash.com/random/800x1200";
-
     const projectsInfo = [
         {
-            title: "Restaurante Website",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+            title: "Shaif's Cuisine",
+            description: "Restaurant's website",
             image: RW,
-            link: "https://source.unsplash.com/random/800x1200",
+            // link: "https://source.unsplash.com/random/800x1200",
             tech: ["Html", "Css", "Javascript"],
             githubLink:
                 "https://github.com/rubenAlbuquerque/restaurante_Website_Shaifs_Cuisine",
@@ -1184,152 +1198,167 @@ function Projects() {
         },
         {
             title: "Artify",
-            description: "",
+            description: "Cross-platform mobile app",
             image: Artify,
-            link: "https://github.com/rubenAlbuquerque/Artify",
+            // link: "https://github.com/rubenAlbuquerque/Artify",
             tech: ["Flutter", "Firebase"],
             githubLink: "https://github.com/rubenAlbuquerque/Artify",
             liveLink: "https://github.com/rubenAlbuquerque/Artify",
         },
         {
-            title: "Movie App",
-            description: "Lorem ipsum .",
+            title: "Stream Suggester",
+            description: "Movie App",
             image: movie,
-            link: "https://source.unsplash.com/random/800x1200",
+            // link: "https://github.com/rubenAlbuquerque/Movie-app-with-Angular",
             tech: ["Angular", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Movie-app-with-Angular",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Movie-app-with-Angular",
         },
         {
-            title: "Project 3",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+            title: "David chu's china bistro",
+            description: "Restaurant's website",
+            image: RW2,
+            // link: "https://rubenalbuquerque.github.io/RestaurantWebsite/",
+            tech: ["Html", "Css", "Javascript", "Bootstrap"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/RestaurantWebsite/tree/main",
+            liveLink: "https://rubenalbuquerque.github.io/RestaurantWebsite/",
         },
         {
-            title: "Project 3",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+            title: "Benfica App",
+            description: "Mobile app",
+            image: BA,
+            // link: "https://github.com/rubenAlbuquerque/Benfica-App",
+            tech: ["Ionic", "Html", "Css", "TypeScript"],
+            githubLink: "https://github.com/rubenAlbuquerque/Benfica-App",
+            liveLink: "https://github.com/rubenAlbuquerque/Benfica-App",
         },
     ];
 
     const dataInfo = [
         {
-            title: "Project 1",
+            title: "Oxford pets Classification",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
+                "Binary and multi-class classification of images using CNNs.",
+            image: Pets,
+            tech: ["Python", "Tensorflow", "Matplotlib"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Transfer_Learning_Oxford_iiiT_pet_Classification/blob/main/imagens/About.PNG",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Transfer_Learning_Oxford_iiiT_pet_Classification/blob/main/imagens/About.PNG",
         },
         {
-            title: "Project 2",
+            title: "Cifar-10 Classification",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
+                "Binary and multi-class classification with kNN, MLP and SVM algorithms.",
+            image: cifar,
+            tech: ["Python", "Sklearn", "Pandas", "Matplotlib"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Cifar-10-Classification",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Cifar-10-Classification",
         },
         {
-            title: "Project 3",
+            title: "Reinforcement Learning Agent",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+                "Reinforcement learning agent navigates, avoids obstacles, and reaches target.",
+            image: RL_agent,
+            tech: ["Python", "Pygame", "Numpy"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Reinforcement-Learning-Agent",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Reinforcement-Learning-Agent",
         },
         {
-            title: "Project 3",
+            title: "Reinforcement Planning Agent",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+                "AI planning: efficient action sequences to achieve goals.",
+            image: RLP_A,
+            tech: ["Python", "Pygame", "Matplotlib"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Reinforcement_Planning_Agent",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Reinforcement_Planning_Agent",
         },
         {
-            title: "Project 3",
+            title: "Red wine Portugal Analysis",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+                "Big Data project: Analyzing Portuguese red wine dataset.",
+            image: wine,
+            tech: ["Python", "pyspark", "Pandas"],
+            githubLink: "https://github.com/rubenAlbuquerque/Red_wine_Portugal",
+            liveLink: "https://github.com/rubenAlbuquerque/Red_wine_Portugal",
+        },
+        {
+            title: "Data Mining System for MedKnow",
+            description:
+                "Developing a Data Mining System to Empower MedKnow's Ophthalmology Team for Strategic Insights and Operational Support.",
+            image: med,
+            tech: ["Python", "SQL", "Orange"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/ISEL-Aprendizadem-E-Mineracao-De-Dados",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/ISEL-Aprendizadem-E-Mineracao-De-Dados",
         },
     ];
 
     const funInfo = [
         {
-            title: "Project 1",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
+            title: "Computer Vision and Mixed Reality",
+            description: "Lorem ipsquam, voluptatum.",
+            image: cubes,
+            tech: ["Python", "OpenCV"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Computer-Vision-and-Mixed-Reality",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Computer-Vision-and-Mixed-Reality",
         },
         {
-            title: "Project 2",
+            title: "Password Generador",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
+                "Generates random passwords with uppercase letters, lowercase letters, numbers, and symbols.",
+            image: pass,
+            tech: ["PyQt5 (GUI)", "Python"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Password_Generador/tree/master",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Password_Generador/tree/master",
         },
         {
-            title: "Project 3",
+            title: "Labyrinth Game Unity",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+                "PPO-based RL in Unity with ML-Agents trained agents effectively, using 3D Ray Perception and GAIL imitation for improved performance in complex environments.",
+            image: lab,
+            tech: ["C#", "MLAgents"],
+            githubLink: "https://github.com/rubenAlbuquerque/Snake-game-Unity",
+            liveLink: "https://github.com/rubenAlbuquerque/Snake-game-Unity",
         },
         {
-            title: "Project 3",
+            title: "Minecraft world",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+                "Recriar Minecraft em ambientes virtuais interativos com terrenos infinitos.",
+            image: lab3,
+            tech: ["C#"],
+            githubLink: "https://github.com/rubenAlbuquerque/Mundo-Minecraft",
+            liveLink: "https://github.com/rubenAlbuquerque/Mundo-Minecraft",
         },
         {
-            title: "Project 3",
+            title: "Face Recognition",
             description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
+                "Visão computacional com detecção e reconhecimento de faces em tempo real usando OpenCV, incluindo sobreposição de objetos nas faces detetadas.",
+            image: face,
+            tech: ["Python", "OpenCV", "Deep Neural Network"],
+            githubLink:
+                "https://github.com/rubenAlbuquerque/Face-Detection-and-Recognition_VARM",
+            liveLink:
+                "https://github.com/rubenAlbuquerque/Face-Detection-and-Recognition_VARM",
         },
     ];
 
     return (
-        <section className="#projects  mt-0" id="projects">
+        <section className="#projects mt-20" id="projects">
             <div className="flex flex-col justify-center items-center pt-10 pb-5">
                 <h1 className="about-title text-4xl font-bold text-gray-800">
                     Projects
