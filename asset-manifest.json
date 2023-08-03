@@ -1,21 +1,40 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.8c787b64.css",
-    "main.js": "/Portfolio/static/js/main.4b1db5a5.js",
+    "main.css": "/Portfolio/static/css/main.92a2de0e.css",
+    "main.js": "/Portfolio/static/js/main.34443106.js",
     "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/Angular-movie.PNG": "/Portfolio/static/media/Angular-movie.12b44b7fc5ada2ec1c7e.PNG",
+    "static/media/RestauranteWebsite.PNG": "/Portfolio/static/media/RestauranteWebsite.aa16251afb3f252dfa41.PNG",
+    "static/media/restauranteW2.PNG": "/Portfolio/static/media/restauranteW2.e8665a05444cb5e09363.PNG",
+    "static/media/cv.png": "/Portfolio/static/media/cv.fd6657c3a2c63e29af45.png",
+    "static/media/3dlab.PNG": "/Portfolio/static/media/3dlab.cbca7a9ce01f31344e82.PNG",
+    "static/media/cv.pdf": "/Portfolio/static/media/cv.9ddfc17b8a376eacc764.pdf",
+    "static/media/Artify.PNG": "/Portfolio/static/media/Artify.eb53868ccc0ba954aff5.PNG",
+    "static/media/Pets2.png": "/Portfolio/static/media/Pets2.d1e4b2b71566f8cdaa99.png",
+    "static/media/wine.png": "/Portfolio/static/media/wine.1ba78755fede66e19406.png",
+    "static/media/cubes.PNG": "/Portfolio/static/media/cubes.6eb81129956bf6b56eab.PNG",
+    "static/media/face.PNG": "/Portfolio/static/media/face.ae499152f5dc88a99d06.PNG",
+    "static/media/cifar2.PNG": "/Portfolio/static/media/cifar2.aebfcbf155b577b3331e.PNG",
+    "static/media/BenficaApp.PNG": "/Portfolio/static/media/BenficaApp.ac5d271e5bb89ddf81df.PNG",
     "static/media/myphoto4.jpg": "/Portfolio/static/media/myphoto4.00c714837a78cf6d2ad7.jpg",
     "static/media/myphoto3.jpg": "/Portfolio/static/media/myphoto3.a3aaf88995e68efabe5c.jpg",
+    "static/media/lab.PNG": "/Portfolio/static/media/lab.7b2c5a00b7b7e66f6d4d.PNG",
     "static/media/myphoto2.jpg": "/Portfolio/static/media/myphoto2.1fab528f39551ff06c7a.jpg",
+    "static/media/RLP_A.PNG": "/Portfolio/static/media/RLP_A.609063da7fb10bd2daad.PNG",
     "static/media/index_code.png": "/Portfolio/static/media/index_code.60158f667b691c201f55.png",
+    "static/media/pass2.png": "/Portfolio/static/media/pass2.f9ad9a4fec5c22c6632c.png",
+    "static/media/RL_agent2.PNG": "/Portfolio/static/media/RL_agent2.1459aa41d261698efccf.PNG",
     "static/media/Capturar1.JPG": "/Portfolio/static/media/Capturar1.c6abfd308106f379234d.JPG",
+    "static/media/baby-born.png": "/Portfolio/static/media/baby-born.5f2f46afaaf4d16f0476.png",
     "static/media/logoBG.png": "/Portfolio/static/media/logoBG.fce4a5138bbe4c21a822.png",
+    "static/media/med.PNG": "/Portfolio/static/media/med.16a726e806972452608f.PNG",
     "index.html": "/Portfolio/index.html",
-    "main.8c787b64.css.map": "/Portfolio/static/css/main.8c787b64.css.map",
-    "main.4b1db5a5.js.map": "/Portfolio/static/js/main.4b1db5a5.js.map",
+    "main.92a2de0e.css.map": "/Portfolio/static/css/main.92a2de0e.css.map",
+    "main.34443106.js.map": "/Portfolio/static/js/main.34443106.js.map",
     "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c787b64.css",
-    "static/js/main.4b1db5a5.js"
+    "static/css/main.92a2de0e.css",
+    "static/js/main.34443106.js"
   ]
 }
