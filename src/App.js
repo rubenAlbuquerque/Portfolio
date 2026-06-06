@@ -1,211 +1,151 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import logo from "./logoBG.png";
-import image from "./imagens/Capturar1.JPG";
-import image2 from "./imagens/myphoto2.jpg";
-import image3 from "./imagens/myphoto3.jpg";
-import image4 from "./imagens/myphoto4.jpg";
-
-import codephoto from "./imagens/index_code.png";
-import github from "./imagens/icons/github.png";
-import linkedin from "./imagens/icons/linkedin.png";
+import aboutImage1 from "./imagens/Capturar1.JPG";
+import aboutImage2 from "./imagens/myphoto2.jpg";
+import aboutImage3 from "./imagens/myphoto3.jpg";
+import aboutImage4 from "./imagens/myphoto4.jpg";
+import githubIcon from "./imagens/icons/github.png";
+import linkedinIcon from "./imagens/icons/linkedin.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    // faMoon,
     faSun,
     faPlus,
-    faComputer,
-    faWindow,
     faDesktop,
-    faBarChart,
-    faBarcode,
     faBars,
-    faBarsProgress,
     faBarsStaggered,
     faTimes,
-    // faGreaterThan,
-    // faTerminal,
     faArrowRight,
-    faArrowUpRightFromSquare,
-    // faGithub,
-    // faLinkedin,
-    // <FontAwesomeIcon icon="fa-solid fa-rectangle-terminal" />
+    faDatabase,
+    faCloud,
+    faCode,
+    faGraduationCap,
+    faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
-
+import {
+    PERSONAL,
+    LANGUAGES,
+    SKILLS,
+    EXPERIENCE,
+    EDUCATION,
+    CERTIFICATIONS,
+    PROJECTS,
+    ABOUT_STATS,
+    NAV_LINKS,
+} from "./data/portfolioData";
 import "./App.css";
-import React from "react";
 
-// reposive metrics:
-// sm: 640
-// md: 768
-// lg: 1024
-// xl: 1280
-// 2xl: 1536
-// 3xl: 1920-----------
+function scrollToSection(href) {
+    const id = href.replace("#", "");
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+    }
+}
 
 function Navbar() {
-    // data { scroll, introrefs, aboutrefs, projectsrefs }
-    const links = [
-        { name: "Home", href: "#about", active: true, note: "Presentation " },
-        { name: "About", href: "#about", note: "More about me" },
-        { name: "Projects", href: "#about", note: "Work i've done" },
-        { name: "Contact", ref: "#Contact", note: "My contacts" },
-    ];
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
+    const handleNavClick = (href) => {
+        scrollToSection(href);
+        setIsDropdownOpen(false);
     };
 
     return (
         <header className="h-20 fixed top-0 left-0 w-full z-10 bg-white/60 backdrop-filter backdrop-blur-md">
             <nav className="nav flex justify-between items-center border-b border-gray-800/10">
-                <div className="flex nav-logo justify-between items-center py-5 cursor-pointer">
-                    <img
-                        src={logo}
-                        alt="Logo"
-                        className="w-10 h-10"
-                        href="#home"
-                    />
-                </div>
+                <button
+                    type="button"
+                    className="flex nav-logo justify-between items-center py-5 cursor-pointer"
+                    onClick={() => handleNavClick("#home")}
+                    aria-label="Go to home">
+                    <img src={logo} alt="Logo" className="w-10 h-10" />
+                </button>
 
-                {/* Links da navbar flex */}
                 <ul className="list-lisks list-none xl:space-x-5 hidden md:flex md:space-x-0">
-                    {/* map in links */}
-                    {links.map((link, index) => (
-                        <li
-                            className="links"
-                            key={index}
-                            // href={link.href}
-                            href="#about"
-                            onClick={() => console.log(link.href)}>
-                            {link.name}
+                    {NAV_LINKS.map((link) => (
+                        <li key={link.name}>
+                            <button
+                                type="button"
+                                className="links"
+                                onClick={() => handleNavClick(link.href)}>
+                                {link.name}
+                            </button>
                         </li>
                     ))}
                 </ul>
 
                 <div className="flex">
-                    {/* add icon dark mode */}
-                    <button className="items-center px-3 rounded-lg">
+                    <button type="button" className="items-center px-3 rounded-lg" aria-label="Theme toggle">
                         <FontAwesomeIcon
                             icon={faSun}
                             className="text-gray-500 hover:text-gray-800"
                         />
                     </button>
                     <div className="hidden md:flex">
-                        <button className="button-contactme">Contact Me</button>
+                        <button
+                            type="button"
+                            className="button-contactme"
+                            onClick={() => handleNavClick("#contact")}>
+                            Contact Me
+                        </button>
                     </div>
                     <div className="relative flex items-center px-1 md:hidden">
                         <button
-                            className="button-dropdown "
-                            onClick={toggleDropdown}>
-                            {isDropdownOpen ? (
-                                <FontAwesomeIcon
-                                    icon={faTimes}
-                                    className="text-gray-400 hover:text-gray-800 text-[18px]"
-                                />
-                            ) : (
-                                <FontAwesomeIcon
-                                    icon={faBars}
-                                    className="text-gray-400 hover:text-gray-800 text-[18px]"
-                                />
-                            )}
+                            type="button"
+                            className="button-dropdown"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            aria-label="Toggle menu">
+                            <FontAwesomeIcon
+                                icon={isDropdownOpen ? faTimes : faBars}
+                                className="text-gray-400 hover:text-gray-800 text-[18px]"
+                            />
                         </button>
                     </div>
                 </div>
             </nav>
+
             {isDropdownOpen && (
-                <div
-                    className="fixed top-0 left-0 z-50 w-full h-full"
-                    // bg-gray-800"
-                    style={{ backgroundColor: "#0f172a" }}>
-                    <nav
-                        className="nav bg-white flex justify-between items-center 
-                    border-b border-gray-800/10">
-                        <div className="flex nav-logo justify-between items-center py-5 cursor-pointer">
-                            <img
-                                src={logo}
-                                alt="Logo"
-                                className="w-10 h-10"
-                                href="#home"
+                <div className="mobile-menu-overlay">
+                    <nav className="nav bg-white flex justify-between items-center border-b border-gray-800/10">
+                        <button
+                            type="button"
+                            className="flex nav-logo justify-between items-center py-5 cursor-pointer"
+                            onClick={() => handleNavClick("#home")}>
+                            <img src={logo} alt="Logo" className="w-10 h-10" />
+                        </button>
+                        <button
+                            type="button"
+                            className="button-dropdown"
+                            onClick={() => setIsDropdownOpen(false)}
+                            aria-label="Close menu">
+                            <FontAwesomeIcon
+                                icon={faTimes}
+                                className="text-gray-400 hover:text-gray-800 text-[18px]"
                             />
-                        </div>
-
-                        {/* Links da navbar flex */}
-                        <ul className="list-lisks list-none xl:space-x-5 hidden lg:flex lg:space-x-2">
-                            {/* map in links */}
-                            {links.map((link, index) => (
-                                <li
-                                    className="links"
-                                    key={index}
-                                    // href={link.href}
-                                    href="#about"
-                                    onClick={() => console.log(link.href)}>
-                                    {link.name}
-                                </li>
-                            ))}
-                        </ul>
-
-                        <div className="flex">
-                            {/* add icon dark mode */}
-                            <button className="items-center px-3 rounded-lg">
-                                <FontAwesomeIcon
-                                    icon={faSun}
-                                    className="text-gray-500 hover:text-gray-800"
-                                />
-                            </button>
-                            <div className="hidden lg:flex">
-                                <button className="button-contactme">
-                                    Contact Me
-                                </button>
-                            </div>
-                            <div className="relative flex items-center px-1 lg:hidden">
-                                <button
-                                    className="button-dropdown "
-                                    onClick={toggleDropdown}>
-                                    {isDropdownOpen ? (
-                                        <FontAwesomeIcon
-                                            icon={faTimes}
-                                            className="text-gray-400 hover:text-gray-800 text-[18px]"
-                                        />
-                                    ) : (
-                                        <FontAwesomeIcon
-                                            icon={faBars}
-                                            className="text-gray-400 hover:text-gray-800 text-[18px]"
-                                        />
-                                    )}
-                                </button>
-                            </div>
-                        </div>
+                        </button>
                     </nav>
-                    <div className="mx-5 h-full border-x border-dashed  border-white/30">
-                        <ul
-                            className=" pt-28   
-                        list-lisks list-none space-y-16 mx-5">
-                            {/* map in links */}
-                            {links.map((link, index) => (
-                                <li className="flex items-center justify-between">
-                                    <div
+                    <div className="mx-5 h-full border-x border-dashed border-white/30">
+                        <ul className="pt-28 list-lisks list-none space-y-16 mx-5">
+                            {NAV_LINKS.map((link) => (
+                                <li
+                                    key={link.name}
+                                    className="flex items-center justify-between">
+                                    <button
+                                        type="button"
                                         className="inter text-gray-400 text-[17px]"
-                                        key={index}
-                                        // href={link.href}
-                                        href="#about"
-                                        onClick={() => console.log(link.href)}>
+                                        onClick={() => handleNavClick(link.href)}>
                                         {link.name}
-                                    </div>
-                                    <div className="mx-2 pt-3 flex-1 border-b-2 border-dotted border-white/20 "></div>
-                                    <div className="note ">
-                                        <p className="text-gray-500 text-[13px]">
-                                            {link.note}
-                                        </p>
-                                    </div>
+                                    </button>
+                                    <div className="mx-2 pt-3 flex-1 border-b-2 border-dotted border-white/20" />
+                                    <p className="text-gray-500 text-[13px]">{link.note}</p>
                                 </li>
                             ))}
                         </ul>
                         <div className="flex justify-center mt-20 items-center">
                             <button
-                                className="button-rainbow whitespace-nowrap 
-                            border-2 bg-white border-opacity-40 px-10 py-3 shadow-2xl
-                            font-medium tracking-tight text-gray-900 rounded-lg shadow-red">
+                                type="button"
+                                className="button-rainbow whitespace-nowrap border-2 bg-white border-opacity-40 px-10 py-3 shadow-2xl font-medium tracking-tight text-gray-900 rounded-lg"
+                                onClick={() => handleNavClick("#contact")}>
                                 Let's work
                             </button>
                         </div>
@@ -216,322 +156,171 @@ function Navbar() {
     );
 }
 
-function Intro() {
+function Hero() {
     return (
-        <section
-            // ref={ref}
-            className="container mx-auto  mt-36 mb-32">
-            {/* mx-0 px-32 pb-0 */}
-            <div
-                className="Intro text-black container mx-auto 
-                flex items-center justify-center ">
-                <div className="relative  xl:flex xl:items-center xl:justify-center  ">
-                    <div className="Intro-Info max-w-5xl p-6  ">
+        <section id="home" className="container mx-auto mt-28 mb-32">
+            <div className="Intro text-black container mx-auto flex items-center justify-center">
+                <div className="relative xl:flex xl:items-center xl:justify-center">
+                    <div className="Intro-Info max-w-5xl p-6">
                         <p className="intro-welcome blueStrong">
-                            Welcome to my site.
+                        👋 Hey there!
                         </p>
                         <h1 className="title mb-5">
                             I'm&nbsp;
                             <strong className="title-name blueStrong">
-                                Rúben Albuquerque
+                                {PERSONAL.name}
                             </strong>
                             ,
                             <div className="title-body">
-                                a Data Scientist and Web developer
-                                <br />
-                                enthusiast.
+                                a {PERSONAL.title}
                             </div>
                         </h1>
                         <div className="intro-description max-w-xl">
-                            <p className="mb-6 ">
-                                I love writing code that takes things to the
-                                next level, creating highly performant websites,
-                                automated API integrations, building my own
-                                dev-tools, and creating stunning user
-                                experiences that make you feel WOW!
-                            </p>
-                            <p className="text-lg mb-8">
-                                I am always keen to learn and explore new
-                                technologies, frameworks, and programming
-                                languages. Currently, I'm learning about Astro
-                                and Replicache.
+                            <p className="mb-6">
+                                I build production-ready data pipelines and cloud
+                                data platforms across telecom, banking, aviation,
+                                and healthcare. Working with Databricks, AWS, and
+                                Azure, I deliver scalable ETL workflows,
+                                metadata-driven data quality, and event-driven
+                                architectures that teams can trust in production.
                             </p>
                         </div>
-                        <a
-                            href="/resume"
-                            className="intro-letswork text-white bg-gray-800 rounded-lg 
-                        hover:bg-gray-900 border-2 border-gray-500">
+                        <button
+                            type="button"
+                            className="intro-letswork text-white bg-gray-800 rounded-lg hover:bg-gray-900 border-2 border-gray-500"
+                            onClick={() => scrollToSection("#contact")}>
                             Let's Work
-                        </a>
-                        <a
-                            href="/resume"
-                            className="intro-resume bg-transparent text-gray-500 border-2 
-                        border-gray-500 ml-6 rounded-lg
-                         hover:text-gray-900 transition-colors">
-                            Resume
-                        </a>
+                        </button>
+                        <button
+                            type="button"
+                            className="intro-resume bg-transparent text-gray-500 border-2 border-gray-500 ml-6 rounded-lg hover:text-gray-900 transition-colors"
+                            onClick={() => scrollToSection("#experience")}>
+                            View Experience
+                        </button>
                     </div>
-                    <div className="relative widthDiv xl:mt-6">
-                        {/* <h1>ola ruben</h1> */}
-                        {/* <div className="myblur "></div> */}
-                        <div
-                            className="Intro-Code xl:absolute xl:right-[14%] 
-                            xl:top-[5%] w-full rounded-lg mt-10 ">
-                            <div
-                                className="bg-header bg-gray-800 flex items-center 
-                            border-b-0 border-gray-800 px-4 rounded-t-lg ">
-                                <button className=" flex gap-2 pr-4 py-3 defaultButton">
-                                    <span className="bg-red-600 hover:bg-red-700 w-3 h-3 rounded-full"></span>
-                                    <span className="bg-yellow-500 hover:bg-yellow-600 w-3 h-3 rounded-full"></span>
-                                    <span className="bg-green-500 hover:bg-green-600 w-3 h-3 rounded-full"></span>
+
+                    <div className="relative widthDiv xl:mt-0">
+                        <div className="Intro-Code hero-code-editor w-full rounded-lg mt-12">
+                            <div className="bg-header bg-gray-800 flex items-center border-b-0 border-gray-800 px-4 rounded-t-lg">
+                                <button type="button" className="flex gap-2 pr-4 py-3 defaultButton">
+                                    <span className="bg-red-600 hover:bg-red-700 w-3 h-3 rounded-full" />
+                                    <span className="bg-yellow-500 hover:bg-yellow-600 w-3 h-3 rounded-full" />
+                                    <span className="bg-green-500 hover:bg-green-600 w-3 h-3 rounded-full" />
                                 </button>
-
-                                <h2 className="text-sm text-gray-500 px-5 py-3 bg-gray-900 rounded-t-xl mr-0 ">
-                                    ./index.tsx
+                                <h2 className="text-sm text-gray-500 px-5 py-3 bg-gray-900 rounded-t-xl mr-0">
+                                    ./etl_reality.py
                                 </h2>
-
                                 <div className="flex items-center justify-center">
-                                    <button className=" rounded-full w-8 h-8 hover:bg-slate-700 transition-colors">
-                                        <span className="text-white text-base text-justify ">
-                                            <FontAwesomeIcon
-                                                icon={faPlus}
-                                                className=" text-xs"
-                                            />
-                                        </span>
+                                    <button type="button" className="rounded-full w-8 h-8 hover:bg-slate-700 transition-colors">
+                                        <FontAwesomeIcon icon={faPlus} className="text-xs text-white" />
                                     </button>
                                 </div>
                             </div>
 
                             <pre className="py-3 px-4 bg-gray-900 rounded-b-lg">
                                 <code className="whitespace-pre-wrap">
-                                    <label className="red">import</label>
-                                    <label className="white">{" {"}</label>
-                                    <label className="orange"> FC </label>
-                                    <label className="white">{"}"}</label>
-                                    <label className="red"> from </label>
-                                    <label className="green">"react"</label>
-                                    <label className="white">;</label>
+                                    <span className="orange"># ETL: Extract. Transform. Panic.</span>
+                                    <br />
+                                    <span className="orange"># Load later. Ship now.</span>
                                     <br />
                                     <br />
-                                    <label className="red">type</label>
-                                    <label className="white">
-                                        {" "}
-                                        WelcomeProps{" "}
-                                    </label>
-                                    <label className="red"> = </label>
-                                    <label className="white">{" {"}</label>
+                                    <span className="red">def</span>
+                                    <span className="white"> run_daily_pipeline</span>
+                                    <span className="white">():</span>
                                     <br />
-                                    <label className="white">&nbsp; uses</label>
-                                    <label className="blue">:</label>
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;df = spark.read(</span>
+                                    <span className="green">"s3://lake/1tb-before-coffee"</span>
+                                    <span className="white">)</span>
                                     <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;|
-                                    </label>
-                                    <label className="green">
-                                        &nbsp;"explore new tech"
-                                    </label>
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;rows = df.count()</span>
                                     <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;|
-                                    </label>
-                                    <label className="green">
-                                        &nbsp;"display my skills"
-                                    </label>
-                                    <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;|
-                                    </label>
-                                    <label className="green">
-                                        &nbsp;"find freelancing opportunities"
-                                    </label>
-                                    <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;|
-                                    </label>
-                                    <label className="green">
-                                        &nbsp; "find a fulltime job"
-                                    </label>
-                                    <label className="white">;</label>
-                                    <br />
-                                    <label className="white">{" };"}</label>
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;nulls = df.filter(</span>
+                                    <span className="green">"x IS NULL"</span>
+                                    <span className="white">).count()</span>
                                     <br />
                                     <br />
-                                    <label className="red">export</label>
-                                    <label className="red"> const </label>
-                                    <label className="white">Welcome</label>
-                                    <label className="white">:</label>
-                                    <label className="orange"> FC</label>
-                                    <label className="white">{"<"}</label>
-                                    <label className="white">
-                                        WelcomeProps
-                                    </label>
-                                    <label className="white">{">"}</label>
-                                    <label className="white"> = </label>
-                                    <label className="white">{"("}</label>
-                                    <label className="white">{"{ "}</label>
-                                    <label className="white">uses</label>
-                                    <label className="white">{" }"}</label>
-                                    <label className="white">{")"} </label>
-                                    <label className="white">{"=> {"}</label>
-
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span className="red">if</span>
+                                    <span className="white"> nulls &gt; rows * 0.5:</span>
                                     <br />
-                                    <label className="red">
-                                        &nbsp;&nbsp;return
-                                    </label>
-                                    <label className="white"> {"("}</label>
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span className="orange"># feature, not bug</span>
                                     <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;{" <> "}
-                                    </label>
-                                    <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {"<h1>"}
-                                    </label>
-                                    <label className="white">
-                                        This is my little slice of the internet.
-                                    </label>
-                                    <label className="blue">{"</h1>"}</label>
-                                    <label className="white">;</label>
-                                    <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {"<p>"}
-                                    </label>
-                                    <br />
-                                    <label className="white">
-                                        {" "}
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I
-                                        use this site to{" "}
-                                    </label>
-                                    <label className="blue">{"<em>"}</label>
-                                    <label className="white">{"{"}</label>
-                                    <label className="white">uses</label>
-                                    <label className="white">{"}"}</label>
-                                    <label className="blue">{"</em>"}</label>
-                                    <br />
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {"</p>"}
-                                    </label>
-                                    <label className="white">;</label>
-                                    <br />
-
-                                    <label className="blue">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;{" </> "}
-                                    </label>
-                                    <br />
-                                    <label className="white">
-                                        &nbsp;&nbsp;{");"}
-                                    </label>
-                                    <br />
-                                    <label className="white">{"};"}</label>
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rename_column(</span>
+                                    <span className="green">"NULL"</span>
+                                    <span className="white">, </span>
+                                    <span className="green">"future_metric"</span>
+                                    <span className="white">)</span>
                                     <br />
                                     <br />
-                                    <label className="red">
-                                        export default{" "}
-                                    </label>
-                                    <label className="white">Welcome;</label>
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span className="red">if</span>
+                                    <span className="white"> stakeholder.wants_excel():</span>
                                     <br />
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span className="red">return</span>
+                                    <span className="green"> "here is a dashboard link"</span>
+                                    <br />
+                                    <br />
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span className="red">return</span>
+                                    <span className="white"> df.write.mode(</span>
+                                    <span className="green">"overwrite"</span>
+                                    <span className="white">)</span>
+                                    <br />
+                                    <span className="white">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <span className="orange"># what could go wrong?</span>
                                 </code>
                             </pre>
                         </div>
 
-                        {/* <div className="myblur-terminal "></div> */}
-                        <div
-                            className="terminal max-w-lg rounded-lg absolute right-[5%] top-[-40%]
-                        bg-gray-900 bg-opacity-80 w-80 h-60 overflow-hidden mt-40">
-                            <div
-                                className=" terminal-header flex flex-row items-center bg-gray-800 p-2 
-                        rounded-t-lg">
-                                <div className="flex flex-row justify-between items-center">
-                                    <div className="bg-red-600 hover:bg-red-700 w-3 h-3 rounded-full mr-2"></div>
-                                    <div className="bg-yellow-500 hover:bg-yellow-600 w-3 h-3 rounded-full mr-2"></div>
-                                    <div className="bg-green-500 hover:bg-green-600 w-3 h-3 rounded-full mr-2"></div>
+                        <div className="terminal hero-terminal">
+                            <div className="terminal-header">
+                                <div className="terminal-controls">
+                                    <span className="terminal-dot terminal-dot-red" />
+                                    <span className="terminal-dot terminal-dot-yellow" />
+                                    <span className="terminal-dot terminal-dot-green" />
                                 </div>
-                                <div className="flex items-center justify-center flex-grow pr-16">
-                                    <h1 className="text-sm text-center text-gray-500">
-                                        Terminal
-                                    </h1>
-                                </div>
+                                <h2 className="terminal-title">Terminal</h2>
                             </div>
-                            <div className="terminal-body px-2 py-1">
-                                <div className="terminal-text text">
-                                    <div className="line">
-                                        <label className="blueStrong">
-                                            <FontAwesomeIcon
-                                                icon={faArrowRight}
-                                                className="w-4 green"
-                                            />{" "}
-                                            Welcome@Portfolio:$&nbsp;
-                                        </label>
-                                        <label className="white">
-                                            More informations
-                                        </label>
-                                    </div>
-                                    <br />
-                                    <div className="line">
-                                        <label className="red">
-                                            bash: More: command not found &nbsp;
-                                        </label>
-                                    </div>
-                                    <br />
-                                    <div className="line">
-                                        <label className="blueStrong ">
-                                            <FontAwesomeIcon
-                                                icon={faArrowRight}
-                                                className="w-4 green"
-                                            />{" "}
-                                            Welcome@Portfolio:$&nbsp;
-                                        </label>
-                                        <label className="white">
-                                            python more_info.py
-                                        </label>
-                                    </div>
-                                    <br />
-                                    <div className="line mb-1">
-                                        <label className="white ">
-                                            Contacts found - Connections:
-                                        </label>
-                                    </div>
-                                    <div className="line">
-                                        <label className="text-blue-200 flex items-center">
-                                            &nbsp;&nbsp;
-                                            <button className="flex items-center w-full hover:bg-blue-700 text-white font-bold rounded">
-                                                <img
-                                                    src={linkedin}
-                                                    alt="Logoo"
-                                                    className="w-8 h-8 mr-3 "
-                                                    href="#home"
-                                                />{" "}
-                                                <a
-                                                    href="https://www.linkedin.com/in/rubenalbuquerque/"
-                                                    target="_blank"
-                                                    rel="noreferrer">
-                                                    Linkedin
-                                                </a>
-                                            </button>
-                                        </label>
-                                    </div>
-                                    <div className="line">
-                                        <label className="text-blue-200 flex items-center">
-                                            &nbsp;&nbsp;
-                                            <button className="flex items-center w-full text-white hover:bg-slate-100 hover:text-black font-bold  rounded p-1">
-                                                <img
-                                                    src={github}
-                                                    alt="Logoo"
-                                                    className="w-6 h-6 bg-white rounded-lg mr-5"
-                                                    href="#home"
-                                                />{" "}
-                                                <a
-                                                    href="https://github.com/rubenAlbuquerque"
-                                                    target="_blank"
-                                                    rel="noreferrer">
-                                                    Github
-                                                </a>
-                                            </button>
-                                        </label>
-                                    </div>
+                            <div className="terminal-body">
+                                <p className="terminal-line">
+                                    <span className="terminal-prompt">
+                                        <FontAwesomeIcon icon={faArrowRight} className="terminal-prompt-icon" />
+                                        ruben@data-lake:$
+                                    </span>
+                                    <span className="white"> python --version</span>
+                                </p>
+                                <p className="terminal-line terminal-output green">
+                                    Python 3.x — ETL ready
+                                </p>
+                                <p className="terminal-line">
+                                    <span className="terminal-prompt">
+                                        <FontAwesomeIcon icon={faArrowRight} className="terminal-prompt-icon" />
+                                        ruben@data-lake:$
+                                    </span>
+                                    <span className="white"> cat contacts.txt</span>
+                                </p>
+                                <p className="terminal-line terminal-output white">
+                                    Contacts found — Connections:
+                                </p>
+                                <div className="terminal-links">
+                                    <a
+                                        href={PERSONAL.linkedin}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="terminal-link-btn terminal-link-linkedin">
+                                        <img src={linkedinIcon} alt="LinkedIn" className="terminal-link-icon" />
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a
+                                        href={PERSONAL.github}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="terminal-link-btn terminal-link-github">
+                                        <img src={githubIcon} alt="GitHub" className="terminal-link-icon terminal-link-icon-github" />
+                                        <span>GitHub</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -542,854 +331,376 @@ function Intro() {
     );
 }
 
+const ABOUT_IMAGES = [
+    { key: 1, src: aboutImage1, alt: "Rúben Albuquerque", degres: 0 },
+    { key: 2, src: aboutImage4, alt: "Rúben Albuquerque", degres: 5 },
+    { key: 3, src: aboutImage2, alt: "Rúben Albuquerque", degres: 5 },
+    { key: 4, src: aboutImage3, alt: "Rúben Albuquerque", degres: -5 },
+];
+
 function About() {
-    const imagesInfo = {
-        image_1: {
-            key: 1,
-            src: image,
-            alt: "Logo",
-            degres: 0,
-        },
-        image_4: {
-            key: 2,
-            src: image4,
-            alt: "Logo",
-            degres: 5,
-        },
-        image_2: {
-            key: 3,
-            src: image2,
-            alt: "Logo",
-            degres: 5,
-        },
-        image_3: {
-            key: 4,
-            src: image3,
-            alt: "Logo",
-            degres: -5,
-        },
-    };
-
-    const experiences = [
-        {
-            icon: "https://source.unsplash.com/random/100x100",
-            title: "Experience 1",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        },
-        {
-            icon: "https://source.unsplash.com/random/100x100",
-            title: "Experience 2",
-            description:
-                "Praesent eget ipsum nec justo consectetur scelerisque.",
-        },
-        // Add more experiences...
-    ];
-    const events = [
-        {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
-            description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
-        },
-        {
-            // date: "Fevereiro 2020 - Presente",
-            year: "",
-            mount: "Fevereiro",
-
-            title: "Experiência 2",
-            description:
-                "Started a Vinyl sticker business, while exploring the very interesting customer segment of students 👨‍ 🎓",
-        },
-        {
-            // date: "Fevereiro 2020 - Presente",
-            year: "2020",
-            mount: "Fevereiro",
-            title: "Experiência 2",
-            description:
-                "I left my full-time position early in 2015 to focus on a Postgraduate diploma at UCT. I continued my work in a Consulting Role.",
-        },
-        {
-            // date: "Fevereiro 2020 - Presente",
-            year: "2020",
-            mount: "Fevereiro",
-            title: "Experiência 2",
-            description: "Descrição da Experiência 5",
-        },
-        {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
-            description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
-        },
-        {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
-            description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
-        },
-        {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
-            description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
-        },
-        {
-            // date: "Janeiro 2018 - Dezembro 2019",
-            year: "2018",
-            mount: "Janeiro",
-
-            title: "Experiência 1",
-            description:
-                "Descrição da Experiência 1 -  It was part study, part real business, but somehow eventually faded &amp; failed as we had a team of 6 co-founders. Stick to 1 or 2 if you can. 😉",
-        },
-    ];
-
-    const [images, setImages] = useState(Object.values(imagesInfo));
-    // const isLastElement = (index) => index === images.length - 1;
-    // const [showDescription, setShowDescription] = useState(false);
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [images, setImages] = useState(ABOUT_IMAGES);
 
     const handleCardClick = (selectedImage) => {
         setImages((prevImages) => {
-            // remove selectedImage
             const filteredImages = prevImages.filter(
-                (image) => image !== selectedImage
+                (image) => image.key !== selectedImage.key
             );
-            // add selectedImage to the end of the array
             return [...filteredImages, selectedImage];
         });
     };
-    return (
-        <section className="about pt-10 container mx-auto px-20 " id="about">
-            {/* about */}
-            <div className="flex flex-col justify-center items-center p-5 ">
-                <h1 className="about-title text-4xl font-bold font-inter text-gray-800">
-                    About me
-                </h1>
-            </div>
-            <div className="xl:flex xl:items-center xl:justify-center ">
-                {/* images */}
-                <div className="xl:w-5/12 mx-10 my-20 flex items-center justify-center">
-                    <div className="swiper ">
-                        {Object.keys(images).map((key, index) => {
-                            const image = images[key];
 
-                            return (
-                                <div
-                                    className="card bg-gray-200 "
-                                    style={{
-                                        "--i": index,
-                                        "--deg": image.degres,
-                                        transform: `translateZ(calc(-10px * var(--i)))
-                                                    translateY(calc(0px * var(--i)))
-                                                    rotate(calc(var(--deg) * 1deg  * var(--i)))`,
-                                    }}
-                                    key={image.key}
-                                    onClick={() => handleCardClick(image)}>
-                                    <img
-                                        src={image.src}
-                                        alt={image.alt}
-                                        className="object-top"
-                                    />
-                                </div>
-                            );
-                        })}
+    return (
+        <section className="about pt-10 container mx-auto px-6 md:px-20" id="about">
+            <div className="flex flex-col justify-center items-center p-5">
+                <h2 className="about-title text-4xl font-bold font-inter text-gray-800">
+                    About Me
+                </h2>
+            </div>
+
+            <div className="xl:flex xl:items-start xl:justify-center gap-10">
+                <div className="xl:w-5/12 mx-10 my-20 flex items-center justify-center">
+                    <div className="swiper">
+                        {images.map((image, index) => (
+                            <div
+                                className="card bg-gray-200"
+                                style={{
+                                    "--i": index,
+                                    "--deg": image.degres,
+                                    transform: `translateZ(calc(-10px * var(--i)))
+                                                translateY(calc(0px * var(--i)))
+                                                rotate(calc(var(--deg) * 1deg * var(--i)))`,
+                                }}
+                                key={image.key}
+                                onClick={() => handleCardClick(image)}>
+                                <img
+                                    src={image.src}
+                                    alt={image.alt}
+                                    className="object-top"
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* info - texto */}
-                <div className=" xl:w-6/12 py-5 pr-5 pl-5">
-                    <div className="flex flex-row items-center">
-                        <div className="col m-auto">
-                            <h1
-                                className="primary
-                            text-4xl font-extrabold tracking-tighter text-center">
-                                24
-                            </h1>
-                            <p
-                                className="text-[15px] font-semibold tracking-tight text-center
-                            text-gray-400 d:text-gray-300/80 ">
-                                Years Old
-                            </p>
-                        </div>
-                        <div className="col m-auto">
-                            <h1
-                                className="primary
-                            text-4xl font-extrabold tracking-tighter text-center">
-                                1+
-                            </h1>
-                            <p
-                                className="text-[15px] font-semibold tracking-tight text-center
-                            text-gray-400 d:text-gray-300/80 ">
-                                Years Dev
-                            </p>
-                        </div>
-                        <div className="col m-auto">
-                            <h1
-                                className="primary
-                            text-4xl font-extrabold tracking-tighter text-center">
-                                4510
-                            </h1>
-                            <p
-                                className="text-[15px] font-semibold tracking-tight text-center
-                            text-gray-400 d:text-gray-300/80 ">
-                                Commits
-                            </p>
-                        </div>
-                        {/* Repositorios?? */}
-                        {/* <div className="col m-auto">
-                            <h1
-                                className="bg-gradient-to-r text-blue-500 bg-clip-text 
-                            text-4xl font-extrabold tracking-tighter text-transparent text-center">
-                                5
-                            </h1>
-                            <p
-                                className="text-[15px] font-semibold tracking-tight text-center
-                            text-gray-400 d:text-gray-300/80truncate overflow-ellipsis">
-                                Completed projects
-                            </p>
-                        </div> */}
-                        <div className="col m-auto">
-                            <h1
-                                className="bg-gradient-to-r primary bg-clip-text 
-                            text-4xl font-extrabold tracking-tighter text-center ">
-                                7
-                            </h1>
-                            <p
-                                className="text-[15px] font-semibold tracking-tight text-center
-                            text-gray-400 d:text-gray-300/80 truncate overflow-ellipsis">
-                                Countries visited
-                            </p>
-                        </div>
-                        {/* Número de países visitados, Número de projetos concluídos */}
+                <div className="xl:w-6/12 py-5 pr-5 pl-5">
+                    <div className="flex flex-row flex-wrap items-center justify-center gap-6 mb-8">
+                        {ABOUT_STATS.map((stat) => (
+                            <div key={stat.label} className="col m-auto">
+                                <h3 className="primary text-4xl font-extrabold tracking-tighter text-center">
+                                    {stat.value}
+                                </h3>
+                                <p className="text-[15px] font-semibold tracking-tight text-center text-gray-400">
+                                    {stat.label}
+                                </p>
+                            </div>
+                        ))}
                     </div>
 
-                    <main
-                        // className="about-text px-5 text-[18px] font-medium text-justify pt-5
-                        // tracking-tight max-w-3xl leading-relaxed text-gray-500 d:text-gray-100/70 ">
-                        className="about-text px-5 text-justify pt-5 
-                        secondary sm:text-[16px] 2xl:text-[18px]">
-                        <p>
-                            I'm a 22 years old student from Portugal, currently
-                            studying Computer Engineering at the University of
-                            Minho. I'm passionate about technology and
-                            everything that surrounds it. I'm always looking for
-                            new challenges and opportunities to learn and
-                            improve my skills. I'm a very curious person and
-                            that's why I'm always looking for new things to
-                            learn and new projects to work on. I'm a very
-                            dedicated person and I always try to give my best in
-                            everything I do.
+                    <main className="about-text px-5 text-justify pt-2 secondary sm:text-[16px] 2xl:text-[18px]">
+                        <p className="mb-4">
+                            I am a Data Engineer with hands-on experience delivering
+                            data platforms across telecommunications, banking, aviation,
+                            and healthcare. I specialize in building scalable ETL
+                            pipelines, automating data workflows, and implementing
+                            data quality frameworks that improve reliability and trust
+                            in analytics.
                         </p>
-                        <p>
-                            I'm a 22 years old student from Portugal, currently
-                            studying Computer Engineering at the University of
-                            Minho. I'm passionate about technology and
-                            everything that surrounds it. I'm always looking for
-                            new challenges and opportunities to learn and
-                            improve my skills. <br />
+                        <p className="mb-4">
+                            My toolkit includes Databricks, AWS, and Azure, with
+                            strong foundations in Python, PySpark, SQL, and
+                            orchestration tools such as Apache Airflow and Argo
+                            Workflows. I am passionate about cloud data platforms,
+                            metadata-driven architectures, and designing systems that
+                            scale with business needs.
+                        </p>
+                        <p className="mb-6">
+                            Based in Gland, Switzerland, I am open to opportunities in
+                            Data Engineering, Data Platforms, Cloud Architecture,
+                            and Analytics.
                         </p>
 
-                        <div className="flex items-center justify-end mt-6 space-x-6">
-                            <button
-                                className="flex items-center justify-center py-2 px-6 text-[16px]
-                            rounded-md primaryButtonh bg-transparent text-gray-500 border-2 
-                        border-gray-500 ml-6 hover:text-gray-900 transition-colors">
-                                <img
-                                    src={linkedin}
-                                    alt="Logo"
-                                    className="w-8 h-8 mr-3"
-                                />
-                                <a
-                                    href="https://www.linkedin.com/in/rubenalbuquerque/"
-                                    target="_blank"
-                                    rel="noreferrer">
-                                    Linkedin
-                                </a>
-                            </button>
-                            <button
-                                className="flex items-center justify-center py-2 px-7 text-[16px]
-                            rounded-md primaryButtonh bg-transparent text-gray-500 border-2 
-                        border-gray-500 ml-6 hover:text-gray-900 transition-colors">
-                                <img
-                                    src={github}
-                                    alt="Logo"
-                                    className="w-8 h-8 mr-3"
-                                />
-                                <a
-                                    href="https://github.com/rubenAlbuquerque"
-                                    target="_blank"
-                                    rel="noreferrer">
-                                    Github
-                                </a>
-                            </button>
+                        <div className="mb-8">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-3">Languages</h3>
+                            <div className="flex flex-wrap gap-3">
+                                {LANGUAGES.map((lang) => (
+                                    <span
+                                        key={lang.name}
+                                        className="language-badge">
+                                        {lang.name} — {lang.level}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
+
+                        {/* <div className="flex items-center justify-start flex-wrap gap-4">
+                            <a
+                                href={PERSONAL.linkedin}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="social-link">
+                                LinkedIn
+                            </a>
+                            <a
+                                href={PERSONAL.github}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="social-link">
+                                GitHub
+                            </a>
+                        </div> */}
                     </main>
                 </div>
             </div>
-            {/* statistics and text */}
 
-            {/* pontos da cronologia
-            <div className="absolute top-0 left-0 h-2.5 w-[119px] bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]">
-            </div> */}
-            <section className="bg-gray-100/40 py-6 rounded-lg">
-                <div className="max-w-full mx-auto px-1 sm:px-6 lg:px-3 ">
-                    <h2 className="inter text-3xl font-bold text-gray-800 text-center mb-4">
-                        My Timeline
-                    </h2>
-                    <div
-                        className="flex justify-center overflow-x-auto bg-gray-0 rounded-lg py-5 px-2
-                    first-letter:scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
-                        <div className="relative inline-flex w-full">
-                            <ul className="flex ">
-                                {events.map((event, index) => (
-                                    <li
-                                        className="relative"
-                                        key={index}
-                                        onMouseEnter={() =>
-                                            setHoveredIndex(index)
-                                        }
-                                        onMouseLeave={() =>
-                                            setHoveredIndex(null)
-                                        }>
-                                        <div
-                                            className="absolute top-6 left-24 h-2.5 w-[210px] 
-                                            bg-[image:linear-gradient(90deg,transparent_0px,transparent_9px,var(--line-color)_10px,var(--line-color)_10px)] 
-                                            bg-[length:10px_10px] [--line-color:theme(colors.gray.500)]"></div>
+            <Skills />
 
-                                        <div className="w-52 h-72 ">
-                                            <header className="flex justify-center ">
-                                                <div>
-                                                    <div
-                                                        className={`inter w-10 h-6 flex items-center justify-center ${
-                                                            event.year === ""
-                                                                ? "bg-transparent "
-                                                                : "bg-transparent"
-                                                        }`}>
-                                                        <span className="text-[13px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                                            {event.year}
-                                                        </span>
-                                                    </div>
-
-                                                    {hoveredIndex === index && (
-                                                        <div className="w-10 flex items-center justify-center">
-                                                            <div className="h-[60px] w-[3px] rounded-lg bg-sky-600"></div>
-                                                        </div>
-                                                    )}
-                                                    {hoveredIndex !== index && (
-                                                        <div className="w-10 flex items-center justify-center">
-                                                            <div className="h-[30px] w-[2px] rounded-lg bg-gray-500 selected:bg-sky-500"></div>
-                                                        </div>
-                                                    )}
-
-                                                    <div className="w-10 flex items-center justify-center">
-                                                        <div className=" rounded-lg">
-                                                            <FontAwesomeIcon
-                                                                icon={faDesktop}
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </header>
-                                            <main className="w-52 flex flex-col items-center justify-center py-3">
-                                                <div className="bg-transparent text-center">
-                                                    {hoveredIndex !== index && (
-                                                        <h1
-                                                            className="inter text-[16px] whitespace-nowrap font-semibold 
-                                                        tracking-tight 
-                                                    text-gray-800 d:text-gray-100">
-                                                            {event.title}
-                                                        </h1>
-                                                    )}
-
-                                                    {hoveredIndex === index && (
-                                                        <div>
-                                                            <h1
-                                                                className="inter primary text-[18px] whitespace-nowrap font-semibold 
-                                                        tracking-tight 
-                                                    text-gray-800 d:text-gray-100">
-                                                                {event.title}
-                                                            </h1>
-
-                                                            <p
-                                                                className=" inter
-                                                        text-[14px] font-medium leading-relaxed tracking-tight text-gray-500">
-                                                                {/* // opacity-0 group-hover:opacity-100"> */}
-                                                                {
-                                                                    event.description
-                                                                }
-                                                            </p>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            </main>
-                                        </div>
-                                    </li>
-                                ))}
-                                <header className="flex justify-center w-52">
-                                    <div>
-                                        <div className=" flex items-center justify-center">
-                                            <span className="text-sm text-center font-semibold text-gray-500 ">
-                                                Today
-                                            </span>
-                                        </div>
-
-                                        <div className=" flex items-center justify-center">
-                                            <div className="h-[30px] w-[2px]  rounded-lg bg-gray-500  selected:bg-sky-500"></div>
-                                        </div>
-                                    </div>
-                                </header>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* Professional Timeline — moved to Experience section
+            <section className="bg-gray-100/40 py-6 rounded-lg mt-16">...</section>
+            */}
         </section>
     );
 }
 
-function Projects({ reff }) {
-    console.log(reff);
-    const image = "https://source.unsplash.com/random/800x1200";
-
-    const projectsInfo = [
-        {
-            title: "Project 1",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
-        },
-        {
-            title: "Project 2",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github.com/rubenmoya/rubenmoya.com",
-            liveLink: "https://rubenmoya.com",
-        },
-        {
-            title: "Project 3",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
-        },
-        {
-            title: "Project 3",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
-        },
-        {
-            title: "Project 3",
-            description:
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "https://source.unsplash.com/random/800x1200",
-            link: "https://source.unsplash.com/random/800x1200",
-            tech: ["React", "Tailwind", "Firebase"],
-            githubLink: "https://github/3",
-            liveLink: "https://rubenmoya.com",
-        },
+function Skills() {
+    const categories = [
+        { title: "Programming", icon: faCode, items: SKILLS.programming },
+        { title: "Data Engineering", icon: faDatabase, items: SKILLS.dataEngineering },
+        { title: "Cloud & Platforms", icon: faCloud, items: SKILLS.cloudPlatforms },
+        { title: "Orchestration", icon: faBarsStaggered, items: SKILLS.orchestration },
+        { title: "DevOps", icon: faDesktop, items: SKILLS.devops },
     ];
 
     return (
-        <section ref={reff} className="#projects  mt-0">
-            <div className="flex flex-col justify-center items-center pt-10 pb-5">
-                <h1 className="about-title text-4xl font-bold text-gray-800">
-                    Projects
-                    {/* "<projects>" */}
-                </h1>
-            </div>
-
-            <div className=" p-0 ">
-                <div className="w-9/12 mx-auto my-5">
-                    <h1
-                        className="text-2xl font-bold text-gray-800 tracking-tighter pb-1
-                    border-b border-gray-600">
-                        <span className="text-red-700">&lt;</span>
-                        Web developer Projects
-                        <span className="text-red-700">/&gt;</span>
-                    </h1>
-
-                    <main className=" mt-0 ">
-                        <div className="">
-                            <ul className="flex flex-row gap-4 overflow-x-auto p-5">
-                                {projectsInfo.map((project, index) => (
-                                    <li
-                                        key={index}
-                                        className="w-80 min-w-80 flex-shrink-0 
-                                        border border-gray-500/90 rounded-lg">
-                                        <div className="w-full">
-                                            <img
-                                                src={project.image}
-                                                alt=""
-                                                className="rounded-t-lg object-cover object-top"
-                                            />
-                                        </div>
-                                        <div className="px-2">
-                                            <h1 class="text-2xl font-bold inter primary tracking-tight pt-2">
-                                                {project.title}
-                                            </h1>
-                                            <div className="py-2">
-                                                {project.tech.map(
-                                                    (tech, index) => (
-                                                        <button
-                                                            class="py-1 px-3 rounded border text-xs border-blue-950 mr-1 font-medium"
-                                                            key={index}>
-                                                            <a
-                                                                href={
-                                                                    project.githubLink
-                                                                }
-                                                                target="_blank"
-                                                                class="flex flex-row justify-center items-center"
-                                                                rel="noreferrer">
-                                                                {tech}
-                                                            </a>
-                                                        </button>
-                                                    )
-                                                )}
-                                            </div>
-                                            <p class="inter secondary line-clamp-5 text-sm">
-                                                {project.description}
-                                                {project.description}
-                                            </p>
-                                            <div class="flex flex-row justify-end py-3">
-                                                <button class="rounded border-0 border-blue-950 hover:shadow-sm hover:bg-sky-600 bg-blue-400 text-black py-0 px-3 mr-3 text-sm font-semibold flex items-center justify-center">
-                                                    <FontAwesomeIcon
-                                                        class="w-4 h-4 mr-2"
-                                                        icon={
-                                                            faArrowUpRightFromSquare
-                                                        }
-                                                    />
-                                                    Live Demo
-                                                </button>
-                                                <button class="py-1 px-2 rounded border border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-600/30">
-                                                    <a
-                                                        href={
-                                                            project.githubLink
-                                                        }
-                                                        target="_blank"
-                                                        class="flex flex-row justify-center items-center text-sm"
-                                                        rel="noreferrer">
-                                                        <img
-                                                            src={github}
-                                                            alt="Logo"
-                                                            class="w-6 h-6 bg-transparent rounded-lg mr-1"
-                                                            href="#home"
-                                                        />
-                                                        View Source
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+        <section className="skills-section mt-16 px-4" id="skills">
+            <h2 className="about-title text-3xl font-bold text-gray-800 text-center mb-8">
+                Skills
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {categories.map((category) => (
+                    <div key={category.title} className="skill-card">
+                        <div className="flex items-center gap-3 mb-4">
+                            <FontAwesomeIcon icon={category.icon} className="primary text-lg" />
+                            <h3 className="text-lg font-semibold text-gray-800">
+                                {category.title}
+                            </h3>
                         </div>
-                    </main>
-                </div>
-
-                <div className="w-9/12 mx-auto my-5">
-                    <h1
-                        className="text-2xl font-bold text-gray-800 tracking-tighter pb-1
-                    border-b border-gray-600">
-                        <span className="text-red-700">&lt;</span>
-                        Data Scientist Projects
-                        <span className="text-red-700">/&gt;</span>
-                    </h1>
-
-                    <main className=" mt-0 ">
-                        <div className="">
-                            <ul className="flex flex-row gap-4 overflow-x-auto p-5">
-                                {projectsInfo.map((project, index) => (
-                                    <li
-                                        key={index}
-                                        className="w-80 min-w-80 flex-shrink-0 
-                                        border border-gray-500/90 rounded-lg">
-                                        <div className="w-full">
-                                            <img
-                                                src={project.image}
-                                                alt=""
-                                                className="rounded-t-lg object-cover object-top"
-                                            />
-                                        </div>
-                                        <div className="px-2">
-                                            <h1 class="text-2xl font-bold inter primary tracking-tight pt-2">
-                                                {project.title}
-                                            </h1>
-                                            <div className="py-2">
-                                                {project.tech.map(
-                                                    (tech, index) => (
-                                                        <button
-                                                            class="py-1 px-3 rounded border text-xs border-blue-950 mr-1 font-medium"
-                                                            key={index}>
-                                                            <a
-                                                                href={
-                                                                    project.githubLink
-                                                                }
-                                                                target="_blank"
-                                                                class="flex flex-row justify-center items-center"
-                                                                rel="noreferrer">
-                                                                {tech}
-                                                            </a>
-                                                        </button>
-                                                    )
-                                                )}
-                                            </div>
-                                            <p class="inter secondary line-clamp-5 text-sm">
-                                                {project.description}
-                                                {project.description}
-                                            </p>
-                                            <div class="flex flex-row justify-end py-3">
-                                                <button class="rounded border-0 border-blue-950 hover:shadow-sm hover:bg-sky-600 bg-blue-400 text-black py-0 px-3 mr-3 text-sm font-semibold flex items-center justify-center">
-                                                    <FontAwesomeIcon
-                                                        class="w-4 h-4 mr-2"
-                                                        icon={
-                                                            faArrowUpRightFromSquare
-                                                        }
-                                                    />
-                                                    Live Demo
-                                                </button>
-                                                <button class="py-1 px-2 rounded border border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-600/30">
-                                                    <a
-                                                        href={
-                                                            project.githubLink
-                                                        }
-                                                        target="_blank"
-                                                        class="flex flex-row justify-center items-center text-sm"
-                                                        rel="noreferrer">
-                                                        <img
-                                                            src={github}
-                                                            alt="Logo"
-                                                            class="w-6 h-6 bg-transparent rounded-lg mr-1"
-                                                            href="#home"
-                                                        />
-                                                        View Source
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                        <div className="flex flex-wrap gap-2">
+                            {category.items.map((skill) => (
+                                <span key={skill} className="skill-badge">
+                                    {skill}
+                                </span>
+                            ))}
                         </div>
-                    </main>
-                </div>
-                <div className="w-9/12 mx-auto my-5">
-                    <h1
-                        className="text-2xl font-bold text-gray-800 tracking-tighter pb-1
-                    border-b border-gray-600">
-                        <span className="text-red-700">&lt;</span>
-                        Fun Projects
-                        <span className="text-red-700">/&gt;</span>
-                    </h1>
-
-                    <main className=" mt-0 ">
-                        <div className="">
-                            <ul className="flex flex-row gap-4 overflow-x-auto p-5">
-                                {projectsInfo.map((project, index) => (
-                                    <li
-                                        key={index}
-                                        className="w-80 min-w-80 flex-shrink-0 
-                                        border border-gray-500/90 rounded-lg">
-                                        <div className="w-full">
-                                            <img
-                                                src={project.image}
-                                                alt=""
-                                                className="rounded-t-lg object-cover object-top"
-                                            />
-                                        </div>
-                                        <div className="px-2">
-                                            <h1 class="text-2xl font-bold inter primary tracking-tight pt-2">
-                                                {project.title}
-                                            </h1>
-                                            <div className="py-2">
-                                                {project.tech.map(
-                                                    (tech, index) => (
-                                                        <button
-                                                            class="py-1 px-3 rounded border text-xs border-blue-950 mr-1 font-medium"
-                                                            key={index}>
-                                                            <a
-                                                                href={
-                                                                    project.githubLink
-                                                                }
-                                                                target="_blank"
-                                                                class="flex flex-row justify-center items-center"
-                                                                rel="noreferrer">
-                                                                {tech}
-                                                            </a>
-                                                        </button>
-                                                    )
-                                                )}
-                                            </div>
-                                            <p class="inter secondary line-clamp-5 text-sm">
-                                                {project.description}
-                                                {project.description}
-                                            </p>
-                                            <div class="flex flex-row justify-end py-3">
-                                                <button class="rounded border-0 border-blue-950 hover:shadow-sm hover:bg-sky-600 bg-blue-400 text-black py-0 px-3 mr-3 text-sm font-semibold flex items-center justify-center">
-                                                    <FontAwesomeIcon
-                                                        class="w-4 h-4 mr-2"
-                                                        icon={
-                                                            faArrowUpRightFromSquare
-                                                        }
-                                                    />
-                                                    Live Demo
-                                                </button>
-                                                <button class="py-1 px-2 rounded border border-blue-950 hover:shadow-sm font-semibold hover:bg-sky-600/30">
-                                                    <a
-                                                        href={
-                                                            project.githubLink
-                                                        }
-                                                        target="_blank"
-                                                        class="flex flex-row justify-center items-center text-sm"
-                                                        rel="noreferrer">
-                                                        <img
-                                                            src={github}
-                                                            alt="Logo"
-                                                            class="w-6 h-6 bg-transparent rounded-lg mr-1"
-                                                            href="#home"
-                                                        />
-                                                        View Source
-                                                    </a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </main>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function Contact({ reff }) {
-    return (
-        <section ref={reff} className="#contact h-screen bg-red-200">
-            <div className="flex flex-col justify-center items-center p-10">
-                <h1 className="text-4xl font-bold text-gray-800">Contact</h1>
-            </div>
-        </section>
-    );
-}
-
-function Footer() {
-    return (
-        <footer>
-            <div className="">
-                <div
-                    class="container mx-auto my-10 py-10
-                text-gray-600 text-[15px] font-semibold tracking-tight text-center
-                d:text-gray-300/80 truncate overflow-ellipsis">
-                    <h3 class="text-blue-500 font-bold mb-2 text-[18px] tracking-wide">
-                        What's Next?
-                    </h3>
-                    <h1 className="text-5xl font-bold mb-2">Get In Touch</h1>
-                    <p className="">I'm available for freelance projects.</p>
-                    <p className=" mb-4">
-                        Contact me to discuss your project needs.
-                    </p>
-                    {/*                     
-                    <div className="flex items-center justify-center mb-10">
-                        <button
-                            className="bg-transparent  text-gray-700 py-2 px-6  border-2
-                    border-gray-700 rounded-lg font-semibold
-                    hover:text-gray-900 transition-colors flex items-center justify-center">
-                            
-                            <img
-                                src={linkedin}
-                                alt="Logoo"
-                                className="w-6 h-6 bg-transparent mr-1"
-                                href="#home"
-                            />
-                            Linkedin
-                        </button>
-                        <button
-                            className="bg-transparent  text-gray-700 py-2 px-6 border-2
-                    border-gray-700 rounded-lg font-semibold
-                    hover:text-gray-900 transition-colors flex items-center justify-center">
-                            
-                            <img
-                                src={github}
-                                alt="Logoo"
-                                className="w-6 h-6 bg-transparent mr-1"
-                                href="#home"
-                            />
-                            Github
-                        </button>
-                    </div> */}
-
-                    <button
-                        className="font-medium text-white
-                                bg-gray-800 rounded-lg  py-3 px-12
-                            hover:bg-gray-900 border-2 border-gray-500">
-                        <a href="/">Let's Work</a>
-                    </button>
-                </div>
-            </div>
-            <div className="bg-gray-800 text-white py-6">
-                <div
-                    class="container mx-auto flex flex-col 
-                lg:flex-row justify-between items-center px-32">
-                    <div class="mb-4 lg:mb-0">
-                        <p class="text-gray-400">
-                            &copy; 2023 Rúben Albuquerque. All rights reserved.
-                        </p>
                     </div>
-                    <ul class="flex space-x-4">
-                        <li>
-                            <a
-                                href="#home"
-                                class="text-gray-400 hover:text-white">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-400 hover:text-white">
-                                Projects
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#about"
-                                class="text-gray-400 hover:text-white">
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-400 hover:text-white">
-                                Contact
-                            </a>
-                        </li>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+function Experience() {
+    return (
+        <section className="experience-section container mx-auto px-6 md:px-20 py-16" id="experience">
+            <h2 className="about-title text-4xl font-bold text-gray-800 text-center mb-10">
+                Professional Experience
+            </h2>
+            <div className="experience-timeline">
+                {EXPERIENCE.map((job, index) => (
+                    <article
+                        key={`${job.company}-${job.role}`}
+                        className="experience-timeline-item">
+                        <div className="experience-timeline-marker">
+                            <span className="experience-timeline-dot" />
+                            {index < EXPERIENCE.length - 1 && (
+                                <span className="experience-timeline-line" />
+                            )}
+                        </div>
+                        <div className="experience-card experience-timeline-card">
+                            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-800">{job.role}</h3>
+                                    <p className="primary font-semibold">{job.company}</p>
+                                </div>
+                                {job.period && (
+                                    <span className="experience-period">{job.period}</span>
+                                )}
+                            </div>
+                            <ul className="experience-list">
+                                {job.highlights.map((item) => (
+                                    <li key={item}>{item}</li>
+                                ))}
+                            </ul>
+                            <div className="flex flex-wrap gap-2 mt-4">
+                                {job.technologies.map((tech) => (
+                                    <span key={tech} className="skill-badge">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+function Projects() {
+    return (
+        <section className="projects-section container mx-auto px-6 md:px-20 py-16" id="projects">
+            <div className="flex flex-col justify-center items-center pb-5">
+                <h2 className="about-title text-4xl font-bold text-gray-800">Projects</h2>
+                <p className="secondary text-center max-w-2xl mt-4">
+                    Personal projects across data mining, big data, machine learning,
+                    and deep learning.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+                {PROJECTS.map((project) => (
+                    <article key={project.title} className="project-card">
+                        <div className={`project-visual bg-gradient-to-br ${project.accent}`}>
+                            <span className="project-category">{project.category}</span>
+                            <h3 className="project-visual-title">{project.title}</h3>
+                        </div>
+                        <div className="project-content">
+                            <p className="secondary text-sm mb-4">{project.description}</p>
+
+                            <div className="mb-4">
+                                <h4 className="text-sm font-semibold text-gray-800 mb-2">
+                                    Technologies
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {project.technologies.map((tech) => (
+                                        <span key={tech} className="skill-badge">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="text-sm font-semibold text-gray-800 mb-2">
+                                    Key Challenges
+                                </h4>
+                                <ul className="project-sublist">
+                                    {project.challenges.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="text-sm font-semibold text-gray-800 mb-2">
+                                    Results
+                                </h4>
+                                <ul className="project-sublist">
+                                    {project.results.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+function EducationAndCertifications() {
+    return (
+        <section className="education-section container mx-auto px-6 md:px-20 py-16" id="education">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
+                <div>
+                    <div className="flex items-center gap-3 mb-6">
+                        <FontAwesomeIcon icon={faGraduationCap} className="primary text-2xl" />
+                        <h2 className="about-title text-3xl font-bold text-gray-800">Education</h2>
+                    </div>
+                    <div className="space-y-6">
+                        {EDUCATION.map((item) => (
+                            <article key={item.degree} className="education-card">
+                                <h3 className="text-lg font-bold text-gray-800">{item.degree}</h3>
+                                <p className="primary font-medium">{item.institution}</p>
+                                <p className="secondary text-sm mt-1">{item.period}</p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+
+                <div>
+                    <div className="flex items-center gap-3 mb-6">
+                        <FontAwesomeIcon icon={faCertificate} className="primary text-2xl" />
+                        <h2 className="about-title text-3xl font-bold text-gray-800">
+                            Certifications
+                        </h2>
+                    </div>
+                    <div className="space-y-4">
+                        {CERTIFICATIONS.map((cert) => (
+                            <article key={cert.name} className="certification-card">
+                                <h3 className="text-base font-semibold text-gray-800">
+                                    {cert.name}
+                                </h3>
+                                <p className="secondary text-sm">
+                                    {cert.issuer} — {cert.year}
+                                </p>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function ContactFooter() {
+    return (
+        <footer id="contact">
+            <section className="contact-section container mx-auto px-6 md:px-20 py-16">
+                <div className="contact-unified">
+                    <h2 className="contact-unified-title">Get In Touch</h2>
+                    <p className="contact-unified-text">
+                        Open to Data Engineering opportunities hibrid and
+                        remote. Let's build scalable data platforms together.
+                    </p>
+                    <p className="contact-unified-location">{PERSONAL.location}</p>
+                    <div className="contact-unified-actions">
+                        <a
+                            href={PERSONAL.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="contact-btn contact-btn-primary">
+                            <img src={linkedinIcon} alt="" className="contact-btn-icon" />
+                            LinkedIn
+                        </a>
+                        <a
+                            href={PERSONAL.github}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="contact-btn contact-btn-secondary">
+                            <img src={githubIcon} alt="" className="contact-btn-icon contact-btn-icon-github" />
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <div className="site-footer-bar">
+                <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-8 lg:px-32">
+                    <p className="text-gray-400 mb-4 lg:mb-0">
+                        &copy; {new Date().getFullYear()} {PERSONAL.name}. All rights reserved.
+                    </p>
+                    <ul className="flex flex-wrap justify-center gap-4">
+                        {NAV_LINKS.map((link) => (
+                            <li key={link.name}>
+                                <button
+                                    type="button"
+                                    className="text-gray-400 hover:text-white"
+                                    onClick={() => scrollToSection(link.href)}>
+                                    {link.name}
+                                </button>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
@@ -1398,47 +709,15 @@ function Footer() {
 }
 
 function App() {
-    const introRef = useRef(null);
-    const aboutRef = useRef(null);
-    const projectsRef = useRef(null);
-
-    const scrollToSection = (section) => {
-        console.log(section);
-        section.current.scrollIntoView({ behavior: "smooth" });
-
-        let ref;
-
-        if (section === "Intro") {
-            ref = introRef.current;
-        } else if (section === "About") {
-            ref = aboutRef.current;
-        } else if (section === "Projects") {
-            ref = projectsRef.current;
-            console.log(ref);
-        }
-
-        console.log(ref);
-        if (ref) {
-            ref.current.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
     return (
         <div className="App">
-            <Navbar
-            // scroll={scrollToSection}
-            // introrefs={introRef}
-            // aboutRef={aboutRef}
-            // projref={projectsRef}
-            />
-            <Intro ref={introRef} />
-            {/* <About ref={aboutRef} /> */}
-            <About ref={aboutRef} />
-            {/* Smal viedo (trailer) on the projects image (demo and source) */}
-            <Projects ref={projectsRef} />
-            {/* Projects alternatives/small  - Fun projects*/}
-            {/* <Contact /> */}
-            <Footer />
+            <Navbar />
+            <Hero />
+            <About />
+            <Experience />
+            <Projects />
+            <EducationAndCertifications />
+            <ContactFooter />
         </div>
     );
 }
