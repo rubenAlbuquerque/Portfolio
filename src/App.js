@@ -723,3 +723,4 @@ function App() {
 }
 
 export default App;
+export { Navbar, Intro, About, Projects, Contact, Footer };
