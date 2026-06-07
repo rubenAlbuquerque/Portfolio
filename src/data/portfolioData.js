@@ -213,4 +213,5 @@ export const NAV_LINKS = [
     { name: "About", href: "#about", note: "Background & skills" },
     { name: "Experience", href: "#experience", note: "Professional roles" },
     { name: "Projects", href: "#projects", note: "Portfolio work" },
+    { name: "Resume", href: "/Portfolio/resume", note: "Curriculum vitae" },
 ];

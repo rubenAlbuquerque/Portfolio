@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import logo from "./logoBG.png";
 import aboutImage1 from "./imagens/Capturar1.JPG";
 import aboutImage2 from "./imagens/myphoto2.jpg";
@@ -20,6 +21,7 @@ import {
     faCode,
     faGraduationCap,
     faCertificate,
+    faFileLines,
 } from "@fortawesome/free-solid-svg-icons";
 import {
     PERSONAL,
@@ -44,9 +46,31 @@ function scrollToSection(href) {
 
 function Navbar() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleNavClick = (href) => {
-        scrollToSection(href);
+        if (href.startsWith("/")) {
+            navigate(href);
+            setIsDropdownOpen(false);
+            return;
+        }
+
+        if (location.pathname !== "/Portfolio") {
+            navigate("/Portfolio");
+            setTimeout(() => scrollToSection(href), 100);
+        } else {
+            scrollToSection(href);
+        }
+        setIsDropdownOpen(false);
+    };
+
+    const handleLogoClick = () => {
+        if (location.pathname !== "/Portfolio") {
+            navigate("/Portfolio");
+        } else {
+            scrollToSection("#home");
+        }
         setIsDropdownOpen(false);
     };
 
@@ -56,7 +80,7 @@ function Navbar() {
                 <button
                     type="button"
                     className="flex nav-logo justify-between items-center py-5 cursor-pointer"
-                    onClick={() => handleNavClick("#home")}
+                    onClick={handleLogoClick}
                     aria-label="Go to home">
                     <img src={logo} alt="Logo" className="w-10 h-10" />
                 </button>
@@ -110,7 +134,7 @@ function Navbar() {
                         <button
                             type="button"
                             className="flex nav-logo justify-between items-center py-5 cursor-pointer"
-                            onClick={() => handleNavClick("#home")}>
+                            onClick={handleLogoClick}>
                             <img src={logo} alt="Logo" className="w-10 h-10" />
                         </button>
                         <button
@@ -313,14 +337,12 @@ function Hero() {
                                         <img src={linkedinIcon} alt="LinkedIn" className="terminal-link-icon" />
                                         <span>LinkedIn</span>
                                     </a>
-                                    <a
-                                        href={PERSONAL.github}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="terminal-link-btn terminal-link-github">
-                                        <img src={githubIcon} alt="GitHub" className="terminal-link-icon terminal-link-icon-github" />
-                                        <span>GitHub</span>
-                                    </a>
+                                    <Link
+                                        to="/Portfolio/resume"
+                                        className="terminal-link-btn terminal-link-resume">
+                                        <FontAwesomeIcon icon={faFileLines} className="terminal-link-fa-icon" />
+                                        <span>Resume</span>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -427,7 +449,7 @@ function About() {
                                     <span
                                         key={lang.name}
                                         className="language-badge">
-                                        {lang.name} — {lang.level}
+                                        {lang.name} - {lang.level}
                                     </span>
                                 ))}
                             </div>
@@ -654,56 +676,67 @@ function EducationAndCertifications() {
     );
 }
 
-function ContactFooter() {
+function Footer() {
     return (
-        <footer id="contact">
-            <section className="contact-section container mx-auto px-6 md:px-20 py-16">
-                <div className="contact-unified">
-                    <h2 className="contact-unified-title">Get In Touch</h2>
-                    <p className="contact-unified-text">
-                        Open to Data Engineering opportunities hibrid and
-                        remote. Let's build scalable data platforms together.
-                    </p>
-                    <p className="contact-unified-location">{PERSONAL.location}</p>
-                    <div className="contact-unified-actions">
-                        <a
-                            href={PERSONAL.linkedin}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="contact-btn contact-btn-primary">
-                            <img src={linkedinIcon} alt="" className="contact-btn-icon" />
-                            LinkedIn
-                        </a>
-                        <a
-                            href={PERSONAL.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="contact-btn contact-btn-secondary">
-                            <img src={githubIcon} alt="" className="contact-btn-icon contact-btn-icon-github" />
-                            GitHub
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <div className="site-footer-bar">
-                <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-8 lg:px-32">
-                    <p className="text-gray-400 mb-4 lg:mb-0">
-                        &copy; {new Date().getFullYear()} {PERSONAL.name}. All rights reserved.
-                    </p>
-                    <ul className="flex flex-wrap justify-center gap-4">
-                        {NAV_LINKS.map((link) => (
-                            <li key={link.name}>
-                                <button
-                                    type="button"
-                                    className="text-gray-400 hover:text-white"
-                                    onClick={() => scrollToSection(link.href)}>
-                                    {link.name}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+        <div className="site-footer-bar">
+            <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-8 lg:px-32">
+                <p className="text-gray-400 mb-4 lg:mb-0">
+                    &copy; {new Date().getFullYear()} {PERSONAL.name}. All rights reserved.
+                </p>
+                <ul className="flex flex-wrap justify-center gap-4">
+                    {NAV_LINKS.map((link) => (
+                        <li key={link.name}>
+                            <button
+                                type="button"
+                                className="text-gray-400 hover:text-white"
+                                onClick={() => scrollToSection(link.href)}>
+                                {link.name}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
+}
+
+function Contact() {
+    return (
+        <section className="contact-section container mx-auto px-6 md:px-20 py-16" id="contact">
+            <div className="contact-unified">
+                <h2 className="contact-unified-title">Get In Touch</h2>
+                <p className="contact-unified-text">
+                    Open to Data Engineering opportunities — hybrid and remote.
+                    Let's build scalable data platforms together.
+                </p>
+                <div className="contact-unified-actions">
+                    <a
+                        href={PERSONAL.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="contact-btn contact-btn-primary">
+                        <img src={linkedinIcon} alt="" className="contact-btn-icon" />
+                        LinkedIn
+                    </a>
+                    <a
+                        href={PERSONAL.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="contact-btn contact-btn-secondary">
+                        <img src={githubIcon} alt="" className="contact-btn-icon contact-btn-icon-github" />
+                        GitHub
+                    </a>
                 </div>
             </div>
+        </section>
+    );
+}
+
+function ContactFooter() {
+    return (
+        <footer>
+            <Contact />
+            <Footer />
         </footer>
     );
 }
@@ -723,4 +756,4 @@ function App() {
 }
 
 export default App;
-export { Navbar, Intro, About, Projects, Contact, Footer };
+export { Navbar, Hero as Intro, About, Projects, Contact, Footer };

@@ -1,30 +1,17 @@
-import { Navbar, Footer } from "../App";
-import { Document, Page } from "react-pdf";
-import React, { useState } from "react";
-import pdfresume from "./cv.pdf";
-import cv from "../cv.png";
-
-function Resume() {
-    return (
-        <>
-            <div className="flex justify-center mt-36 mb-32 ">
-                <img
-                    src={cv}
-                    alt="resume"
-                    className="w-2/4 shadow-lg rounded-lg"
-                />
-            </div>
-        </>
-    );
-}
+import { Navbar } from "../App";
+import cv from "./cv (2).pdf";
 
 function ResumePage() {
     return (
-        <div className="ResumePage">
+        <div className="ResumePage min-h-screen bg-gray-50">
             <Navbar />
-            {/* Resume section */}
-            <Resume />
-            <Footer />
+            <div className="flex justify-center px-4 md:px-10 pt-28 pb-16">
+                <iframe
+                    src={cv}
+                    title="Rúben Albuquerque CV"
+                    className="resume-cv-viewer w-full max-w-5xl shadow-lg rounded-lg border border-gray-200 bg-white"
+                />
+            </div>
         </div>
     );
 }
